@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Personal Design Profile</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700&amp;family=Cormorant+Garamond:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#1754cf",
+              "background-light": "#f6f6f8",
+              "background-dark": "#111621",
+            },
+            fontFamily: {
+              "display": ["Manrope", "sans-serif"],
+              "serif": ["Cormorant Garamond", "serif"],
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        /* Custom scrollbar hide for cleaner look */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-100 font-display min-h-screen antialiased selection:bg-primary/20">
+<!-- iOS Status Bar Placeholder -->
+<div class="fixed top-0 w-full h-12 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md z-50 flex justify-between items-center px-6">
+<span class="text-xs font-bold font-display">9:41</span>
+<div class="flex gap-2 items-center">
+<svg class="w-4 h-4" fill="currentColor" viewbox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"></path></svg>
+<svg class="w-4 h-4" fill="currentColor" viewbox="0 0 24 24"><path d="M15.67 4H14V2h-4v2H8.33C7.6 4 7 4.6 7 5.33v15.33C7 21.4 7.6 22 8.33 22h7.33c.74 0 1.34-.6 1.34-1.33V5.33C17 4.6 16.4 4 15.67 4z"></path></svg>
+</div>
+</div>
+<!-- Main Container -->
+<main class="pt-20 pb-28 px-6 max-w-md mx-auto min-h-screen flex flex-col justify-between relative overflow-hidden">
+<!-- Abstract Background Decoration -->
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -z-10 translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
+<div class="absolute bottom-1/4 left-0 w-48 h-48 bg-slate-400/10 dark:bg-slate-600/10 rounded-full blur-3xl -z-10 -translate-x-1/2 pointer-events-none"></div>
+<!-- Header Section -->
+<section class="flex flex-col items-center mt-8 mb-12 relative z-10">
+<!-- Avatar -->
+<div class="relative group cursor-pointer transition-transform duration-500 hover:scale-105">
+<div class="w-28 h-28 rounded-full bg-gradient-to-br from-primary to-[#0a2e7a] flex items-center justify-center shadow-xl shadow-primary/20 ring-4 ring-white dark:ring-background-dark">
+<span class="font-serif text-4xl text-white italic font-light tracking-widest">JD</span>
+</div>
+<div class="absolute bottom-0 right-0 bg-background-light dark:bg-background-dark rounded-full p-2 border border-slate-200 dark:border-slate-800 shadow-lg">
+<svg class="h-4 w-4 text-primary" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+<path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"></path>
+</svg>
+</div>
+</div>
+<!-- User Info -->
+<div class="text-center mt-6 space-y-1">
+<p class="text-xs uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400 font-medium">Member Since 2023</p>
+<h1 class="font-serif text-4xl text-slate-900 dark:text-white font-light">Julian Davies</h1>
+<p class="text-sm font-display text-slate-500 dark:text-slate-400 mt-2">julian.davies@example.com</p>
+</div>
+<!-- Quick Stat Row -->
+<div class="flex gap-8 mt-8 border-y border-slate-200 dark:border-slate-800/50 py-4 w-full justify-center">
+<div class="text-center">
+<span class="block font-serif text-xl text-primary">05</span>
+<span class="text-[10px] uppercase tracking-widest text-slate-500 dark:text-slate-400">Orders</span>
+</div>
+<div class="text-center border-l border-slate-200 dark:border-slate-800/50 pl-8">
+<span class="block font-serif text-xl text-primary">12</span>
+<span class="text-[10px] uppercase tracking-widest text-slate-500 dark:text-slate-400">Saved</span>
+</div>
+</div>
+</section>
+<!-- Navigation Menu -->
+<nav class="flex-1 w-full max-w-xs mx-auto space-y-2">
+<!-- Menu Item 1 -->
+<a class="group flex items-center justify-between p-4 rounded-lg hover:bg-white dark:hover:bg-slate-800/50 transition-all duration-300 border border-transparent hover:border-slate-100 dark:hover:border-slate-700 hover:shadow-sm" href="#">
+<div class="flex items-center gap-4">
+<div class="p-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-300 group-hover:bg-primary/10 group-hover:text-primary transition-colors">
+<span class="material-icons-outlined text-xl">shopping_bag</span>
+</div>
+<span class="font-display font-medium text-lg text-slate-800 dark:text-slate-200 group-hover:translate-x-1 transition-transform">My Orders</span>
+</div>
+<span class="material-icons-outlined text-slate-300 dark:text-slate-600 group-hover:text-primary transition-colors">arrow_forward</span>
+</a>
+<!-- Menu Item 2 -->
+<a class="group flex items-center justify-between p-4 rounded-lg hover:bg-white dark:hover:bg-slate-800/50 transition-all duration-300 border border-transparent hover:border-slate-100 dark:hover:border-slate-700 hover:shadow-sm" href="#">
+<div class="flex items-center gap-4">
+<div class="p-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-300 group-hover:bg-primary/10 group-hover:text-primary transition-colors">
+<span class="material-icons-outlined text-xl">favorite_border</span>
+</div>
+<span class="font-display font-medium text-lg text-slate-800 dark:text-slate-200 group-hover:translate-x-1 transition-transform">Wishlist</span>
+</div>
+<span class="material-icons-outlined text-slate-300 dark:text-slate-600 group-hover:text-primary transition-colors">arrow_forward</span>
+</a>
+<!-- Menu Item 3 -->
+<a class="group flex items-center justify-between p-4 rounded-lg hover:bg-white dark:hover:bg-slate-800/50 transition-all duration-300 border border-transparent hover:border-slate-100 dark:hover:border-slate-700 hover:shadow-sm" href="#">
+<div class="flex items-center gap-4">
+<div class="p-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-300 group-hover:bg-primary/10 group-hover:text-primary transition-colors">
+<span class="material-icons-outlined text-xl">location_on</span>
+</div>
+<span class="font-display font-medium text-lg text-slate-800 dark:text-slate-200 group-hover:translate-x-1 transition-transform">Saved Addresses</span>
+</div>
+<span class="material-icons-outlined text-slate-300 dark:text-slate-600 group-hover:text-primary transition-colors">arrow_forward</span>
+</a>
+<!-- Menu Item 4 -->
+<a class="group flex items-center justify-between p-4 rounded-lg hover:bg-white dark:hover:bg-slate-800/50 transition-all duration-300 border border-transparent hover:border-slate-100 dark:hover:border-slate-700 hover:shadow-sm" href="#">
+<div class="flex items-center gap-4">
+<div class="p-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-300 group-hover:bg-primary/10 group-hover:text-primary transition-colors">
+<span class="material-icons-outlined text-xl">room_service</span>
+</div>
+<div class="flex flex-col">
+<span class="font-display font-medium text-lg text-slate-800 dark:text-slate-200 group-hover:translate-x-1 transition-transform">Concierge</span>
+<span class="text-[10px] text-primary font-bold uppercase tracking-widest hidden group-hover:block transition-all">VIP Service</span>
+</div>
+</div>
+<span class="material-icons-outlined text-slate-300 dark:text-slate-600 group-hover:text-primary transition-colors">arrow_forward</span>
+</a>
+<!-- Menu Item 5 -->
+<a class="group flex items-center justify-between p-4 rounded-lg hover:bg-white dark:hover:bg-slate-800/50 transition-all duration-300 border border-transparent hover:border-slate-100 dark:hover:border-slate-700 hover:shadow-sm" href="#">
+<div class="flex items-center gap-4">
+<div class="p-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-300 group-hover:bg-primary/10 group-hover:text-primary transition-colors">
+<span class="material-icons-outlined text-xl">settings</span>
+</div>
+<span class="font-display font-medium text-lg text-slate-800 dark:text-slate-200 group-hover:translate-x-1 transition-transform">Settings</span>
+</div>
+<span class="material-icons-outlined text-slate-300 dark:text-slate-600 group-hover:text-primary transition-colors">arrow_forward</span>
+</a>
+</nav>
+<!-- Footer Actions -->
+<div class="mt-12 flex flex-col items-center space-y-6">
+<button class="text-primary hover:text-primary/80 font-display font-semibold text-sm uppercase tracking-widest border-b border-primary/20 pb-1 hover:border-primary transition-all">
+                Sign Out
+            </button>
+<p class="text-[10px] text-slate-400 dark:text-slate-600 font-display">
+                Version 4.2.0 • Build 8921
+            </p>
+</div>
+</main>
+<!-- Bottom Tab Bar -->
+<div class="fixed bottom-0 w-full bg-white/80 dark:bg-[#111621]/90 backdrop-blur-xl border-t border-slate-100 dark:border-slate-800 pb-6 pt-3 px-6 z-50">
+<div class="flex justify-between items-center max-w-md mx-auto">
+<a class="flex flex-col items-center gap-1 group w-12" href="#">
+<span class="material-icons-outlined text-slate-400 dark:text-slate-500 group-hover:text-primary transition-colors text-2xl">home</span>
+<span class="text-[10px] font-medium text-slate-400 dark:text-slate-500 group-hover:text-primary transition-colors">Home</span>
+</a>
+<a class="flex flex-col items-center gap-1 group w-12" href="#">
+<span class="material-icons-outlined text-slate-400 dark:text-slate-500 group-hover:text-primary transition-colors text-2xl">grid_view</span>
+<span class="text-[10px] font-medium text-slate-400 dark:text-slate-500 group-hover:text-primary transition-colors">Gallery</span>
+</a>
+<div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center -mt-6 shadow-lg shadow-primary/30 ring-4 ring-white dark:ring-background-dark">
+<span class="material-icons-outlined text-white text-2xl">search</span>
+</div>
+<a class="flex flex-col items-center gap-1 group w-12" href="#">
+<span class="material-icons-outlined text-slate-400 dark:text-slate-500 group-hover:text-primary transition-colors text-2xl">chat</span>
+<span class="text-[10px] font-medium text-slate-400 dark:text-slate-500 group-hover:text-primary transition-colors">Inbox</span>
+</a>
+<a class="flex flex-col items-center gap-1 group w-12" href="#">
+<span class="material-icons-outlined text-primary transition-colors text-2xl">person</span>
+<span class="text-[10px] font-medium text-primary transition-colors">Profile</span>
+</a>
+</div>
+</div>
+<!-- Google Material Icons Link -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"/>
+</body></html>

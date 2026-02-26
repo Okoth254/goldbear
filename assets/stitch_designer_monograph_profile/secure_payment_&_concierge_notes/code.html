@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Secure Payment &amp; Concierge Notes</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1754cf",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#111621",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .ios-status-bar {
+            height: 44px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen">
+<!-- Mobile Screen Wrapper -->
+<div class="max-w-md mx-auto min-h-screen flex flex-col relative overflow-hidden bg-background-light dark:bg-background-dark shadow-2xl">
+<!-- Status Bar & Header -->
+<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md px-6 pt-12 pb-4">
+<div class="flex items-center justify-between mb-4">
+<button class="p-2 -ml-2 hover:bg-primary/10 rounded-full transition-colors">
+<span class="material-icons-outlined text-xl">arrow_back_ios_new</span>
+</button>
+<h1 class="text-sm font-medium tracking-widest uppercase">Checkout</h1>
+<div class="w-10"></div>
+</div>
+</header>
+<main class="flex-grow px-6 pb-32 space-y-10">
+<!-- Order Summary Section -->
+<section class="space-y-6 pt-4">
+<div class="flex justify-between items-end">
+<div>
+<p class="text-[10px] uppercase tracking-widest text-slate-500 dark:text-slate-400 mb-1">Estimated Total</p>
+<h2 class="text-3xl font-light">$12,450.00</h2>
+</div>
+<div class="flex flex-col items-end pb-1">
+<span class="text-[10px] text-primary bg-primary/10 px-2 py-0.5 rounded-full font-medium">Secure Payment</span>
+</div>
+</div>
+<div class="border-y border-slate-200 dark:border-slate-800 py-6 space-y-3">
+<div class="flex justify-between text-sm">
+<span class="text-slate-500">Maren Curved Sofa</span>
+<span>$11,200.00</span>
+</div>
+<div class="flex justify-between text-sm">
+<div class="flex items-center gap-1.5">
+<span class="text-slate-500">White-Glove Delivery</span>
+<span class="material-icons-outlined text-[14px] text-primary/60">info</span>
+</div>
+<span>$450.00</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="text-slate-500">Estimated Sales Tax</span>
+<span>$800.00</span>
+</div>
+</div>
+</section>
+<!-- Payment Methods Selection -->
+<section class="space-y-4">
+<h3 class="text-xs uppercase tracking-[0.2em] font-semibold text-slate-400">Payment Method</h3>
+<div class="flex gap-3 overflow-x-auto hide-scrollbar -mx-6 px-6">
+<button class="flex-shrink-0 flex items-center gap-3 px-5 py-4 bg-white dark:bg-slate-900 border-2 border-primary rounded-xl shadow-sm">
+<img class="h-5 w-auto" data-alt="American Express luxury card logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtKCL1ZeNmlcIGu0YI68oI5tzq63RaAZD4PgZD3I3DMzoKX8EN5m-bJXce3emIdZ7WTaCX5u3fGR7kQUcMSINq98Hq3g4jOyd21ly0xfLZ6zSxw8Ga4QIr6s9yCKl7luIQKr50U-FwI7iAe3tEgISQRg2uQpBA4U6x_nUFDJ8KGzUt2lfIKf9x8Epb6uGs8gv7kq-jOqO9LY0z6fns8yq3FKu8h4aaeuXBBN-ge_nHz9kO13736bUXLZbL9IzQ8tnhlGluzlJJBBuc"/>
+<span class="text-sm font-medium">•••• 4002</span>
+</button>
+<button class="flex-shrink-0 flex items-center gap-3 px-5 py-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl hover:border-primary/50 transition-colors">
+<span class="material-icons-outlined text-xl">apple</span>
+<span class="text-sm font-medium">Apple Pay</span>
+</button>
+<button class="flex-shrink-0 flex items-center gap-3 px-5 py-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl hover:border-primary/50 transition-colors">
+<span class="material-icons-outlined text-xl">account_balance</span>
+<span class="text-sm font-medium">Bank Wire</span>
+</button>
+</div>
+</section>
+<!-- Card Details Form -->
+<section class="space-y-4">
+<div class="space-y-4">
+<div class="relative">
+<label class="absolute -top-2 left-3 px-1 bg-background-light dark:bg-background-dark text-[10px] font-medium text-slate-500 uppercase tracking-tighter">Cardholder Name</label>
+<input class="w-full bg-transparent border border-slate-200 dark:border-slate-800 rounded-lg px-4 py-3.5 text-sm focus:ring-1 focus:ring-primary focus:border-primary transition-all" type="text" value="ALEXANDER VANDERBILT"/>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="relative">
+<label class="absolute -top-2 left-3 px-1 bg-background-light dark:bg-background-dark text-[10px] font-medium text-slate-500 uppercase tracking-tighter">Expiry Date</label>
+<input class="w-full bg-transparent border border-slate-200 dark:border-slate-800 rounded-lg px-4 py-3.5 text-sm focus:ring-1 focus:ring-primary focus:border-primary transition-all" placeholder="MM/YY" type="text"/>
+</div>
+<div class="relative">
+<label class="absolute -top-2 left-3 px-1 bg-background-light dark:bg-background-dark text-[10px] font-medium text-slate-500 uppercase tracking-tighter">CVV</label>
+<input class="w-full bg-transparent border border-slate-200 dark:border-slate-800 rounded-lg px-4 py-3.5 text-sm focus:ring-1 focus:ring-primary focus:border-primary transition-all" placeholder="•••" type="password"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Concierge Note Section -->
+<section class="space-y-4">
+<div class="flex items-center gap-2">
+<h3 class="text-xs uppercase tracking-[0.2em] font-semibold text-slate-400">Concierge Notes</h3>
+<div class="h-px flex-grow bg-slate-200 dark:border-slate-800"></div>
+</div>
+<div class="relative group">
+<textarea class="w-full bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 rounded-xl px-4 py-4 text-sm placeholder:text-slate-400 dark:placeholder:text-slate-600 focus:ring-1 focus:ring-primary focus:border-primary transition-all resize-none" placeholder="Please advise on specific access requirements, elevator dimensions, or flooring protection needed for our white-glove team..." rows="4"></textarea>
+<div class="absolute bottom-3 right-3 opacity-30">
+<span class="material-icons-outlined text-lg">edit_note</span>
+</div>
+</div>
+<p class="text-[11px] text-slate-500 leading-relaxed italic">
+                    Our specialists will review these notes within 24 hours to ensure a seamless installation experience.
+                </p>
+</section>
+<!-- Trust Badge -->
+<div class="flex flex-col items-center justify-center pt-4 pb-8 space-y-2">
+<div class="flex items-center gap-1.5 text-slate-400">
+<span class="material-icons-outlined text-sm">lock</span>
+<span class="text-[10px] uppercase tracking-widest">End-to-End Encryption</span>
+</div>
+<div class="flex gap-4 opacity-40 grayscale">
+<img class="h-4" data-alt="PCI DSS compliance badge" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJOoNwq8uL6_eEPHsQDXweTGbjQ6VuUYmbkA5piiK5vJqUpSTZ0HfZ9QuRGamfarFdKUKqhT8iri5uPMLQss-luMP1EnqyoJU_mDXSiaeAss9QhwMZd9uGOg4Tmuce31kqrkh9Mq7bRMCn7MLiW97AidoDSyrUjtq4twlJeUhCFzruDwQ94RbM7IsUztMOsvwi0W9cN1ulTXJIm-thtm7OWZhpvT8Oy_N3Ad7_hikwRx0GSfgnD6-LxAb7uaz2B6im3kgdNImx3_cn"/>
+<img class="h-4" data-alt="Security certification badge" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqGAU10jq8hhLA3Huhl2_VNOjeBkcEbpfvT2BgJewY74sFST1-q0UwH4OdENZ6n5g5u70zIvKaYHSmCBQNBmJK42fYXqExMjAWS0LfREzhsk_7rAT52aKy3ovEfZoeQ0BGrrym7DpHcUm94H6x2wkE6L0t5mmUXE4-T4ICubnRXpn4MOGge5WlsBEhPNU7cUFrDgrTcYmTAer6tpL08SO7Jl4tEDmMUsmfqklTtVtm_7aZUTg5fXgLW9gI7aGQbo4FwLfB-MPydNeM"/>
+</div>
+</div>
+</main>
+<!-- Fixed Bottom Action -->
+<div class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-md bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-xl border-t border-slate-200 dark:border-slate-800 px-6 py-8 pb-10">
+<button class="w-full bg-primary hover:bg-primary/90 text-white py-4 rounded-xl font-medium tracking-wide shadow-lg shadow-primary/20 transition-all flex items-center justify-center gap-3">
+<span>Place Order</span>
+<span class="material-icons-outlined text-sm">arrow_forward</span>
+</button>
+<p class="text-center mt-4 text-[10px] text-slate-400 uppercase tracking-tighter">
+                Finalizing this order confirms your acceptance of our <a class="underline" href="#">Terms of Service</a>
+</p>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Curated Refinement Filters</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "primary": "#3ce619",
+                "background-light": "#f6f8f6",
+                "background-dark": "#142111",
+                "sage-mist": "#8BA888", // Custom sage for the button request
+                "sage-mist-dark": "#4A6348",
+              },
+              fontFamily: {
+                "display": ["Manrope", "sans-serif"]
+              },
+              borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+            },
+          },
+        }
+      </script>
+<style>
+        /* Custom scrollbar hiding for horizontal scroll areas */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        
+        /* Custom range slider styling */
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            background: #3ce619;
+            cursor: pointer;
+            margin-top: -8px;
+            box-shadow: 0 0 0 4px rgba(255, 255, 255, 1);
+            border: 1px solid rgba(0,0,0,0.1);
+        }
+        .dark input[type=range]::-webkit-slider-thumb {
+            box-shadow: 0 0 0 4px rgba(20, 33, 17, 1);
+        }
+
+        input[type=range]::-moz-range-thumb {
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            background: #3ce619;
+            cursor: pointer;
+            box-shadow: 0 0 0 4px rgba(255, 255, 255, 1);
+            border: none;
+        }
+
+        /* Checkbox styling override */
+        .custom-checkbox:checked {
+            background-color: #3ce619;
+            border-color: #3ce619;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-100 font-display min-h-screen flex justify-center selection:bg-primary/30">
+<!-- Mobile Device Container -->
+<div class="w-full max-w-md bg-white dark:bg-background-dark min-h-screen relative shadow-2xl overflow-hidden flex flex-col">
+<!-- Header -->
+<header class="sticky top-0 z-20 bg-white/90 dark:bg-background-dark/90 backdrop-blur-md border-b border-primary/10 px-6 py-4 flex items-center justify-between">
+<button class="p-2 -ml-2 rounded-full hover:bg-primary/10 transition-colors text-slate-400 hover:text-primary">
+<span class="material-icons text-2xl">close</span>
+</button>
+<h1 class="text-lg font-semibold tracking-wide">Refine Selection</h1>
+<button class="text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-primary transition-colors">
+                Reset
+            </button>
+</header>
+<!-- Scrollable Content -->
+<div class="flex-1 overflow-y-auto pb-32">
+<!-- Section: Price Range (Expanded by default) -->
+<div class="border-b border-primary/10 py-6 px-6">
+<div class="flex justify-between items-center mb-6">
+<h2 class="text-base font-semibold">Price Range</h2>
+<span class="material-icons text-slate-400 dark:text-slate-500 transform rotate-180 text-xl">expand_more</span>
+</div>
+<div class="space-y-6">
+<div class="flex justify-between items-baseline font-medium text-slate-900 dark:text-white">
+<span class="text-lg">$850</span>
+<span class="text-sm text-slate-400 px-2">to</span>
+<span class="text-lg">$12,400</span>
+</div>
+<div class="relative h-12 flex items-center">
+<!-- Slider Track Background -->
+<div class="absolute w-full h-1 bg-primary/20 rounded-full"></div>
+<!-- Active Track Segment -->
+<div class="absolute left-[10%] right-[25%] h-1 bg-primary rounded-full z-10"></div>
+<!-- Pseudo thumbs (visual only, for layout demonstration as HTML range input requires JS for dual thumb logic) -->
+<input class="absolute w-full h-1 bg-transparent appearance-none z-20 pointer-events-none opacity-0" max="100" min="0" type="range" value="10"/> <!-- Hidden input for structure -->
+<!-- Visual Thumbs positioned with inline styles to simulate state -->
+<div class="absolute left-[10%] w-6 h-6 bg-white dark:bg-background-dark border-2 border-primary rounded-full shadow-lg z-20 transform -translate-x-1/2 flex items-center justify-center">
+<div class="w-1.5 h-1.5 bg-primary rounded-full"></div>
+</div>
+<div class="absolute right-[25%] w-6 h-6 bg-white dark:bg-background-dark border-2 border-primary rounded-full shadow-lg z-20 transform translate-x-1/2 flex items-center justify-center">
+<div class="w-1.5 h-1.5 bg-primary rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Section: Color & Finish (Horizontal Scroll) -->
+<div class="border-b border-primary/10 py-6">
+<div class="px-6 flex justify-between items-center mb-4">
+<h2 class="text-base font-semibold">Finish &amp; Texture</h2>
+<span class="material-icons text-slate-400 dark:text-slate-500 transform rotate-180 text-xl">expand_more</span>
+</div>
+<div class="flex overflow-x-auto no-scrollbar pl-6 pb-2 space-x-4">
+<!-- Swatch 1 (Active) -->
+<div class="flex flex-col items-center space-y-2 cursor-pointer group">
+<div class="w-16 h-16 rounded-full p-0.5 border-2 border-primary relative">
+<img alt="Walnut wood texture" class="w-full h-full object-cover rounded-full" data-alt="Close up of dark walnut wood grain texture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjx3z_HtLtJuHwXyeplSLZjm7aAqgJiedI8l31FA0sLFtAPKlzP9KFG9vEHWQKQ5K_1tX2WWG-l-8SHjL9FcaVeqkJBFMzXPMLcyQhxX0jquRdt_Wbu5LrxQGuDZi4nLyq9-NsgAqeYKTM8UR3XSdAtpV2d9Dw-fXV380WYWHI7iBckZMTz0vKThixL72DNbhdnhoMqNvvhlV-5SaNYhEMVnkFPZHaLy6XIOtBLaJ17DKEyIBs_gqfCV6P_QbN3yM5I62RJHV2cVfj"/>
+<div class="absolute -top-0 -right-0 bg-primary text-white rounded-full p-1 shadow-sm">
+<span class="material-icons text-xs block">check</span>
+</div>
+</div>
+<span class="text-xs font-medium text-primary">Walnut</span>
+</div>
+<!-- Swatch 2 -->
+<div class="flex flex-col items-center space-y-2 cursor-pointer opacity-70 hover:opacity-100 transition-opacity">
+<div class="w-16 h-16 rounded-full border border-slate-200 dark:border-slate-700 relative overflow-hidden">
+<img alt="Black velvet fabric texture" class="w-full h-full object-cover" data-alt="Deep black velvet fabric texture close up" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAq7gxYwqfKXN8kt8ROxUmohGSw-fsaUGyretMnK9AJAvk7bQS-BawYaM1Db3q2oMxH-Daw3x6N3gxcR-HHNGevqSBaaXjqJ0aWsKENCDkP-mFB9tE2uzHNa5iYeASBTSYGXr7r4p4d9P7QSQv5Y4OPIUjTLF8xDxtgyKf-bOGbegdX0Pqnel6Kgov5iKOOSHAQBMCd094PCSkPlGZMxPbXJFc5lzQuir25PNkBAMXOc5TUaJuaTRpLj0RZjsAeCyTUlU-pTFH39hEk"/>
+</div>
+<span class="text-xs font-medium text-slate-500 dark:text-slate-400">Velvet</span>
+</div>
+<!-- Swatch 3 -->
+<div class="flex flex-col items-center space-y-2 cursor-pointer opacity-70 hover:opacity-100 transition-opacity">
+<div class="w-16 h-16 rounded-full border border-slate-200 dark:border-slate-700 relative overflow-hidden">
+<img alt="Brushed brass metal texture" class="w-full h-full object-cover" data-alt="Golden brushed brass metal surface texture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDE4PC1UuLsjZS_zcUM2ZnAGD3KdWkd_Jkc92jbLXd-oBUQr7PBhK4sAiNVDC7BiMXdVAJP6oKFnupKbNHHJAYJXKQKXxenpsYkElNJYYG8Lb38ZkcGYwzI-kXD4b5b2ltg7hiaM8hpi0iPTmHStuC961AWjGC6n1cmUjyiFllZdDRBB7OWzQzw23KIDhW6QjjjB_7wZLYzxOLi2S1KicNeWqq_qNL8JKMeh6UjdtASflk2s-K6IXksq_uPG3RVvsHCt8kS4eT0SCEh"/>
+</div>
+<span class="text-xs font-medium text-slate-500 dark:text-slate-400">Brass</span>
+</div>
+<!-- Swatch 4 -->
+<div class="flex flex-col items-center space-y-2 cursor-pointer opacity-70 hover:opacity-100 transition-opacity">
+<div class="w-16 h-16 rounded-full border border-slate-200 dark:border-slate-700 relative overflow-hidden">
+<img alt="White marble stone texture" class="w-full h-full object-cover" data-alt="Carrara white marble stone texture with grey veins" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7Z8SWVzl5qiXgz0n-qZxgTV3Nloe_OqSOFMbvaZ8DGlqWjRAAvKT83au04AUbaGT-Fm4LSSTjliQ0cq5ORG-HEvyQ-D0ueXM5F2TefLYovy6RLZ95ADFEChbg7gZMAjocJrND1hNlpTIED0e88yjvKECxlu576xATgh1Zb8MZ99xYjlOwOd_kMpFC6isF0y6rmZzVANzP3FM_WqJZz70OIFinW8KX3RCV9uaGDYsl46Ux3auVqt6WFHqYA71E4YMXE6IbUFomOVbQ"/>
+</div>
+<span class="text-xs font-medium text-slate-500 dark:text-slate-400">Marble</span>
+</div>
+<!-- Swatch 5 -->
+<div class="flex flex-col items-center space-y-2 cursor-pointer opacity-70 hover:opacity-100 transition-opacity pr-6">
+<div class="w-16 h-16 rounded-full border border-slate-200 dark:border-slate-700 relative overflow-hidden bg-slate-100 flex items-center justify-center">
+<div class="w-full h-full bg-gradient-to-tr from-slate-200 to-slate-100 dark:from-slate-800 dark:to-slate-700"></div>
+</div>
+<span class="text-xs font-medium text-slate-500 dark:text-slate-400">Leather</span>
+</div>
+</div>
+</div>
+<!-- Section: Category (Standard Checkboxes) -->
+<div class="border-b border-primary/10 py-6 px-6">
+<div class="flex justify-between items-center mb-4 cursor-pointer">
+<h2 class="text-base font-semibold">Category</h2>
+<span class="material-icons text-slate-400 dark:text-slate-500 text-xl">expand_less</span>
+</div>
+<div class="space-y-4">
+<label class="flex items-center group cursor-pointer">
+<div class="relative flex items-center">
+<input checked="" class="peer h-5 w-5 cursor-pointer appearance-none rounded border border-slate-300 dark:border-slate-600 checked:border-primary checked:bg-primary transition-all custom-checkbox" type="checkbox"/>
+<span class="material-icons absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-xs text-white opacity-0 peer-checked:opacity-100 pointer-events-none">check</span>
+</div>
+<span class="ml-3 text-slate-700 dark:text-slate-300 font-medium group-hover:text-primary transition-colors">Seating</span>
+<span class="ml-auto text-xs text-slate-400 bg-slate-100 dark:bg-white/5 px-2 py-0.5 rounded-full">124</span>
+</label>
+<label class="flex items-center group cursor-pointer">
+<div class="relative flex items-center">
+<input class="peer h-5 w-5 cursor-pointer appearance-none rounded border border-slate-300 dark:border-slate-600 checked:border-primary checked:bg-primary transition-all custom-checkbox" type="checkbox"/>
+<span class="material-icons absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-xs text-white opacity-0 peer-checked:opacity-100 pointer-events-none">check</span>
+</div>
+<span class="ml-3 text-slate-700 dark:text-slate-300 font-medium group-hover:text-primary transition-colors">Tables</span>
+<span class="ml-auto text-xs text-slate-400 bg-slate-100 dark:bg-white/5 px-2 py-0.5 rounded-full">48</span>
+</label>
+<label class="flex items-center group cursor-pointer">
+<div class="relative flex items-center">
+<input class="peer h-5 w-5 cursor-pointer appearance-none rounded border border-slate-300 dark:border-slate-600 checked:border-primary checked:bg-primary transition-all custom-checkbox" type="checkbox"/>
+<span class="material-icons absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-xs text-white opacity-0 peer-checked:opacity-100 pointer-events-none">check</span>
+</div>
+<span class="ml-3 text-slate-700 dark:text-slate-300 font-medium group-hover:text-primary transition-colors">Storage</span>
+<span class="ml-auto text-xs text-slate-400 bg-slate-100 dark:bg-white/5 px-2 py-0.5 rounded-full">32</span>
+</label>
+</div>
+</div>
+<!-- Section: Designer (Search + List) -->
+<div class="border-b border-primary/10 py-6 px-6">
+<div class="flex justify-between items-center mb-4">
+<h2 class="text-base font-semibold">Designer</h2>
+<span class="material-icons text-slate-400 dark:text-slate-500 text-xl">expand_less</span>
+</div>
+<div class="relative mb-4">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 material-icons text-slate-400 text-lg">search</span>
+<input class="w-full bg-background-light dark:bg-white/5 border border-transparent focus:border-primary/50 rounded-lg py-2.5 pl-10 pr-4 text-sm outline-none transition-all placeholder:text-slate-400 text-slate-800 dark:text-slate-200" placeholder="Find a designer..." type="text"/>
+</div>
+<div class="space-y-3">
+<label class="flex items-center group cursor-pointer p-2 -mx-2 hover:bg-slate-50 dark:hover:bg-white/5 rounded-lg transition-colors">
+<div class="relative flex items-center">
+<input checked="" class="peer h-5 w-5 cursor-pointer appearance-none rounded border border-slate-300 dark:border-slate-600 checked:border-primary checked:bg-primary transition-all custom-checkbox" type="checkbox"/>
+<span class="material-icons absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-xs text-white opacity-0 peer-checked:opacity-100 pointer-events-none">check</span>
+</div>
+<div class="ml-3 flex flex-col">
+<span class="text-slate-900 dark:text-slate-200 font-medium text-sm">Charles &amp; Ray Eames</span>
+<span class="text-xs text-slate-400">Mid-Century Modern</span>
+</div>
+</label>
+<label class="flex items-center group cursor-pointer p-2 -mx-2 hover:bg-slate-50 dark:hover:bg-white/5 rounded-lg transition-colors">
+<div class="relative flex items-center">
+<input class="peer h-5 w-5 cursor-pointer appearance-none rounded border border-slate-300 dark:border-slate-600 checked:border-primary checked:bg-primary transition-all custom-checkbox" type="checkbox"/>
+<span class="material-icons absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-xs text-white opacity-0 peer-checked:opacity-100 pointer-events-none">check</span>
+</div>
+<div class="ml-3 flex flex-col">
+<span class="text-slate-900 dark:text-slate-200 font-medium text-sm">Isamu Noguchi</span>
+<span class="text-xs text-slate-400">Sculptural Form</span>
+</div>
+</label>
+<label class="flex items-center group cursor-pointer p-2 -mx-2 hover:bg-slate-50 dark:hover:bg-white/5 rounded-lg transition-colors">
+<div class="relative flex items-center">
+<input class="peer h-5 w-5 cursor-pointer appearance-none rounded border border-slate-300 dark:border-slate-600 checked:border-primary checked:bg-primary transition-all custom-checkbox" type="checkbox"/>
+<span class="material-icons absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-xs text-white opacity-0 peer-checked:opacity-100 pointer-events-none">check</span>
+</div>
+<div class="ml-3 flex flex-col">
+<span class="text-slate-900 dark:text-slate-200 font-medium text-sm">Marcel Breuer</span>
+<span class="text-xs text-slate-400">Bauhaus</span>
+</div>
+</label>
+</div>
+<button class="mt-3 text-xs font-semibold text-primary hover:text-primary/80 transition-colors uppercase tracking-wider pl-1">
+                    View All Designers (42)
+                </button>
+</div>
+<!-- Availability Toggle -->
+<div class="py-6 px-6 flex items-center justify-between">
+<div>
+<h2 class="text-base font-semibold">Available Now</h2>
+<p class="text-xs text-slate-400 mt-1">Hide out of stock items</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-slate-200 peer-focus:outline-none rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+<!-- Sticky Footer -->
+<div class="absolute bottom-0 left-0 right-0 bg-white/80 dark:bg-background-dark/95 backdrop-blur-md p-6 border-t border-primary/10 z-30">
+<button class="w-full bg-sage-mist hover:bg-sage-mist-dark dark:bg-sage-mist-dark dark:hover:bg-sage-mist text-white font-semibold py-4 rounded-xl shadow-lg shadow-sage-mist/20 dark:shadow-none transition-all flex items-center justify-center group active:scale-[0.98]">
+<span>Show 24 Items</span>
+<span class="material-icons ml-2 text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+</div>
+</body></html>

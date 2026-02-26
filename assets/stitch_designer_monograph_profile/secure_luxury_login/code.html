@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Secure Luxury Login</title>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Icons -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Theme Config -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#11d452",
+                        "background-light": "#FDFBF7", // Champagne Linen
+                        "background-dark": "#102216",
+                        // Custom colors derived from the description to support the theme
+                        "charcoal-bark": "#2C2C2C",
+                        "deep-forest": "#1A3C2F", 
+                        "sage-mist": "#B4C5B9",
+                        "ochre-earth": "#8C6A4F",
+                    },
+                    fontFamily: {
+                        "display": ["Newsreader", "serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem", 
+                        "lg": "0.5rem", 
+                        "xl": "0.75rem", 
+                        "full": "9999px"
+                    },
+                    boxShadow: {
+                        'soft': '0 4px 20px -2px rgba(26, 60, 47, 0.08)',
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        /* Floating Label Custom Styles */
+        .floating-input {
+            padding-top: 1.5rem;
+            padding-bottom: 0.5rem;
+        }
+        .floating-label {
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding: 1rem 0.75rem;
+            transition: all 0.2s ease-out;
+            pointer-events: none;
+            color: #8C6A4F; /* Ochre Earth for inactive label */
+            opacity: 0.7;
+        }
+        .floating-input:focus + .floating-label,
+        .floating-input:not(:placeholder-shown) + .floating-label {
+            transform: translateY(-0.6rem) scale(0.75);
+            padding-left: 0.85rem; 
+            opacity: 1;
+            color: #1A3C2F; /* Deep Forest for active label */
+        }
+        
+        /* Smooth scrolling */
+        html { scroll-behavior: smooth; }
+        
+        /* Hide scrollbar for clean mobile look */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-charcoal-bark antialiased h-screen w-full overflow-hidden relative selection:bg-primary/20 selection:text-deep-forest">
+<!-- Decorative Top Pattern (Abstract Texture) -->
+<div class="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-sage-mist/20 to-transparent rounded-bl-full pointer-events-none opacity-50"></div>
+<div class="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-ochre-earth/5 to-transparent rounded-tr-full pointer-events-none opacity-50"></div>
+<main class="h-full w-full flex flex-col justify-between px-8 py-8 md:max-w-md mx-auto relative z-10">
+<!-- Header Section -->
+<header class="pt-12 pb-8 animate-fade-in-down">
+<!-- Brand Monogram -->
+<div class="w-12 h-12 mb-8 border border-charcoal-bark/20 rounded-lg flex items-center justify-center rotate-45 mx-auto">
+<span class="-rotate-45 text-2xl font-bold italic text-deep-forest">L</span>
+</div>
+<div class="text-center space-y-2">
+<h1 class="text-4xl md:text-5xl font-light tracking-tight text-charcoal-bark dark:text-white">
+                    Welcome <span class="italic font-normal">Back</span>
+</h1>
+<p class="text-lg text-ochre-earth dark:text-primary/60 font-light italic">
+                    Enter your digital gallery.
+                </p>
+</div>
+</header>
+<!-- Form Section -->
+<section class="flex-grow flex flex-col justify-center space-y-8">
+<form class="space-y-6">
+<!-- Email Input -->
+<div class="relative group">
+<input class="floating-input block w-full px-3 text-lg bg-transparent border-0 border-b-2 border-sage-mist appearance-none focus:outline-none focus:ring-0 focus:border-deep-forest peer text-charcoal-bark dark:text-white placeholder-transparent rounded-t-lg transition-colors duration-300" id="email" placeholder="Email Address" required="" type="email"/>
+<label class="floating-label text-lg font-light origin-[0] left-0" for="email">
+                        Email Address
+                    </label>
+<!-- Focus Highlight (Primary Color usage as accent) -->
+<div class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-500 peer-focus:w-full"></div>
+</div>
+<!-- Password Input -->
+<div class="relative group">
+<input class="floating-input block w-full px-3 text-lg bg-transparent border-0 border-b-2 border-sage-mist appearance-none focus:outline-none focus:ring-0 focus:border-deep-forest peer text-charcoal-bark dark:text-white placeholder-transparent rounded-t-lg transition-colors duration-300" id="password" placeholder="Password" required="" type="password"/>
+<label class="floating-label text-lg font-light origin-[0] left-0" for="password">
+                        Password
+                    </label>
+<button class="absolute right-2 bottom-3 text-sage-mist hover:text-deep-forest transition-colors" type="button">
+<span class="material-icons-outlined text-xl">visibility</span>
+</button>
+<!-- Focus Highlight -->
+<div class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-500 peer-focus:w-full"></div>
+</div>
+<!-- Forgot Password -->
+<div class="flex justify-end pt-2">
+<a class="text-sm text-ochre-earth dark:text-primary hover:text-deep-forest dark:hover:text-white transition-colors italic font-light decoration-1 hover:underline underline-offset-4" href="#">
+                        Forgot Password?
+                    </a>
+</div>
+</form>
+<!-- Face ID Trigger -->
+<div class="flex flex-col items-center justify-center py-4 space-y-3 cursor-pointer group">
+<div class="relative w-16 h-16 flex items-center justify-center rounded-xl border border-sage-mist/50 bg-white/40 dark:bg-white/5 backdrop-blur-sm group-hover:border-primary/50 transition-all duration-300 shadow-soft">
+<span class="material-icons-outlined text-4xl text-charcoal-bark dark:text-white group-hover:text-primary transition-colors">
+                        face
+                    </span>
+<!-- Scanning line animation simulation -->
+<div class="absolute top-2 w-10 h-0.5 bg-primary/40 blur-[2px] animate-pulse"></div>
+</div>
+<span class="text-xs uppercase tracking-widest text-ochre-earth dark:text-primary/70 font-semibold group-hover:text-primary transition-colors">Face ID</span>
+</div>
+<!-- Primary Action Button -->
+<button class="w-full py-4 bg-deep-forest dark:bg-primary text-white dark:text-background-dark rounded-md text-lg font-medium tracking-wide shadow-lg shadow-deep-forest/20 hover:shadow-xl hover:-translate-y-0.5 active:scale-[0.98] transition-all duration-200 flex items-center justify-center group">
+<span>Sign In</span>
+<span class="material-icons-outlined ml-2 text-sm opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">arrow_forward</span>
+</button>
+</section>
+<!-- Footer / Sign Up -->
+<footer class="pt-8 pb-4 text-center">
+<p class="text-charcoal-bark dark:text-white/80 font-light">
+                Not a member? 
+                <a class="text-deep-forest dark:text-primary font-normal hover:underline underline-offset-4 decoration-primary/30 transition-all" href="#">
+                    Apply for access
+                </a>
+</p>
+</footer>
+</main>
+<!-- Visual Texture Image (Subtle overlay for magazine feel) -->
+<div class="fixed inset-0 pointer-events-none opacity-[0.03] z-0 mix-blend-multiply dark:mix-blend-overlay" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCN08CCa-ABK5Zp_o1Ye7yffp4cjqFXKF0elq2OGU0KQF6rX2KPA1rndsLPdy6QRFwMoUxVAtW7oY2J8cJ8PDRjSmcyrVpOOWFjYvftSPgjTjTXhMyJk2C40E6PlZFZB97k2fSnHq0jP3KEgnpIV4Ss7ydLoHKHGwvjutTOK6AIrgtc-4qYSvKH7As7BLZqOZEhw27ncNEEtMShvYun46ZdGQKdxz3mH3sx3vYvBZ--hBhaMr8R8Y56apbdcCNscGciiwvFdww9xLFp');">
+</div>
+<!-- Editorial Image Accent (Bottom Right Corner - Optional but fits context) -->
+<!-- Removed to keep strictly minimalist as per description, relying on CSS gradients instead -->
+</body></html>

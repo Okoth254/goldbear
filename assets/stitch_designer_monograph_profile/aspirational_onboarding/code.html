@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Aspirational Onboarding - Luxury Furniture</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,300;0,400;0,600;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2c3a2f",
+                        "background-light": "#f7f7f7",
+                        "background-dark": "#181a18",
+                        "sage-mist": "#A3B18A",
+                    },
+                    fontFamily: {
+                        "display": ["Noto Serif", "serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "2xl": "2rem",
+                        "3xl": "2.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar hide for cleaner mobile look */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-primary dark:text-white font-display min-h-screen flex items-center justify-center antialiased overflow-hidden">
+<!-- Mobile Device Container -->
+<main class="w-full max-w-md mx-auto h-screen relative flex flex-col justify-between overflow-hidden bg-background-light dark:bg-background-dark shadow-2xl">
+<!-- Top Navigation / Skip -->
+<header class="absolute top-0 left-0 w-full z-20 px-6 pt-12 flex justify-end">
+<a class="text-sm tracking-widest text-white/80 dark:text-white/60 hover:text-white uppercase font-light backdrop-blur-sm px-3 py-1 rounded-full border border-white/20 transition-colors" href="#">
+                Skip
+            </a>
+</header>
+<!-- Main Content Area: Image & Typography -->
+<div class="flex-grow relative w-full h-full">
+<!-- Hero Image with Rounded Corners -->
+<!-- The requirement was 16px (rounded-xl/2xl) but for full screen effect we usually inset it slightly or round the bottom only. 
+                 Given the "Digital Gallery" prompt, a floating card aesthetic or a nearly full bleed with inset padding works best. 
+                 Let's go with a slight inset margin to emphasize the 'rounded corners' requirement distinctly. -->
+<div class="absolute inset-0 z-0 h-full w-full">
+<div class="relative h-full w-full bg-primary/10">
+<img alt="Minimalist sun-drenched living room with modern beige sofa and soft shadows" class="absolute inset-0 w-full h-full object-cover transition-transform duration-[10000ms] ease-linear hover:scale-105" data-alt="Minimalist sun-drenched living room with modern beige sofa and soft shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB19y0ZOfeAH9L7TU4cx-AdJGUhQPmzHXxp0x18lBw4LkviYUvYZCnmeW3lLe8m7X_-WDCUFA7QoRkZQylZWnNuFG7aJwAapkKq_2BXx4dvXbNXdaApSU_1AMQpTYiThD_mwxmie7bBu_YRD17bDMGsIahiSRZZ07_byCGARSgOOI6RkeeMeKCuAGC1FFxcSV1P747l9cJN7LQ7jLTXytrgCrtlCbwZrf5xambbEBEYStlTMg6OsKt6tByoiZZBUmVW0jE7d0PeUT9i"/>
+<!-- Gradient Overlay for Text Readability -->
+<div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/20 to-transparent opacity-90 dark:opacity-100"></div>
+</div>
+</div>
+<!-- Text Content -->
+<div class="relative z-10 flex flex-col justify-end h-full px-8 pb-32">
+<!-- Decorative Line -->
+<div class="w-12 h-[1px] bg-white/60 mb-6"></div>
+<h1 class="text-4xl md:text-5xl font-light text-white leading-tight mb-4 tracking-wide drop-shadow-sm">
+                    Design Your <br/>
+<span class="italic font-normal">Masterpiece</span>
+</h1>
+<p class="text-lg text-white/80 font-light leading-relaxed max-w-xs mb-8 tracking-wide">
+                    Curated collections for the modern sanctuary. Experience luxury in every detail.
+                </p>
+</div>
+</div>
+<!-- Bottom Action Area -->
+<div class="absolute bottom-0 w-full z-20 px-8 pb-10 pt-8 bg-gradient-to-t from-primary/10 to-transparent">
+<!-- Page Indicators -->
+<div class="flex items-center justify-start space-x-3 mb-8">
+<!-- Active Dot -->
+<div class="w-8 h-1.5 bg-white rounded-full transition-all duration-300"></div>
+<!-- Inactive Dots -->
+<div class="w-1.5 h-1.5 bg-sage-mist/60 rounded-full"></div>
+<div class="w-1.5 h-1.5 bg-sage-mist/60 rounded-full"></div>
+</div>
+<!-- Primary CTA Button -->
+<button class="group relative w-full bg-white dark:bg-background-dark text-primary dark:text-white rounded-xl py-4 px-6 overflow-hidden shadow-lg transition-all hover:shadow-xl active:scale-[0.98]">
+<div class="absolute inset-0 w-full h-full bg-sage-mist/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="flex items-center justify-between relative z-10">
+<span class="text-lg font-medium tracking-widest uppercase pl-2">Begin the Journey</span>
+<span class="bg-primary text-white rounded-full p-2 group-hover:bg-primary/90 transition-colors">
+<span class="material-icons text-sm block transform group-hover:translate-x-0.5 transition-transform">arrow_forward</span>
+</span>
+</div>
+</button>
+<!-- Bottom Safe Area Spacer if needed -->
+<div class="h-2"></div>
+</div>
+</main>
+</body></html>

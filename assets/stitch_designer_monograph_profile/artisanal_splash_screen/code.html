@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Artisanal Splash Screen</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#17cf91",
+                        "background-light": "#f6f8f7",
+                        "background-dark": "#11211c",
+                        // Custom colors requested by user mapped to extend
+                        "champagne-linen": "#F5F2ED",
+                        "charcoal-bark": "#1A1A1A",
+                        "deep-forest": "#2D3A30",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                    animation: {
+                        'draw': 'draw 2.5s ease-in-out forwards',
+                        'fade-in-up': 'fadeInUp 1s ease-out 0.5s forwards',
+                        'load': 'load 3s ease-in-out forwards',
+                    },
+                    keyframes: {
+                        draw: {
+                            '0%': { strokeDasharray: '1000', strokeDashoffset: '1000' },
+                            '100%': { strokeDasharray: '1000', strokeDashoffset: '0' },
+                        },
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(10px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        load: {
+                            '0%': { width: '0%' },
+                            '100%': { width: '100%' },
+                        }
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        /* Grainy Texture Overlay for the "Paper" feel */
+        .bg-texture {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+        }
+        
+        /* Smooth SVG path animation setup */
+        .path-draw {
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: draw 2.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-display antialiased h-screen w-full overflow-hidden bg-champagne-linen text-charcoal-bark relative selection:bg-primary selection:text-white">
+<!-- Texture Overlay -->
+<div class="absolute inset-0 bg-texture opacity-30 pointer-events-none z-0"></div>
+<!-- Main Container -->
+<div class="relative z-10 flex flex-col items-center justify-between h-full w-full max-w-md mx-auto px-6 py-12 md:py-16">
+<!-- Top Spacer (to balance vertical centering) -->
+<div class="flex-1"></div>
+<!-- Center Content: Sketch Animation & Logo -->
+<div class="flex flex-col items-center justify-center space-y-12 w-full">
+<!-- Sketch Graphic Container -->
+<div class="relative w-48 h-48 md:w-64 md:h-64 flex items-center justify-center">
+<!-- SVG Representation of a Luxury Chair Sketch -->
+<svg class="w-full h-full text-charcoal-bark stroke-current" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 200 200">
+<!-- Abstract Chair Lines -->
+<!-- Backrest -->
+<path class="path-draw" d="M60 140 L60 80 Q60 40 100 40 Q140 40 140 80 L140 140"></path>
+<!-- Seat -->
+<path class="path-draw" d="M50 140 H150" style="animation-delay: 0.5s"></path>
+<path class="path-draw" d="M60 140 Q100 160 140 140" style="animation-delay: 0.7s"></path>
+<!-- Legs -->
+<path class="path-draw" d="M60 140 L50 180" style="animation-delay: 1s"></path>
+<path class="path-draw" d="M140 140 L150 180" style="animation-delay: 1.1s"></path>
+<path class="path-draw" d="M75 145 L70 175" style="animation-delay: 1.2s"></path>
+<path class="path-draw" d="M125 145 L130 175" style="animation-delay: 1.3s"></path>
+<!-- Decorative "Sketch" strokes -->
+<path class="path-draw text-primary/40" d="M160 60 L170 50" style="animation-delay: 1.8s"></path>
+<path class="path-draw text-primary/40" d="M165 70 L175 60" style="animation-delay: 1.9s"></path>
+</svg>
+<!-- Subtle glow behind the sketch -->
+<div class="absolute inset-0 bg-primary/5 blur-3xl rounded-full -z-10 animate-pulse"></div>
+</div>
+<!-- Brand Logomark -->
+<div class="text-center opacity-0 animate-fade-in-up">
+<h1 class="text-4xl font-light tracking-[0.2em] text-charcoal-bark uppercase">Atelier</h1>
+<p class="text-xs font-medium tracking-[0.3em] text-deep-forest mt-3 uppercase opacity-70">Maison &amp; Objet</p>
+</div>
+</div>
+<!-- Bottom Spacer (Flexible) -->
+<div class="flex-1"></div>
+<!-- Footer: Loading Indicator & Version -->
+<div class="w-full flex flex-col items-center space-y-6 pb-6 md:pb-10">
+<!-- Loading Bar Container -->
+<div class="w-32 md:w-40 h-[2px] bg-charcoal-bark/10 rounded-full overflow-hidden relative">
+<!-- Moving Progress Line -->
+<div class="absolute left-0 top-0 h-full bg-deep-forest animate-load rounded-full"></div>
+<!-- Animated Primary Spark at the tip of the loading bar -->
+<div class="absolute top-0 h-full w-[2px] bg-primary blur-[1px] shadow-[0_0_8px_rgba(23,207,145,0.8)] animate-load" style="left: calc(100% - 2px);"></div>
+</div>
+<!-- Subtle Status Text -->
+<span class="text-[10px] tracking-widest text-charcoal-bark/40 uppercase font-medium">Curating Gallery</span>
+</div>
+</div>
+</body></html>

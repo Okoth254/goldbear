@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Order Details Screen</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1754cf",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#111621",
+                        "sage-mist": "#e2e8f0", // Custom neutral for dividers based on primary/slate
+                        "ochre-earth": "#b45309", // Custom accent color for specific link
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem", 
+                        "lg": "0.5rem", 
+                        "xl": "0.75rem", 
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar hiding for clean UI */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-800 dark:text-slate-100 antialiased min-h-screen flex justify-center">
+<!-- Mobile Container -->
+<div class="w-full max-w-md bg-white dark:bg-slate-900 min-h-screen shadow-2xl relative flex flex-col">
+<!-- Sticky Header -->
+<header class="sticky top-0 z-50 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-sage-mist dark:border-slate-800 px-6 py-4 pt-12 flex items-center justify-between">
+<button class="p-2 -ml-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors text-slate-500 dark:text-slate-400">
+<span class="material-icons text-xl">arrow_back_ios_new</span>
+</button>
+<div class="text-center">
+<h1 class="text-sm font-medium tracking-wide uppercase text-slate-500 dark:text-slate-400">Order #9928-AC</h1>
+</div>
+<button class="p-2 -mr-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors text-slate-500 dark:text-slate-400">
+<span class="material-icons text-xl">more_horiz</span>
+</button>
+</header>
+<!-- Scrollable Content -->
+<main class="flex-1 overflow-y-auto no-scrollbar pb-32">
+<!-- Status Card -->
+<section class="px-6 py-8">
+<div class="flex flex-col items-center text-center space-y-3">
+<div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-2">
+<span class="material-icons text-3xl text-primary">local_shipping</span>
+</div>
+<h2 class="text-2xl font-light text-slate-900 dark:text-white">Preparing for Shipment</h2>
+<p class="text-slate-500 dark:text-slate-400 text-sm">
+                        Estimated Delivery<br/>
+<span class="font-medium text-slate-800 dark:text-slate-200">Oct 24 — Oct 28</span>
+</p>
+<div class="w-full h-1 bg-sage-mist dark:bg-slate-800 rounded-full mt-6 relative overflow-hidden">
+<div class="absolute left-0 top-0 h-full w-2/3 bg-primary"></div>
+</div>
+</div>
+</section>
+<!-- Divider -->
+<div class="h-px bg-sage-mist dark:bg-slate-800 mx-6"></div>
+<!-- Itemized Gallery List -->
+<section class="px-6 py-8 space-y-10">
+<h3 class="text-xs font-semibold tracking-widest uppercase text-slate-400 dark:text-slate-500 mb-6">Manifest</h3>
+<!-- Item 1 -->
+<div class="group">
+<div class="aspect-[4/3] w-full bg-slate-100 dark:bg-slate-800 rounded-lg overflow-hidden mb-4 relative shadow-sm">
+<img alt="Navy blue velvet tufted sofa in a modern living room" class="w-full h-full object-cover object-center" data-alt="Luxurious navy blue velvet sofa" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWymZGok1YYvj23v5-6rEYL9VvJ7pJADwAEUkuhbmeo4BXeqouCcBtNK8AFp-PV121MdRd_8AHLtAQmB_mqPjyaNJz6izSMiZ8HfjP1SFEkisoqCKxqsykpg2Hcd6vtF6wknqMBMu2O2eOGByV884Ck15TZvk-sf2k2WUCxfOo0JJ2g2A3AgwpFDz2FJhIbFRuQ9dGrkmBgD1kIxfK_c5X_rGJLw8eNbJVHsPzAa6VqW6WoRPIR41NuH2t8nDJLhJi6NvR9G-Hc7S-"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h4 class="text-lg font-normal text-slate-900 dark:text-white">The Chesterfield</h4>
+<p class="text-slate-500 dark:text-slate-400 text-sm mt-1">Midnight Blue Velvet</p>
+<p class="text-slate-400 dark:text-slate-500 text-xs mt-1">Qty: 1</p>
+</div>
+<span class="font-medium text-slate-900 dark:text-white">$4,200.00</span>
+</div>
+</div>
+<!-- Divider -->
+<div class="h-px bg-sage-mist dark:bg-slate-800"></div>
+<!-- Item 2 -->
+<div class="group">
+<div class="aspect-[4/3] w-full bg-slate-100 dark:bg-slate-800 rounded-lg overflow-hidden mb-4 relative shadow-sm">
+<img alt="White marble coffee table with gold brass legs" class="w-full h-full object-cover object-center" data-alt="Elegant marble coffee table with brass legs" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtCP9yoxVm7SR8ByGqWoZg3YCznQJeqipB6YiLbpDMiTwdC1_ZfvibYr0fxUVarJuYRIQsI3WJbRP62RwK6zzndv33L5SkQ9iWXZvIJTKV51O93CfZHYWs3mQSPnlLT6pC_Q0JqGcETe9ByANAy5QcHSmC8dPUyco1KRdiNCvXuqJU-4omRgBXZ_52PEeFOJEqweSsmgESv86sokpZYxxS4LD3QrKre78Zv7vzEbaAglTxdPFX9Yx23i9wpZh67Io8nI4FnFXMGrLa"/>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h4 class="text-lg font-normal text-slate-900 dark:text-white">Carrara Coffee Table</h4>
+<p class="text-slate-500 dark:text-slate-400 text-sm mt-1">Brass Legs, Honed Finish</p>
+<p class="text-slate-400 dark:text-slate-500 text-xs mt-1">Qty: 1</p>
+</div>
+<span class="font-medium text-slate-900 dark:text-white">$1,250.00</span>
+</div>
+</div>
+</section>
+<!-- Info Grid -->
+<section class="px-6 pb-8">
+<div class="bg-sage-mist/30 dark:bg-slate-800/50 rounded-lg p-6 grid grid-cols-1 gap-8">
+<!-- Shipping Address -->
+<div>
+<div class="flex items-center gap-2 mb-3 text-primary">
+<span class="material-icons text-sm">place</span>
+<h5 class="text-xs font-semibold tracking-widest uppercase">Shipping To</h5>
+</div>
+<p class="text-slate-900 dark:text-white font-medium text-sm leading-relaxed">
+                            Jonathan Doe<br/>
+                            123 Luxury Lane, Penthouse B<br/>
+                            New York, NY 10013
+                        </p>
+<p class="text-slate-500 dark:text-slate-400 text-xs mt-2 italic">White Glove Delivery Service</p>
+</div>
+<div class="h-px w-full bg-sage-mist dark:bg-slate-700"></div>
+<!-- Payment Method -->
+<div>
+<div class="flex items-center gap-2 mb-3 text-primary">
+<span class="material-icons text-sm">credit_card</span>
+<h5 class="text-xs font-semibold tracking-widest uppercase">Payment Method</h5>
+</div>
+<div class="flex items-center gap-3">
+<div class="bg-white dark:bg-slate-700 px-2 py-1 rounded border border-sage-mist dark:border-slate-600">
+<span class="font-bold text-slate-700 dark:text-slate-200 text-xs italic">VISA</span>
+</div>
+<span class="text-slate-900 dark:text-white font-medium text-sm">•••• 4242</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Financial Breakdown -->
+<section class="px-6 py-6 border-t border-sage-mist dark:border-slate-800 bg-white dark:bg-slate-900">
+<div class="space-y-3 text-sm">
+<div class="flex justify-between text-slate-500 dark:text-slate-400">
+<span>Subtotal</span>
+<span>$5,450.00</span>
+</div>
+<div class="flex justify-between text-slate-500 dark:text-slate-400">
+<span>Taxes</span>
+<span>$463.25</span>
+</div>
+<div class="flex justify-between text-primary">
+<span>Shipping (White Glove)</span>
+<span class="font-medium">Free</span>
+</div>
+<div class="h-px bg-sage-mist dark:bg-slate-800 my-4"></div>
+<div class="flex justify-between items-baseline text-slate-900 dark:text-white">
+<span class="text-base font-normal">Total</span>
+<span class="text-2xl font-light">$5,913.25</span>
+</div>
+</div>
+</section>
+<!-- Action Area -->
+<section class="px-6 pb-12 pt-4 flex flex-col items-center space-y-6">
+<a class="text-ochre-earth hover:text-amber-700 dark:text-amber-500 dark:hover:text-amber-400 font-medium flex items-center gap-2 transition-colors" href="#">
+<span class="material-icons text-lg">description</span>
+                    Download Invoice
+                </a>
+<button class="w-full py-4 bg-primary hover:bg-blue-700 text-white rounded-lg transition-colors font-medium flex items-center justify-center gap-2 shadow-lg shadow-primary/20">
+                    Need Help?
+                </button>
+</section>
+</main>
+</div>
+</body></html>

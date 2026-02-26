@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Community Craft Reviews</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1754cf",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#111621",
+                        // Neutrals derived from primary hue (222deg)
+                        "neutral-50": "#f5f7fc",
+                        "neutral-100": "#eef2fa",
+                        "neutral-200": "#dce5f5",
+                        "neutral-300": "#bfd1ed",
+                        "neutral-400": "#9db8e3",
+                        "neutral-500": "#789ad6",
+                        "neutral-600": "#567cc4",
+                        "neutral-700": "#4666a8",
+                        "neutral-800": "#3d558a",
+                        "neutral-900": "#35486e",
+                    },
+                    fontFamily: {
+                        "display": ["Newsreader", "serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar hiding for horizontal scroll areas */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display antialiased text-neutral-900 dark:text-neutral-50 min-h-screen">
+<!-- iOS Status Bar Placeholder -->
+<div class="h-12 w-full bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-md sticky top-0 z-50 flex items-end justify-between px-6 pb-2 border-b border-neutral-200 dark:border-neutral-800">
+<span class="text-xs font-medium">9:41</span>
+<div class="flex gap-1.5">
+<span class="material-icons text-[16px]">signal_cellular_alt</span>
+<span class="material-icons text-[16px]">wifi</span>
+<span class="material-icons text-[16px] rotate-180">battery_full</span>
+</div>
+</div>
+<!-- Navigation Header -->
+<div class="sticky top-12 z-40 bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-sm px-6 py-4 flex items-center justify-between">
+<button class="p-2 -ml-2 rounded-full hover:bg-neutral-200 dark:hover:bg-neutral-800 transition-colors">
+<span class="material-icons text-2xl">arrow_back</span>
+</button>
+<span class="text-lg italic font-medium">Reviews</span>
+<button class="p-2 -mr-2 rounded-full hover:bg-neutral-200 dark:hover:bg-neutral-800 transition-colors">
+<span class="material-icons text-2xl">share</span>
+</button>
+</div>
+<main class="px-6 pb-24 max-w-lg mx-auto">
+<!-- Product Title Context -->
+<section class="mb-8 mt-2 text-center">
+<p class="text-sm text-neutral-500 dark:text-neutral-400 uppercase tracking-widest mb-2">The Collection</p>
+<h1 class="text-3xl font-normal text-neutral-900 dark:text-white mb-1">The Chesterfield Sofa</h1>
+<p class="text-primary italic text-lg">Velvet Edition</p>
+</section>
+<!-- Rating Summary Block -->
+<section class="bg-white dark:bg-neutral-900 rounded-xl p-6 shadow-sm border border-neutral-100 dark:border-neutral-800 mb-8">
+<div class="flex items-start justify-between gap-6">
+<!-- Big Score -->
+<div class="flex flex-col items-center justify-center min-w-[80px]">
+<span class="text-5xl font-light text-neutral-900 dark:text-white">4.9</span>
+<div class="flex text-primary text-sm my-2">
+<span class="material-icons text-[18px]">star</span>
+<span class="material-icons text-[18px]">star</span>
+<span class="material-icons text-[18px]">star</span>
+<span class="material-icons text-[18px]">star</span>
+<span class="material-icons text-[18px]">star_half</span>
+</div>
+<span class="text-xs text-neutral-500 dark:text-neutral-400">124 Reviews</span>
+</div>
+<!-- Distribution Chart -->
+<div class="flex-1 space-y-2">
+<!-- 5 Star -->
+<div class="flex items-center gap-3 text-xs">
+<span class="w-3 text-right">5</span>
+<div class="flex-1 h-1.5 bg-neutral-100 dark:bg-neutral-800 rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[85%] rounded-full"></div>
+</div>
+</div>
+<!-- 4 Star -->
+<div class="flex items-center gap-3 text-xs">
+<span class="w-3 text-right">4</span>
+<div class="flex-1 h-1.5 bg-neutral-100 dark:bg-neutral-800 rounded-full overflow-hidden">
+<div class="h-full bg-primary/60 w-[10%] rounded-full"></div>
+</div>
+</div>
+<!-- 3 Star -->
+<div class="flex items-center gap-3 text-xs">
+<span class="w-3 text-right">3</span>
+<div class="flex-1 h-1.5 bg-neutral-100 dark:bg-neutral-800 rounded-full overflow-hidden">
+<div class="h-full bg-primary/40 w-[3%] rounded-full"></div>
+</div>
+</div>
+<!-- 2 Star -->
+<div class="flex items-center gap-3 text-xs">
+<span class="w-3 text-right">2</span>
+<div class="flex-1 h-1.5 bg-neutral-100 dark:bg-neutral-800 rounded-full overflow-hidden">
+<div class="h-full bg-primary/20 w-[1%] rounded-full"></div>
+</div>
+</div>
+<!-- 1 Star -->
+<div class="flex items-center gap-3 text-xs">
+<span class="w-3 text-right">1</span>
+<div class="flex-1 h-1.5 bg-neutral-100 dark:bg-neutral-800 rounded-full overflow-hidden">
+<div class="h-full bg-primary/10 w-[1%] rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- CTA -->
+<div class="mt-6 pt-6 border-t border-neutral-100 dark:border-neutral-800 text-center">
+<button class="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors group">
+<span class="text-lg italic border-b border-primary/30 pb-0.5 group-hover:border-primary">Curate your own review</span>
+<span class="material-icons text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+</section>
+<!-- Filters -->
+<div class="flex items-center gap-3 mb-8 overflow-x-auto no-scrollbar pb-1">
+<button class="bg-neutral-900 dark:bg-white text-white dark:text-neutral-900 px-5 py-2 rounded-full text-sm font-medium whitespace-nowrap shadow-md">
+                All Reviews
+            </button>
+<button class="bg-white dark:bg-neutral-800 text-neutral-600 dark:text-neutral-300 border border-neutral-200 dark:border-neutral-700 px-5 py-2 rounded-full text-sm font-medium whitespace-nowrap">
+                With Photos
+            </button>
+<button class="bg-white dark:bg-neutral-800 text-neutral-600 dark:text-neutral-300 border border-neutral-200 dark:border-neutral-700 px-5 py-2 rounded-full text-sm font-medium whitespace-nowrap flex items-center gap-1">
+                Most Recent
+                <span class="material-icons text-sm">expand_more</span>
+</button>
+</div>
+<!-- Reviews List -->
+<div class="space-y-10">
+<!-- Review 1 -->
+<article class="flex flex-col gap-4 border-b border-neutral-200 dark:border-neutral-800 pb-10 last:border-0">
+<header class="flex justify-between items-start">
+<div class="flex gap-3 items-center">
+<div class="w-10 h-10 rounded-full overflow-hidden bg-neutral-200 relative">
+<img alt="Julianne M Avatar" class="w-full h-full object-cover" data-alt="Portrait of a smiling woman with glasses" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAquCcT_IyfwkM9VExxSRrwlpOLB4J567AGzcqCGflWqXBZZQgoBi4NRdE48MWzsPKg_jmUbt3g3gyawiJ15YfHFEnQTvsW90L7Ri6HDZjoFOgoIPUBJ8PCkv6CmcgMGJkK7ypTWp0rRB85AfvaFBUKUmJRkBedfN_dUHrI5C5jT6YKOfBhr-MjyTCXd3-jVeBkPcovv30TNfHqw-hj_j6z7h2SkCpllAxjE6kCeRh4NO_VXUGMUt2gtYxEDUArdGeaULLsVDynugmf"/>
+</div>
+<div>
+<div class="flex items-center gap-1">
+<h3 class="font-medium text-neutral-900 dark:text-white">Julianne M.</h3>
+<span class="material-icons text-primary text-[14px]" title="Verified Buyer">verified</span>
+</div>
+<span class="text-xs text-neutral-500 dark:text-neutral-400">2 weeks ago</span>
+</div>
+</div>
+<div class="flex text-primary text-xs">
+<span class="material-icons text-[16px]">star</span>
+<span class="material-icons text-[16px]">star</span>
+<span class="material-icons text-[16px]">star</span>
+<span class="material-icons text-[16px]">star</span>
+<span class="material-icons text-[16px]">star</span>
+</div>
+</header>
+<div class="space-y-3">
+<h4 class="text-xl font-medium italic text-neutral-900 dark:text-white">"An absolute masterpiece."</h4>
+<p class="text-neutral-600 dark:text-neutral-300 leading-relaxed text-lg font-light">
+                        I was hesitant about ordering furniture online, but this sofa exceeded all expectations. The velvet texture is incredibly soft yet durable, and the craftsmanship on the tufting is gallery-quality.
+                    </p>
+</div>
+<!-- Media Gallery Scroll -->
+<div class="flex gap-3 overflow-x-auto no-scrollbar pb-2 -mx-6 px-6">
+<div class="flex-shrink-0 w-64 h-48 rounded-lg overflow-hidden relative shadow-sm">
+<img alt="Sofa in living room" class="w-full h-full object-cover" data-alt="Modern living room with a sofa" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKx6oZqDdpMhpXyL86hiL-8m0W3a1SbiOgM9N1uMB8o7cmEP78dQzptE6jALaoSgDiZqTRCq1ydOeQ9D66SOQIL_Tje4y7IhAP2La2-tyMnw_MxiDS6DFw9Dj6C1Z67j84d0Py4FJUCjREHlvfoFDwev_8qkIdt9oHjqAAv40Z3H9-trxL6b7rbumPn2wESW1SbThQDiiBQJ8KLmRo6qvSGFi3lmTkxqS7J8Q-oKOb0_HcnsrsfWjKhaCPEN_V45SRNkvoEoHuGl6s"/>
+</div>
+<div class="flex-shrink-0 w-64 h-48 rounded-lg overflow-hidden relative shadow-sm">
+<img alt="Velvet texture close up" class="w-full h-full object-cover" data-alt="Close up of green velvet fabric texture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC70-OCud5V1x4538S7ksNypOGKt0TyibLp5qma9rdDvzCbRWDwg2cxkG5BiTRLimp7SA18hdpmMsgdTILIX_J2pW0Ne0sSah07KQ_i-DLgGCuvp-FUgzfVz5augBwQDxrjFTnk7Ip7ZlPdWtOlu1qqzzlDAbJ0Q72s_iJenWO6iHzf0edFP8zYgPxsyNo9w_u7tcw-qSl0SYlsWcmjGzz6kStBRh0FH39y7RLMP0feUwBAoCWytGlZnbDUN7Pxcad_-O-Dq3-_IjS_"/>
+</div>
+</div>
+<div class="flex items-center gap-6 mt-2">
+<button class="flex items-center gap-1.5 text-xs text-neutral-500 hover:text-primary transition-colors">
+<span class="material-icons text-[18px]">thumb_up_off_alt</span>
+                        Helpful (12)
+                    </button>
+<button class="flex items-center gap-1.5 text-xs text-neutral-500 hover:text-red-500 transition-colors">
+<span class="material-icons text-[18px]">flag</span>
+                        Report
+                    </button>
+</div>
+</article>
+<!-- Review 2 -->
+<article class="flex flex-col gap-4 border-b border-neutral-200 dark:border-neutral-800 pb-10 last:border-0">
+<header class="flex justify-between items-start">
+<div class="flex gap-3 items-center">
+<div class="w-10 h-10 rounded-full overflow-hidden bg-neutral-200 relative flex items-center justify-center text-neutral-500">
+<span class="text-lg font-bold">TK</span>
+</div>
+<div>
+<div class="flex items-center gap-1">
+<h3 class="font-medium text-neutral-900 dark:text-white">Thomas K.</h3>
+<span class="material-icons text-primary text-[14px]" title="Verified Buyer">verified</span>
+</div>
+<span class="text-xs text-neutral-500 dark:text-neutral-400">1 month ago</span>
+</div>
+</div>
+<div class="flex text-primary text-xs">
+<span class="material-icons text-[16px]">star</span>
+<span class="material-icons text-[16px]">star</span>
+<span class="material-icons text-[16px]">star</span>
+<span class="material-icons text-[16px]">star</span>
+<span class="material-icons text-neutral-300 dark:text-neutral-700 text-[16px]">star</span>
+</div>
+</header>
+<div class="space-y-3">
+<h4 class="text-xl font-medium italic text-neutral-900 dark:text-white">"Worth the wait."</h4>
+<p class="text-neutral-600 dark:text-neutral-300 leading-relaxed text-lg font-light">
+                        Delivery took a bit longer than expected, but once it arrived, the quality spoke for itself. It firmly anchors the room. A true statement piece that my guests always compliment.
+                    </p>
+</div>
+<div class="flex items-center gap-6 mt-2">
+<button class="flex items-center gap-1.5 text-xs text-neutral-500 hover:text-primary transition-colors">
+<span class="material-icons text-[18px]">thumb_up_off_alt</span>
+                        Helpful (4)
+                    </button>
+<button class="flex items-center gap-1.5 text-xs text-neutral-500 hover:text-red-500 transition-colors">
+<span class="material-icons text-[18px]">flag</span>
+                        Report
+                    </button>
+</div>
+</article>
+<!-- Review 3 -->
+<article class="flex flex-col gap-4 border-b border-neutral-200 dark:border-neutral-800 pb-10 last:border-0">
+<header class="flex justify-between items-start">
+<div class="flex gap-3 items-center">
+<div class="w-10 h-10 rounded-full overflow-hidden bg-neutral-200 relative">
+<img alt="Sarah L Avatar" class="w-full h-full object-cover" data-alt="Portrait of a woman with curly hair" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPpV8NltB3HTqaCTSpn5LXQFDv7C1muDOtf-WVWDNXgEmdGaLimkwx1Ged_Nko-lbg3uC6SZ6DNd-Zm9eH8TN7pzYUnjgTnvJi1XxwWrMHC7PoXA6RbEGCjj-XDFR8UqYLv6RWZvtHfABzY1OoEFiOicirk1b9iWhe63EkKiRZwvVapIWi_rqbDFmh1GACTWx7bUSRlEYA-6fbY_we0ltCsdH1fYeEpFab33fFHlwwqDAHrVmSF5U1boALIjuGpUHlzrJWFTooAXZs"/>
+</div>
+<div>
+<div class="flex items-center gap-1">
+<h3 class="font-medium text-neutral-900 dark:text-white">Sarah L.</h3>
+<span class="material-icons text-primary text-[14px]" title="Verified Buyer">verified</span>
+</div>
+<span class="text-xs text-neutral-500 dark:text-neutral-400">2 months ago</span>
+</div>
+</div>
+<div class="flex text-primary text-xs">
+<span class="material-icons text-[16px]">star</span>
+<span class="material-icons text-[16px]">star</span>
+<span class="material-icons text-[16px]">star</span>
+<span class="material-icons text-[16px]">star</span>
+<span class="material-icons text-[16px]">star</span>
+</div>
+</header>
+<div class="space-y-3">
+<h4 class="text-xl font-medium italic text-neutral-900 dark:text-white">"Texture is divine."</h4>
+<p class="text-neutral-600 dark:text-neutral-300 leading-relaxed text-lg font-light">
+                        The way the light hits this fabric is just stunning. It changes throughout the day. I've curated my entire living space around this single item.
+                    </p>
+</div>
+<!-- Media Gallery Scroll -->
+<div class="flex gap-3 overflow-x-auto no-scrollbar pb-2 -mx-6 px-6">
+<div class="flex-shrink-0 w-48 h-48 rounded-lg overflow-hidden relative shadow-sm">
+<img alt="Light on fabric" class="w-full h-full object-cover" data-alt="Abstract shadow on fabric texture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7ps8HN0UXG_P1KbqtjcYbqasLa9ACXAvW9oFP8a5AYikRuQPdnq_QjKZ-_iwejKoJH537XkXsl65LpNUqgt_GSzrKzBOLb6YSbMG9yOLpQhJACwA2a32NnU41hE99o-Es5dNb9mijKb8MJ_Yp5fOJBtU_L0hBiKrNgVabzaNkVOZjmG2L8oSCXy8aXTPUQqqBksyQVLic-AnFHcpxxp1AFm7fNy9Uv8bomyNu1DLZ_rADTCENf25I6ordt6NZ6UXrdlw1Tg1QbSQq"/>
+</div>
+</div>
+<div class="flex items-center gap-6 mt-2">
+<button class="flex items-center gap-1.5 text-xs text-neutral-500 hover:text-primary transition-colors">
+<span class="material-icons text-[18px]">thumb_up_off_alt</span>
+                        Helpful (8)
+                    </button>
+<button class="flex items-center gap-1.5 text-xs text-neutral-500 hover:text-red-500 transition-colors">
+<span class="material-icons text-[18px]">flag</span>
+                        Report
+                    </button>
+</div>
+</article>
+</div>
+<!-- End of List Loading/Pagination -->
+<div class="py-8 text-center">
+<button class="text-sm uppercase tracking-widest text-neutral-400 dark:text-neutral-500 hover:text-primary transition-colors">Load More Reviews</button>
+</div>
+</main>
+<!-- Bottom Sticky Action Bar (Simulating cart/context) -->
+<div class="fixed bottom-0 w-full bg-white dark:bg-neutral-900 border-t border-neutral-100 dark:border-neutral-800 p-4 pb-8 flex items-center justify-between z-50">
+<div class="flex flex-col">
+<span class="text-xs text-neutral-500">Total Price</span>
+<span class="text-lg font-medium">$2,499.00</span>
+</div>
+<button class="bg-primary text-white px-8 py-3 rounded-lg text-lg font-serif italic hover:bg-primary/90 transition-colors shadow-lg shadow-primary/20">
+            Add to Bag
+        </button>
+</div>
+</body></html>
