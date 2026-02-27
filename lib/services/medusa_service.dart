@@ -6,14 +6,14 @@ class MedusaService {
   static final MedusaService instance = MedusaService._internal();
   late final Dio dio;
 
-  // Use the host machine's local IP address for physical device testing
+  // Use the Netbird VPN IP address for testing across devices
   String get baseUrl {
     if (kIsWeb) {
-      return 'http://192.168.1.33:9000';
+      return 'http://100.127.197.52:9000';
     } else if (Platform.isAndroid) {
-      return 'http://192.168.1.33:9000'; // Override emulator IP for physical testing
+      return 'http://100.127.197.52:9000';
     } else {
-      return 'http://192.168.1.33:9000'; // iOS/Windows/macOS
+      return 'http://100.127.197.52:9000';
     }
   }
 
