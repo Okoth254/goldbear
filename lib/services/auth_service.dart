@@ -25,14 +25,15 @@ class AuthService {
   Future<void> signIn({required String email, required String password}) async {
     try {
       final response = await _dio.post(
-        '/store/auth',
+        '/auth/customer/emailpass/login',
         data: {'email': email, 'password': password},
       );
 
-      final customer = response.data['customer'];
-      _isSignedIn = true;
-      _currentUserEmail = customer['email'];
-      _currentUserId = customer['id'];
+      // In V2, the response structure for auth might differ. 
+      // Usually it returns a token or sets a session cookie.
+      // We might need to fetch the customer separately if not in response.
+      
+      await checkSession();
     } catch (e) {
       throw Exception('Login failed: Invalid email or password.');
     }
@@ -48,20 +49,19 @@ class AuthService {
       final firstName = names.first;
       final lastName = names.length > 1 ? names.sublist(1).join(' ') : '';
 
-      final response = await _dio.post(
-        '/store/customers',
+      // V2 registration endpoint
+      await _dio.post(
+        '/auth/customer/emailpass/register',
         data: {
-          'first_name': firstName,
-          'last_name': lastName,
           'email': email,
           'password': password,
+          'first_name': firstName,
+          'last_name': lastName,
         },
       );
 
-      final customer = response.data['customer'];
-      _isSignedIn = true;
-      _currentUserEmail = customer['email'];
-      _currentUserId = customer['id'];
+      // Automatically sign in after registration
+      await signIn(email: email, password: password);
     } catch (e) {
       if (e is DioException && e.response?.statusCode == 422) {
         throw Exception('Email already exists or invalid data.');
@@ -72,7 +72,7 @@ class AuthService {
 
   Future<void> checkSession() async {
     try {
-      final response = await _dio.get('/store/auth');
+      final response = await _dio.get('/store/customers/me');
       final customer = response.data['customer'];
 
       if (customer != null) {
