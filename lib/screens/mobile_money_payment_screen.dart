@@ -27,7 +27,7 @@ class _MobileMoneyPaymentScreenState
     super.dispose();
   }
 
-  void _startPayment() {
+  Future<void> _startPayment() async {
     if (_phoneController.text.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('Please enter a phone number')),
@@ -40,14 +40,37 @@ class _MobileMoneyPaymentScreenState
       _state = 'waiting';
     });
 
-    // Simulate STK push
-    Timer(const Duration(seconds: 3), () {
+    try {
+      final cartNotifier = ref.read(cartProvider.notifier);
+      
+      // 1. Create sessions
+      await cartNotifier.createPaymentSessions();
+      
+      // 2. Select M-Pesa
+      await cartNotifier.selectPaymentSession('mpesa');
+      
+      // 3. Attach Phone Number to Payment Session Data
+      await cartNotifier.updatePaymentSessionData(_phoneController.text);
+
+      // 4. Complete Cart to Trigger STK Push (Backend calls Daraja here)
+      final orderId = await cartNotifier.completeCart();
+      
       if (!mounted) return;
       setState(() {
         _isWaiting = false;
         _state = 'success';
       });
-    });
+      
+    } catch (e) {
+      if (!mounted) return;
+      setState(() {
+        _isWaiting = false;
+        _state = 'idle';
+      });
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Checkout failed: $e')),
+      );
+    }
   }
 
   void _finalizeOrder() {
@@ -56,21 +79,20 @@ class _MobileMoneyPaymentScreenState
         ? widget.total
         : ref.read(cartProvider.notifier).total;
 
-    // Create order
+    // Local state tracking
     final order = ref
         .read(ordersProvider.notifier)
         .addPromisedOrder(
           cartItems,
           total,
           paymentMethod: 'M-Pesa (${_phoneController.text})',
-          shippingAddress:
-              '123 Riverside Drive, Nairobi', // In real app, pass this
+          shippingAddress: '123 Riverside Drive, Nairobi', 
         );
 
-    // Clear cart
+    // Clear cart locally
     ref.read(cartProvider.notifier).clearCart();
 
-    // Navigate to confirmation with order
+    // Navigate to confirmation with local order copy
     context.go('/order-confirmation', extra: order);
   }
 

@@ -6,14 +6,14 @@ class MedusaService {
   static final MedusaService instance = MedusaService._internal();
   late final Dio dio;
 
-  // For Android emulator, use 10.0.2.2. Otherwise, use localhost.
+  // Use the host machine's local IP address for physical device testing
   String get baseUrl {
     if (kIsWeb) {
-      return 'http://localhost:9000';
+      return 'http://192.168.1.33:9000';
     } else if (Platform.isAndroid) {
-      return 'http://10.0.2.2:9000';
+      return 'http://192.168.1.33:9000'; // Override emulator IP for physical testing
     } else {
-      return 'http://localhost:9000'; // iOS/Windows/macOS
+      return 'http://192.168.1.33:9000'; // iOS/Windows/macOS
     }
   }
 

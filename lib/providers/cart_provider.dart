@@ -100,6 +100,49 @@ class Cart extends _$Cart {
     // await _dio.delete('/store/carts/$_medusaCartId/line-items/$lineItemId');
   }
 
+  // --- Checkout Flow Integration ---
+
+  Future<void> createPaymentSessions() async {
+    await _ensureCartExists();
+    if (_medusaCartId == null) throw Exception("No active cart");
+    
+    await _dio.post('/store/carts/$_medusaCartId/payment-sessions');
+  }
+
+  Future<void> selectPaymentSession(String providerId) async {
+    if (_medusaCartId == null) throw Exception("No active cart");
+
+    await _dio.post(
+      '/store/carts/$_medusaCartId/payment-session',
+      data: {'provider_id': providerId},
+    );
+  }
+
+  Future<void> updatePaymentSessionData(String phone) async {
+    if (_medusaCartId == null) throw Exception("No active cart");
+
+    await _dio.post(
+      '/store/carts/$_medusaCartId/payment-session/update',
+      data: {
+        'data': {
+          'phone': phone,
+        }
+      }
+    );
+  }
+
+  Future<String?> completeCart() async {
+    if (_medusaCartId == null) throw Exception("No active cart");
+
+    final response = await _dio.post('/store/carts/$_medusaCartId/complete');
+    
+    // Response type could be 'order' or 'cart' (if requires more action)
+    if (response.data['type'] == 'order') {
+      return response.data['data']['id']; // Return order ID
+    }
+    return null;
+  }
+
   void clearCart() {
     state = [];
     _medusaCartId = null; // Next add will create a new physical cart
