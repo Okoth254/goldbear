@@ -47,7 +47,16 @@ app.*.map.json
 # Medusa (backend) - not part of the Flutter app
 /medusa/
 /medusa-v2.13.1/
+medusa-api-report/
+medusa-src/
 *.tar.gz
 
 # Start script
 /start
+
+# Stray analysis/scratch files
+analysis.txt
+analysis_2.txt
+analysis_3.txt
+analysis_final.txt
+.metadata
