@@ -59,10 +59,10 @@ class _MobileMoneyPaymentScreenState
     // Create order
     final order = ref
         .read(ordersProvider.notifier)
-        .addOrder(
+        .addPromisedOrder(
           cartItems,
           total,
-          paymentMethod: 'M-Pesa',
+          paymentMethod: 'M-Pesa (${_phoneController.text})',
           shippingAddress:
               '123 Riverside Drive, Nairobi', // In real app, pass this
         );

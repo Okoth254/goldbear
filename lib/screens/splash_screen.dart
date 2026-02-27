@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import '../services/auth_service.dart';
 import '../theme/app_theme.dart';
-import '../services/mock_auth_service.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -43,9 +43,9 @@ class _SplashScreenState extends State<SplashScreen>
     // Route based on mock session state after splash
     Future.delayed(const Duration(milliseconds: 4000), () {
       if (mounted) {
-        final nextRoute = MockAuthService.instance.isSignedIn
+        final nextRoute = AuthService.instance.isSignedIn
             ? '/home'
-            : (MockAuthService.instance.hasSeenOnboarding
+            : (AuthService.instance.hasSeenOnboarding
                   ? '/login'
                   : '/onboarding');
         context.go(nextRoute);

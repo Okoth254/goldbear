@@ -5,6 +5,7 @@ import '../theme/app_theme.dart';
 import '../theme/app_colors.dart';
 import '../providers/stitch_providers.dart';
 import '../providers/cart_provider.dart';
+import '../providers/wishlist_provider.dart';
 
 class ProductDetailScreen extends ConsumerStatefulWidget {
   final String productId;
@@ -349,7 +350,38 @@ class _ProductDetailScreenState extends ConsumerState<ProductDetailScreen> {
                             ),
                           ),
                         ),
-                        // ... Share icons
+                        GestureDetector(
+                          onTap: () {
+                            ref
+                                .read(wishlistProvider.notifier)
+                                .toggleItem(product);
+                          },
+                          child: Container(
+                            padding: const EdgeInsets.all(8),
+                            decoration: BoxDecoration(
+                              color: Theme.of(context).dividerColor,
+                              shape: BoxShape.circle,
+                            ),
+                            child: Icon(
+                              (ref
+                                          .watch(wishlistProvider)
+                                          .value
+                                          ?.any((p) => p.id == product.id) ??
+                                      false)
+                                  ? Icons.favorite
+                                  : Icons.favorite_border,
+                              color:
+                                  (ref
+                                          .watch(wishlistProvider)
+                                          .value
+                                          ?.any((p) => p.id == product.id) ??
+                                      false)
+                                  ? AppTheme.primary
+                                  : Theme.of(context).colorScheme.onPrimary,
+                              size: 20,
+                            ),
+                          ),
+                        ),
                       ],
                     ),
                   ),
@@ -395,7 +427,14 @@ class _ProductDetailScreenState extends ConsumerState<ProductDetailScreen> {
                         Expanded(
                           child: ElevatedButton(
                             onPressed: () {
-                              ref.read(cartProvider.notifier).addItem(product);
+                              ref
+                                  .read(cartProvider.notifier)
+                                  .addItem(
+                                    product,
+                                    options: {
+                                      'Material': _materials[_selectedMaterial],
+                                    },
+                                  );
                               ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(
                                   content: Text('Added to cart'),

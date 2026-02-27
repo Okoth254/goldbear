@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../theme/app_theme.dart';
-import '../services/mock_auth_service.dart';
+import '../services/auth_service.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
@@ -29,12 +29,12 @@ class SettingsScreen extends StatelessWidget {
               _SettingsTile(
                 icon: Icons.person,
                 title: 'Personal Information',
-                onTap: () => _showComingSoon(context, 'Personal information'),
+                onTap: () => context.push('/personal-information'),
               ),
               _SettingsTile(
                 icon: Icons.lock,
                 title: 'Password & Security',
-                onTap: () => _showComingSoon(context, 'Password & security'),
+                onTap: () => context.push('/password-security'),
               ),
               _SettingsTile(
                 icon: Icons.notifications,
@@ -62,7 +62,7 @@ class SettingsScreen extends StatelessWidget {
               _SettingsTile(
                 icon: Icons.dark_mode,
                 title: 'Dark Mode',
-                onTap: () => _showComingSoon(context, 'Theme'),
+                onTap: () => context.push('/theme-settings'),
               ),
             ],
           ),
@@ -96,7 +96,7 @@ class SettingsScreen extends StatelessWidget {
           Center(
             child: TextButton(
               onPressed: () async {
-                await MockAuthService.instance.signOut();
+                await AuthService.instance.signOut();
                 if (!context.mounted) return;
                 context.go('/login');
               },

@@ -31,6 +31,11 @@ import 'screens/gallery_screen.dart';
 import 'screens/store_locator_screen.dart';
 import 'screens/orders_screen.dart';
 import 'screens/chat_screen.dart';
+import 'screens/design_consultation_screen.dart';
+import 'screens/showroom_visit_screen.dart';
+import 'screens/personal_information_screen.dart';
+import 'screens/password_security_screen.dart';
+import 'screens/theme_settings_screen.dart';
 
 final router = GoRouter(
   initialLocation: '/',
@@ -179,6 +184,16 @@ final router = GoRouter(
       builder: (context, state) => const ConciergeScreen(),
     ),
     GoRoute(
+      path: '/design-consultation',
+      name: '/design-consultation',
+      builder: (context, state) => const DesignConsultationScreen(),
+    ),
+    GoRoute(
+      path: '/showroom-visit',
+      name: '/showroom-visit',
+      builder: (context, state) => const ShowroomVisitScreen(),
+    ),
+    GoRoute(
       path: '/settings',
       name: '/settings',
       builder: (context, state) => const SettingsScreen(),
@@ -207,6 +222,21 @@ final router = GoRouter(
       path: '/chat',
       name: '/chat',
       builder: (context, state) => const ChatScreen(),
+    ),
+    GoRoute(
+      path: '/personal-information',
+      name: '/personal-information',
+      builder: (context, state) => const PersonalInformationScreen(),
+    ),
+    GoRoute(
+      path: '/password-security',
+      name: '/password-security',
+      builder: (context, state) => const PasswordSecurityScreen(),
+    ),
+    GoRoute(
+      path: '/theme-settings',
+      name: '/theme-settings',
+      builder: (context, state) => const ThemeSettingsScreen(),
     ),
   ],
 );

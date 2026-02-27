@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import '../services/auth_service.dart';
 import '../theme/app_theme.dart';
-import '../services/mock_auth_service.dart';
 
 class SignupScreen extends StatefulWidget {
   const SignupScreen({super.key});
@@ -41,7 +41,7 @@ class _SignupScreenState extends State<SignupScreen> {
 
     setState(() => _isCreatingAccount = true);
     try {
-      await MockAuthService.instance.signUp(
+      await AuthService.instance.signUp(
         name: _nameController.text,
         email: _emailController.text,
         password: _passwordController.text,

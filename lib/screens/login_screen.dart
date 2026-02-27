@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import '../services/auth_service.dart';
 import '../theme/app_theme.dart';
-import '../services/mock_auth_service.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -29,7 +29,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
     setState(() => _isLoading = true);
     try {
-      await MockAuthService.instance.signIn(
+      await AuthService.instance.signIn(
         email: _emailController.text,
         password: _passwordController.text,
       );

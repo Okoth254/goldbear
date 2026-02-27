@@ -437,7 +437,7 @@ class _CheckoutScreenState extends ConsumerState<CheckoutScreen> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      const Column(
+                      Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
@@ -445,7 +445,7 @@ class _CheckoutScreenState extends ConsumerState<CheckoutScreen> {
                             style: Theme.of(context).textTheme.labelMedium
                                 ?.copyWith(color: AppTheme.sageMist),
                           ),
-                          SizedBox(height: 4),
+                          const SizedBox(height: 4),
                         ],
                       ),
                       Column(

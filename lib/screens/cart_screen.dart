@@ -40,7 +40,7 @@ class _CartScreenState extends ConsumerState<CartScreen> {
                   context,
                 ).showSnackBar(const SnackBar(content: Text('Cart cleared')));
               },
-              child: const Text(
+              child: Text(
                 'Clear All',
                 style: Theme.of(
                   context,

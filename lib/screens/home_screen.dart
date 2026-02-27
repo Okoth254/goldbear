@@ -13,13 +13,12 @@ class HomeScreen extends ConsumerStatefulWidget {
 }
 
 class _HomeScreenState extends ConsumerState<HomeScreen> {
-  int _currentIndex = 0;
   int _selectedBottomNavIndex = 0;
 
   @override
   Widget build(BuildContext context) {
     final categoriesAsync = ref.watch(categoriesProvider);
-    final productsAsync = ref.watch(featuredProductsProvider);
+    final productsAsync = ref.watch(filteredProductsProvider);
 
     return Scaffold(
       backgroundColor: AppTheme.backgroundLight,
@@ -75,7 +74,13 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                   padding: const EdgeInsets.symmetric(horizontal: 16),
                   itemCount: categories.length + 1, // +1 for "All"
                   itemBuilder: (context, index) {
-                    final isSelected = index == _currentIndex;
+                    final selectedCategory = ref.watch(
+                      selectedCategoryProvider,
+                    );
+                    final isSelected = index == 0
+                        ? selectedCategory == null
+                        : selectedCategory?.id == categories[index - 1].id;
+
                     final name = index == 0
                         ? 'All'
                         : categories[index - 1].name;
@@ -84,9 +89,15 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                       padding: const EdgeInsets.only(right: 12),
                       child: GestureDetector(
                         onTap: () {
-                          setState(() {
-                            _currentIndex = index;
-                          });
+                          if (index == 0) {
+                            ref
+                                .read(selectedCategoryProvider.notifier)
+                                .setCategory(null);
+                          } else {
+                            ref
+                                .read(selectedCategoryProvider.notifier)
+                                .setCategory(categories[index - 1]);
+                          }
                         },
                         child: Container(
                           padding: const EdgeInsets.symmetric(
@@ -131,26 +142,30 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: productsAsync.when(
-                  data: (products) => GridView.builder(
-                    gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 2,
-                          crossAxisSpacing: 16,
-                          mainAxisSpacing: 16,
-                          childAspectRatio: 0.75,
+                  data: (products) => products.isEmpty
+                      ? const Center(
+                          child: Text('No products found in this category'),
+                        )
+                      : GridView.builder(
+                          gridDelegate:
+                              const SliverGridDelegateWithFixedCrossAxisCount(
+                                crossAxisCount: 2,
+                                crossAxisSpacing: 16,
+                                mainAxisSpacing: 16,
+                                childAspectRatio: 0.75,
+                              ),
+                          itemCount: products.length,
+                          itemBuilder: (context, index) {
+                            final product = products[index];
+                            return _ProductCard(
+                              product: product,
+                              onTap: () => context.pushNamed(
+                                '/product-detail',
+                                pathParameters: {'id': product.id},
+                              ),
+                            );
+                          },
                         ),
-                    itemCount: products.length,
-                    itemBuilder: (context, index) {
-                      final product = products[index];
-                      return _ProductCard(
-                        product: product,
-                        onTap: () => context.pushNamed(
-                          '/product-detail',
-                          pathParameters: {'id': product.id},
-                        ),
-                      );
-                    },
-                  ),
                   loading: () =>
                       const Center(child: CircularProgressIndicator()),
                   error: (err, stack) => Center(child: Text('Error: $err')),

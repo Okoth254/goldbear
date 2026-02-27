@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../theme/app_theme.dart';
-import '../services/mock_auth_service.dart';
+import '../providers/wishlist_provider.dart';
+import '../providers/orders_provider.dart';
+import '../services/auth_service.dart';
 
-class ProfileScreen extends StatelessWidget {
+class ProfileScreen extends ConsumerWidget {
   const ProfileScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final orders = ref.watch(ordersProvider);
+    final wishlist = ref.watch(wishlistProvider);
+
     return Scaffold(
       backgroundColor: AppTheme.backgroundLight,
       body: SafeArea(
@@ -122,14 +128,32 @@ class ProfileScreen extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const _StatItem(count: '05', label: 'Orders'),
+                    orders.when(
+                      data: (ordersList) => _StatItem(
+                        count: ordersList.length.toString().padLeft(2, '0'),
+                        label: 'Orders',
+                      ),
+                      loading: () =>
+                          const _StatItem(count: '--', label: 'Orders'),
+                      error: (error, stack) =>
+                          const _StatItem(count: '00', label: 'Orders'),
+                    ),
                     Container(
                       height: 40,
                       width: 1,
                       margin: const EdgeInsets.symmetric(horizontal: 32),
                       color: AppTheme.sageMist.withValues(alpha: 0.3),
                     ),
-                    const _StatItem(count: '12', label: 'Saved'),
+                    wishlist.when(
+                      data: (wishlistItems) => _StatItem(
+                        count: wishlistItems.length.toString().padLeft(2, '0'),
+                        label: 'Saved',
+                      ),
+                      loading: () =>
+                          const _StatItem(count: '--', label: 'Saved'),
+                      error: (error, stack) =>
+                          const _StatItem(count: '00', label: 'Saved'),
+                    ),
                   ],
                 ),
               ),
@@ -165,7 +189,7 @@ class ProfileScreen extends StatelessWidget {
               // Sign out button
               TextButton(
                 onPressed: () async {
-                  await MockAuthService.instance.signOut();
+                  await AuthService.instance.signOut();
                   if (!context.mounted) return;
                   context.go('/login');
                 },

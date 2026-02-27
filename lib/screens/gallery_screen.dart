@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import '../theme/app_theme.dart';
+import '../providers/stitch_providers.dart';
 
-class GalleryScreen extends StatelessWidget {
+class GalleryScreen extends ConsumerWidget {
   const GalleryScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    final List<Map<String, String>> categories = [
-      {'name': 'Living Room', 'count': '24'},
-      {'name': 'Bedroom', 'count': '18'},
-      {'name': 'Dining', 'count': '15'},
-      {'name': 'Office', 'count': '12'},
-      {'name': 'Outdoor', 'count': '8'},
-    ];
+  Widget build(BuildContext context, WidgetRef ref) {
+    final categoriesAsync = ref.watch(categoriesProvider);
+    final productsAsync = ref.watch(
+      featuredProductsProvider,
+    ); // Can use filtered later
 
     return Scaffold(
       backgroundColor: AppTheme.backgroundLight,
@@ -25,9 +25,18 @@ class GalleryScreen extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('Gallery', style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold)),
+                    Text(
+                      'Gallery',
+                      style: TextStyle(
+                        fontSize: 28,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                     SizedBox(height: 8),
-                    Text('Explore curated collections', style: TextStyle(color: AppTheme.ochreEarth)),
+                    Text(
+                      'Explore curated collections',
+                      style: TextStyle(color: AppTheme.ochreEarth),
+                    ),
                   ],
                 ),
               ),
@@ -36,101 +45,151 @@ class GalleryScreen extends StatelessWidget {
             SliverToBoxAdapter(
               child: SizedBox(
                 height: 120,
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  padding: const EdgeInsets.symmetric(horizontal: 16),
-                  itemCount: categories.length,
-                  itemBuilder: (context, index) {
-                    return Container(
-                      width: 100,
-                      margin: const EdgeInsets.only(right: 12),
-                      decoration: BoxDecoration(
-                        color: AppTheme.deepForest,
-                        borderRadius: BorderRadius.circular(16),
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(Icons.chair, color: Colors.white.withValues(alpha: 0.7), size: 32),
-                          const SizedBox(height: 8),
-                          Text(categories[index]['name']!, style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w500)),
-                          Text(categories[index]['count']!, style: TextStyle(color: Colors.white.withValues(alpha: 0.7), fontSize: 12)),
-                        ],
-                      ),
-                    );
-                  },
+                child: categoriesAsync.when(
+                  data: (categories) => ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    itemCount: categories.length,
+                    itemBuilder: (context, index) {
+                      final category = categories[index];
+                      // Use a random "count" since we aren't calculating exactly from mock yet
+                      final count = (24 - (index * 3)).toString();
+
+                      return GestureDetector(
+                        onTap: () {
+                          // Filter logic could be applied here
+                        },
+                        child: Container(
+                          width: 140, // Wider for the image
+                          margin: const EdgeInsets.only(right: 12),
+                          decoration: BoxDecoration(
+                            color: AppTheme.deepForest,
+                            borderRadius: BorderRadius.circular(16),
+                            image: category.imageUrl.startsWith('http')
+                                ? DecorationImage(
+                                    image: NetworkImage(category.imageUrl),
+                                    fit: BoxFit.cover,
+                                    colorFilter: ColorFilter.mode(
+                                      Colors.black.withValues(alpha: 0.4),
+                                      BlendMode.darken,
+                                    ),
+                                  )
+                                : null,
+                          ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                category.name,
+                                style: const TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 16,
+                                ),
+                              ),
+                              const SizedBox(height: 4),
+                              Text(
+                                '$count items',
+                                style: TextStyle(
+                                  color: Colors.white.withValues(alpha: 0.8),
+                                  fontSize: 12,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                  loading: () =>
+                      const Center(child: CircularProgressIndicator()),
+                  error: (err, stack) =>
+                      const Center(child: Text('Error loading categories')),
                 ),
               ),
             ),
             const SliverToBoxAdapter(child: SizedBox(height: 16)),
-            // Featured section
-            SliverToBoxAdapter(
-              child: Padding(
-                padding: const EdgeInsets.all(16),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Text('Featured', style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600)),
-                    const SizedBox(height: 16),
-                    Container(
-                      height: 200,
-                      decoration: BoxDecoration(
-                        color: AppTheme.deepForest,
-                        borderRadius: BorderRadius.circular(16),
-                      ),
-                      child: const Center(child: Text('Featured Collection', style: TextStyle(color: Colors.white, fontSize: 24))),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            // Products grid
-            SliverPadding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              sliver: SliverGrid(
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  crossAxisSpacing: 12,
-                  mainAxisSpacing: 12,
-                  childAspectRatio: 0.8,
-                ),
-                delegate: SliverChildBuilderDelegate(
-                  (context, index) {
-                    return Container(
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(16),
-                        boxShadow: [BoxShadow(color: Colors.black.withValues(alpha: 0.05), blurRadius: 10)],
-                      ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Expanded(
-                            child: Container(
-                              decoration: BoxDecoration(
-                                color: AppTheme.sageMist.withValues(alpha: 0.2),
-                                borderRadius: const BorderRadius.vertical(top: Radius.circular(16)),
+            // Products grid using Riverpod
+            productsAsync.when(
+              data: (products) => SliverPadding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                sliver: SliverGrid(
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    crossAxisSpacing: 12,
+                    mainAxisSpacing: 12,
+                    childAspectRatio: 0.8,
+                  ),
+                  delegate: SliverChildBuilderDelegate((context, index) {
+                    final product = products[index];
+                    return GestureDetector(
+                      onTap: () =>
+                          context.push('/product-detail/${product.id}'),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(16),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withValues(alpha: 0.05),
+                              blurRadius: 10,
+                            ),
+                          ],
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Expanded(
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  color: AppTheme.sageMist.withValues(
+                                    alpha: 0.2,
+                                  ),
+                                  borderRadius: const BorderRadius.vertical(
+                                    top: Radius.circular(16),
+                                  ),
+                                  image: DecorationImage(
+                                    image: NetworkImage(product.imageUrl),
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
                               ),
-                              child: const Center(child: Icon(Icons.chair, size: 48, color: AppTheme.deepForest)),
                             ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(12),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text('Item ${index + 1}', style: const TextStyle(fontWeight: FontWeight.w500)),
-                                Text('\$${(index + 1) * 500 + 100}', style: const TextStyle(color: AppTheme.deepForest, fontWeight: FontWeight.w600)),
-                              ],
+                            Padding(
+                              padding: const EdgeInsets.all(12),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    product.name,
+                                    style: const TextStyle(
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                    maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                                  Text(
+                                    '\$${product.price.toStringAsFixed(2)}',
+                                    style: const TextStyle(
+                                      color: AppTheme.deepForest,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     );
-                  },
-                  childCount: 8,
+                  }, childCount: products.length),
                 ),
               ),
+              loading: () => const SliverToBoxAdapter(
+                child: Center(child: CircularProgressIndicator()),
+              ),
+              error: (err, stack) =>
+                  SliverToBoxAdapter(child: Center(child: Text('Error: $err'))),
             ),
             const SliverToBoxAdapter(child: SizedBox(height: 100)),
           ],

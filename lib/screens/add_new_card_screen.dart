@@ -47,10 +47,10 @@ class _AddNewCardScreenState extends ConsumerState<AddNewCardScreen> {
 
       final order = ref
           .read(ordersProvider.notifier)
-          .addOrder(
+          .addPromisedOrder(
             cartItems,
             total,
-            paymentMethod: 'Credit Card',
+            paymentMethod: 'Credit Card (**** 4242)',
             shippingAddress: '123 Riverside Drive, Nairobi',
           );
 

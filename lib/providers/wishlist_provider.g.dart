@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'orders_provider.dart';
+part of 'wishlist_provider.dart';
 
 // **************************************************************************
 // RiverpodGenerator
@@ -9,42 +9,43 @@ part of 'orders_provider.dart';
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
 
-@ProviderFor(Orders)
-final ordersProvider = OrdersProvider._();
+@ProviderFor(Wishlist)
+final wishlistProvider = WishlistProvider._();
 
-final class OrdersProvider extends $AsyncNotifierProvider<Orders, List<Order>> {
-  OrdersProvider._()
+final class WishlistProvider
+    extends $AsyncNotifierProvider<Wishlist, List<Product>> {
+  WishlistProvider._()
     : super(
         from: null,
         argument: null,
         retry: null,
-        name: r'ordersProvider',
+        name: r'wishlistProvider',
         isAutoDispose: true,
         dependencies: null,
         $allTransitiveDependencies: null,
       );
 
   @override
-  String debugGetCreateSourceHash() => _$ordersHash();
+  String debugGetCreateSourceHash() => _$wishlistHash();
 
   @$internal
   @override
-  Orders create() => Orders();
+  Wishlist create() => Wishlist();
 }
 
-String _$ordersHash() => r'253c5d37e4a94393c2d93503e84a526b19aea81f';
+String _$wishlistHash() => r'2a4a8770e157bf1bc765a0bd71f633bd8df073ba';
 
-abstract class _$Orders extends $AsyncNotifier<List<Order>> {
-  FutureOr<List<Order>> build();
+abstract class _$Wishlist extends $AsyncNotifier<List<Product>> {
+  FutureOr<List<Product>> build();
   @$mustCallSuper
   @override
   void runBuild() {
-    final ref = this.ref as $Ref<AsyncValue<List<Order>>, List<Order>>;
+    final ref = this.ref as $Ref<AsyncValue<List<Product>>, List<Product>>;
     final element =
         ref.element
             as $ClassProviderElement<
-              AnyNotifier<AsyncValue<List<Order>>, List<Order>>,
-              AsyncValue<List<Order>>,
+              AnyNotifier<AsyncValue<List<Product>>, List<Product>>,
+              AsyncValue<List<Product>>,
               Object?,
               Object?
             >;

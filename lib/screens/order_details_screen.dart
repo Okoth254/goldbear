@@ -15,94 +15,113 @@ class OrderDetailsScreen extends ConsumerWidget {
     // We can't use getOrderById efficiently in build if we want reactivity on the list.
     // Instead, watch the list and find the item.
     final orders = ref.watch(ordersProvider);
-    final order = orders.firstWhere(
-      (o) => o.id == orderId,
-      orElse: () =>
-          throw Exception('Order not found'), // Handle gracefully in real app
-    );
-
-    // If order not found (e.g. invalid ID), handle it.
-    // Ideally we'd have a separate FutureProvider for single orders if fetching from API.
-    // For now with local state, this is fine, but might crash if not found.
-    // Let's add a safe check if we can't ensure it exists.
-    // However, catchError/orElse in firstWhere above handles it if we modify it.
-
-    return Scaffold(
-      backgroundColor: AppTheme.backgroundLight,
-      appBar: AppBar(
-        title: const Text('Order Details'),
+    return orders.when(
+      loading: () => const Scaffold(
         backgroundColor: AppTheme.backgroundLight,
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () => context.pop(),
-        ),
+        body: Center(child: CircularProgressIndicator()),
       ),
-      body: ListView(
-        padding: const EdgeInsets.all(16),
-        children: [
-          ListTile(
-            contentPadding: EdgeInsets.zero,
-            title: Text(
-              'Order ${order.id}',
-              style: const TextStyle(fontWeight: FontWeight.w700),
-            ),
-            subtitle: Text(
-              'Placed on ${DateFormat.yMMMd().format(order.date)}',
-            ),
-            trailing: Chip(
-              label: Text(order.status),
-              backgroundColor: _getStatusColor(
-                order.status,
-              ).withValues(alpha: 0.1),
-              labelStyle: TextStyle(color: _getStatusColor(order.status)),
+      error: (error, stack) => Scaffold(
+        backgroundColor: AppTheme.backgroundLight,
+        appBar: AppBar(
+          title: const Text('Order Details'),
+          backgroundColor: AppTheme.backgroundLight,
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back),
+            onPressed: () => context.pop(),
+          ),
+        ),
+        body: Center(child: Text('Error loading order: $error')),
+      ),
+      data: (orderList) {
+        final order = orderList.firstWhere(
+          (o) => o.id == orderId,
+          orElse: () => throw Exception('Order not found'),
+        );
+
+        return Scaffold(
+          backgroundColor: AppTheme.backgroundLight,
+          appBar: AppBar(
+            title: const Text('Order Details'),
+            backgroundColor: AppTheme.backgroundLight,
+            leading: IconButton(
+              icon: const Icon(Icons.arrow_back),
+              onPressed: () => context.pop(),
             ),
           ),
-          const Divider(),
-          const Text('Items', style: TextStyle(fontWeight: FontWeight.w600)),
-          const SizedBox(height: 8),
-          ...order.items.map((item) => _item(item)),
-          const SizedBox(height: 12),
-          const Text(
-            'Shipping Address',
-            style: TextStyle(fontWeight: FontWeight.w600),
-          ),
-          const SizedBox(height: 6),
-          const Text(
-            '123 Riverside Drive\nNairobi, Kenya',
-          ), // Mock address for now
-          const SizedBox(height: 12),
-          const Text('Payment', style: TextStyle(fontWeight: FontWeight.w600)),
-          const SizedBox(height: 6),
-          const Text('Paid via M-Pesa'), // Mock payment method
-          const SizedBox(height: 20),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          body: ListView(
+            padding: const EdgeInsets.all(16),
             children: [
+              ListTile(
+                contentPadding: EdgeInsets.zero,
+                title: Text(
+                  'Order ${order.id}',
+                  style: const TextStyle(fontWeight: FontWeight.w700),
+                ),
+                subtitle: Text(
+                  'Placed on ${DateFormat.yMMMd().format(order.date)}',
+                ),
+                trailing: Chip(
+                  label: Text(order.status),
+                  backgroundColor: _getStatusColor(
+                    order.status,
+                  ).withValues(alpha: 0.1),
+                  labelStyle: TextStyle(color: _getStatusColor(order.status)),
+                ),
+              ),
+              const Divider(),
               const Text(
-                'Total Amount',
+                'Items',
                 style: TextStyle(fontWeight: FontWeight.w600),
               ),
-              Text(
-                '\$${order.total.toStringAsFixed(2)}',
-                style: const TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 18,
-                ),
+              const SizedBox(height: 8),
+              ...order.items.map((item) => _item(item)),
+              const SizedBox(height: 12),
+              const Text(
+                'Shipping Address',
+                style: TextStyle(fontWeight: FontWeight.w600),
+              ),
+              const SizedBox(height: 6),
+              const Text(
+                '123 Riverside Drive\nNairobi, Kenya',
+              ), // Mock address for now
+              const SizedBox(height: 12),
+              const Text(
+                'Payment',
+                style: TextStyle(fontWeight: FontWeight.w600),
+              ),
+              const SizedBox(height: 6),
+              const Text('Paid via M-Pesa'), // Mock payment method
+              const SizedBox(height: 20),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text(
+                    'Total Amount',
+                    style: TextStyle(fontWeight: FontWeight.w600),
+                  ),
+                  Text(
+                    '\$${order.total.toStringAsFixed(2)}',
+                    style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 20),
+              ElevatedButton(
+                onPressed: () => context.pushNamed('/delivery-tracking'),
+                child: const Text('Track Order'),
+              ),
+              const SizedBox(height: 8),
+              OutlinedButton(
+                onPressed: () => context.pushNamed('/product-reviews'),
+                child: const Text('Write a Review'),
               ),
             ],
           ),
-          const SizedBox(height: 20),
-          ElevatedButton(
-            onPressed: () => context.pushNamed('/delivery-tracking'),
-            child: const Text('Track Order'),
-          ),
-          const SizedBox(height: 8),
-          OutlinedButton(
-            onPressed: () => context.pushNamed('/product-reviews'),
-            child: const Text('Write a Review'),
-          ),
-        ],
-      ),
+        );
+      },
     );
   }
 

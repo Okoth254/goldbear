@@ -94,6 +94,58 @@ final class CategoriesProvider
 
 String _$categoriesHash() => r'1f137f5768d422ccff7c3628be842ab30e0ae84c';
 
+@ProviderFor(SelectedCategory)
+final selectedCategoryProvider = SelectedCategoryProvider._();
+
+final class SelectedCategoryProvider
+    extends $NotifierProvider<SelectedCategory, Category?> {
+  SelectedCategoryProvider._()
+    : super(
+        from: null,
+        argument: null,
+        retry: null,
+        name: r'selectedCategoryProvider',
+        isAutoDispose: true,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+      );
+
+  @override
+  String debugGetCreateSourceHash() => _$selectedCategoryHash();
+
+  @$internal
+  @override
+  SelectedCategory create() => SelectedCategory();
+
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(Category? value) {
+    return $ProviderOverride(
+      origin: this,
+      providerOverride: $SyncValueProvider<Category?>(value),
+    );
+  }
+}
+
+String _$selectedCategoryHash() => r'83d86447e99da125a1c516f823b6e4a03ff7b8c1';
+
+abstract class _$SelectedCategory extends $Notifier<Category?> {
+  Category? build();
+  @$mustCallSuper
+  @override
+  void runBuild() {
+    final ref = this.ref as $Ref<Category?, Category?>;
+    final element =
+        ref.element
+            as $ClassProviderElement<
+              AnyNotifier<Category?, Category?>,
+              Category?,
+              Object?,
+              Object?
+            >;
+    element.handleCreate(ref, build);
+  }
+}
+
 @ProviderFor(featuredProducts)
 final featuredProductsProvider = FeaturedProductsProvider._();
 
@@ -132,6 +184,45 @@ final class FeaturedProductsProvider
 }
 
 String _$featuredProductsHash() => r'716d9a13ce8ad5a8bc8d863fb91c4545735644b6';
+
+@ProviderFor(filteredProducts)
+final filteredProductsProvider = FilteredProductsProvider._();
+
+final class FilteredProductsProvider
+    extends
+        $FunctionalProvider<
+          AsyncValue<List<Product>>,
+          List<Product>,
+          FutureOr<List<Product>>
+        >
+    with $FutureModifier<List<Product>>, $FutureProvider<List<Product>> {
+  FilteredProductsProvider._()
+    : super(
+        from: null,
+        argument: null,
+        retry: null,
+        name: r'filteredProductsProvider',
+        isAutoDispose: true,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+      );
+
+  @override
+  String debugGetCreateSourceHash() => _$filteredProductsHash();
+
+  @$internal
+  @override
+  $FutureProviderElement<List<Product>> $createElement(
+    $ProviderPointer pointer,
+  ) => $FutureProviderElement(pointer);
+
+  @override
+  FutureOr<List<Product>> create(Ref ref) {
+    return filteredProducts(ref);
+  }
+}
+
+String _$filteredProductsHash() => r'36dd39574c55d38f7b81278f885c0274f5b7dc68';
 
 @ProviderFor(product)
 final productProvider = ProductFamily._();
