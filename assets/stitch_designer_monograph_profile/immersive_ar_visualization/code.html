@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Immersive AR Visualization</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Montserrat:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1754cf",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#111621",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"],
+                        "technical": ["Montserrat", "sans-serif"],
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>/* Custom styles for the AR effect */
+.ar-viewport {
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuAfiChkoC9tMIcrKCD8dYYNyV556XxFD4B-Ogaa6LzwLb4cDIVVO04kBf3A3lIGQncWT7GyMModY7sczkdsre9aFf8qMIrME2yOVho9SoGXRr9x4OS7lPB5kPtRc6N4v3X28MRsFbv9ZdDdWetW5e3XfbH6Vr0GE4BWgQy48KMH22iXrTUUhcXJdzX47z1vwRlQxwYog003XCk6XqTnCXoS2JdRXQgYcWQGmajpPOh3nddyMCIScZDj6csWaTzFsPB1ivKsg8kGDiyH);
+    background-size: cover;
+    background-position: center
+    }
+/* Glassmorphism utility */
+.glass-panel {
+    background: rgba(17, 22, 33, 0.65);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1)
+    }
+/* Dimension line styles */
+.dimension-line {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5)
+    }
+.dimension-dot {
+    width: 6px;
+    height: 6px;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5)
+    }
+/* Text shadow for legibility over camera feed */
+.text-shadow-sm {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8)
+    }
+/* 3D Model shadow simulation */
+.model-shadow {
+    background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 70%);
+    transform: scaley(0.3)
+    }</style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display h-screen w-screen overflow-hidden relative text-white">
+<!-- AR Viewport Background (Simulating Camera Feed) -->
+<div class="absolute inset-0 ar-viewport z-0" data-alt="Modern living room interior with sunlight streaming onto wooden floors">
+<!-- Overlay gradient for better text visibility at top/bottom -->
+<div class="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60 pointer-events-none"></div>
+</div>
+<!-- Top Navigation -->
+<header class="absolute top-0 left-0 right-0 z-50 pt-12 px-6 flex justify-between items-start">
+<button class="glass-panel w-10 h-10 rounded-full flex items-center justify-center hover:bg-white/10 transition-colors group">
+<span class="material-icons text-white group-hover:scale-110 transition-transform text-xl">close</span>
+</button>
+<div class="glass-panel px-4 py-1.5 rounded-full flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+<span class="text-xs font-medium tracking-wide uppercase text-white/90">Surface Detected</span>
+</div>
+<button class="glass-panel w-10 h-10 rounded-full flex items-center justify-center hover:bg-white/10 transition-colors">
+<span class="material-icons text-white text-xl">help_outline</span>
+</button>
+</header>
+<!-- AR Content Layer -->
+<main class="absolute inset-0 z-10 flex items-center justify-center pointer-events-none">
+<!-- 3D Object Container -->
+<div class="relative w-full max-w-md aspect-square mt-20 pointer-events-auto group">
+<!-- Simulated Shadow -->
+<div class="absolute -bottom-8 left-1/2 -translate-x-1/2 w-3/4 h-24 model-shadow blur-md"></div>
+<!-- The Sofa Image (3D Model Representation) -->
+<img alt="Modern green velvet sofa 3D model" class="w-full h-full object-contain drop-shadow-2xl transform transition-transform duration-500 ease-out scale-100 active:scale-95 origin-center" data-alt="Green velvet sofa isolated with transparent background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAReJP_djTMTYTQtynzNx117bgkDX0riS2PobT2YAeMaCh3wIwNFjHmnA_VoSS6d0k0317npeugGWvtJQa-E-qTic_q1mCqg0KFhQtO9Vv5zr1o13-dFauMCEEmwRb_C_Y79WBczrgxdCXKdtDefn88wA57PQi_AGyx6CZQpbGAah4sOcJ2ZvZg7RqwHerEEnUmff0aYLs_X8Gb34Td7trbLe-f48MaM2XH07_BgbR3wI08uNSl7pWchM3b97oN0vZlPPp_DMHi1lAX"/>
+<!-- Width Dimension -->
+<div class="absolute bottom-[10%] left-[10%] right-[10%] h-8 flex flex-col items-center justify-end">
+<span class="font-technical text-sm font-semibold tracking-wider text-white bg-black/60 px-2 py-0.5 rounded mb-1 backdrop-blur-sm">240 cm</span>
+<div class="w-full h-px bg-white/80 relative flex items-center justify-between shadow-sm">
+<div class="w-px h-2 bg-white/80 absolute left-0 -top-1"></div>
+<div class="w-px h-2 bg-white/80 absolute right-0 -top-1"></div>
+</div>
+</div>
+<!-- Height Dimension -->
+<div class="absolute top-[30%] bottom-[15%] -right-4 w-8 flex flex-row items-center justify-start">
+<div class="h-full w-px bg-white/80 relative flex flex-col items-center justify-between shadow-sm order-1">
+<div class="w-2 h-px bg-white/80 absolute top-0 -left-1"></div>
+<div class="w-2 h-px bg-white/80 absolute bottom-0 -left-1"></div>
+</div>
+<span class="font-technical text-sm font-semibold tracking-wider text-white bg-black/60 px-2 py-0.5 rounded ml-2 backdrop-blur-sm whitespace-nowrap order-2">85 cm</span>
+</div>
+<!-- Interactive Anchor Point -->
+<div class="absolute top-[30%] left-[50%] w-6 h-6 -translate-x-1/2 -translate-y-1/2 cursor-pointer group/anchor">
+<div class="w-3 h-3 bg-white rounded-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 shadow-lg ring-4 ring-white/30 group-hover/anchor:ring-white/50 transition-all"></div>
+<div class="absolute left-6 top-1/2 -translate-y-1/2 bg-white/90 text-primary px-2 py-1 rounded text-xs font-semibold opacity-0 group-hover/anchor:opacity-100 transition-opacity whitespace-nowrap shadow-xl">
+                    Velvet Fabric
+                </div>
+</div>
+</div>
+</main>
+<!-- Gesture Hints (Fading Overlay) -->
+<div class="absolute top-1/4 left-0 w-full flex justify-center z-20 pointer-events-none opacity-60">
+<div class="flex gap-8">
+<div class="flex flex-col items-center gap-2">
+<span class="material-icons text-3xl drop-shadow-lg">pinch</span>
+<span class="text-[10px] uppercase tracking-widest font-medium text-shadow-sm">Scale</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<span class="material-icons text-3xl drop-shadow-lg">360</span>
+<span class="text-[10px] uppercase tracking-widest font-medium text-shadow-sm">Rotate</span>
+</div>
+</div>
+</div>
+<!-- Bottom Action Bar / HUD -->
+<footer class="absolute bottom-0 left-0 right-0 z-50 pb-8 pt-6 px-6 bg-gradient-to-t from-background-dark/90 via-background-dark/40 to-transparent">
+<!-- Product Quick Info -->
+<div class="mb-6 flex items-end justify-between">
+<div class="text-white">
+<h2 class="text-2xl font-light font-display leading-tight mb-1">Mags Soft Low</h2>
+<p class="text-sm text-gray-300 font-light opacity-90">HAY Design</p>
+</div>
+<div class="text-right">
+<div class="glass-panel px-3 py-1 rounded-lg inline-block mb-1">
+<span class="text-lg font-medium tracking-tight">$3,450.00</span>
+</div>
+</div>
+</div>
+<!-- Controls Dock -->
+<div class="glass-panel rounded-2xl p-2 flex items-center justify-between gap-3 shadow-2xl backdrop-blur-xl border-t border-white/10">
+<!-- Screenshot Button -->
+<button aria-label="Capture Photo" class="w-12 h-12 flex-shrink-0 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 flex items-center justify-center transition-all active:scale-95 group">
+<div class="w-6 h-6 rounded-full border-2 border-white group-hover:bg-white transition-colors"></div>
+</button>
+<!-- Color Swatches (Mini Scroll) -->
+<div class="flex-1 overflow-x-auto flex items-center gap-3 px-2 hide-scrollbar">
+<button class="w-8 h-8 rounded-full bg-[#3a5a40] ring-2 ring-white shadow-lg flex-shrink-0 relative">
+<!-- Checkmark for active -->
+<span class="absolute inset-0 flex items-center justify-center">
+<span class="material-icons text-white text-xs">check</span>
+</span>
+</button>
+<button class="w-8 h-8 rounded-full bg-[#1c1c1c] border border-white/20 flex-shrink-0 hover:scale-110 transition-transform"></button>
+<button class="w-8 h-8 rounded-full bg-[#d4a373] border border-white/20 flex-shrink-0 hover:scale-110 transition-transform"></button>
+<button class="w-8 h-8 rounded-full bg-[#a8dadc] border border-white/20 flex-shrink-0 hover:scale-110 transition-transform"></button>
+</div>
+<!-- Add to Cart -->
+<button class="bg-primary hover:bg-primary/90 text-white h-12 px-6 rounded-lg flex items-center gap-2 transition-all active:scale-95 shadow-lg shadow-primary/20">
+<span class="material-icons text-sm">shopping_bag</span>
+<span class="font-medium text-sm whitespace-nowrap">Add to Cart</span>
+</button>
+</div>
+<!-- Safe Area Spacer for iOS Home Indicator -->
+<div class="h-4"></div>
+</footer>
+</body></html>

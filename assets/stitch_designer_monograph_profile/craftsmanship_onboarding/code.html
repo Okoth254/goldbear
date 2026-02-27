@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Craftsmanship Onboarding</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#8ce236",
+                        "background-light": "#f7f8f6",
+                        "background-dark": "#192111",
+                        // Custom derived neutrals for harmony
+                        "neutral-surface": "#eef2eb",
+                        "neutral-text": "#2d3826",
+                        "neutral-text-light": "#6a7a5f",
+                    },
+                    fontFamily: {
+                        "display": ["Noto Serif", "serif"],
+                        "headline": ["Cormorant Garamond", "serif"],
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        /* Smooth fade-in animation for gallery feel */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen flex items-center justify-center font-display antialiased overflow-hidden">
+<!-- Mobile Device Container -->
+<main class="w-full h-screen max-w-md mx-auto relative flex flex-col bg-background-light dark:bg-background-dark shadow-2xl overflow-hidden">
+<!-- Top Navigation / Skip -->
+<header class="absolute top-0 left-0 right-0 z-20 p-6 flex justify-between items-center">
+<div class="w-8 h-1 bg-neutral-text dark:bg-white rounded-full opacity-20"></div> <!-- Pseudo Logo Mark -->
+<button class="text-neutral-text-light dark:text-neutral-400 text-sm tracking-widest hover:text-primary transition-colors uppercase">
+                Skip
+            </button>
+</header>
+<!-- Main Content Area -->
+<div class="flex-1 flex flex-col relative">
+<!-- Hero Image Section: Digital Gallery Style -->
+<!-- Using a tall aspect ratio to emphasize verticality and gallery feel -->
+<div class="relative h-[65%] w-full overflow-hidden rounded-b-[2rem]">
+<!-- Main Macro Image -->
+<div class="absolute inset-0 bg-neutral-surface">
+<img alt="Macro close-up of dark walnut wood grain texture" class="w-full h-full object-cover opacity-90 animate-fade-in" data-alt="Macro close-up of dark walnut wood grain texture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDu35aocCBd3c75DRFWAIbCCh7PsNZBRyvCanPIkPVYT2Wbqk1kgz0oBIiFL9cAq4qbnyQZv1geISQngwoyxy5-gD-XAOJ-11Rh1yXwW6LF3TrH1HuPIwShHHXw16FFb_fJ-6AiegCuhss-5sJttnci2SgK49-IXvqevEVkDEJ5O8XRNTamUBetajl_IRSrxzSWzDgaUaVvK9KZnudvAV10umbJqDHKEWW06rxrx-arywLYV2Ajt2-rmtJ7ozRp2MEpkyDbLQhknDZr"/>
+</div>
+<!-- Floating Detail Card (Marble) to create depth/layering -->
+<div class="absolute -bottom-16 -right-4 w-48 h-64 rounded-xl overflow-hidden border-4 border-background-light dark:border-background-dark shadow-xl transform -rotate-3 z-10 animate-fade-in delay-200">
+<img alt="Close up of white carrara marble texture" class="w-full h-full object-cover" data-alt="Close up of white carrara marble texture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyAfll7DAk9gxDtdWZsB4LzSZrp3e3Fa26EsQh29S9_AltMqG8pgAgyPMhrexQ6dtgaqI8rNhf9kmR7KlM0PqlmrlF7eQ4AtfDE-wrankmSKntwwgMNuPgEyFuf_eZ5x4n5-_bxlKg4nM7B2ENaXjjkQej4VIQZpuwvzzPkfa4DRDGRQsCWgYF4QpPKBrjTyxU8zJXQbZL-aExKp986FjQpjfKC8j4bEYnUCUQE1vQomd34TSPFSy2t9dSgEfQMrWpnCd7XYH18FN3"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+</div>
+<!-- Overlay Gradient for text readability if needed, though mostly using negative space below -->
+<div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/10 pointer-events-none"></div>
+</div>
+<!-- Text Content Section -->
+<div class="flex-1 flex flex-col justify-end px-8 pb-10 pt-16 z-0">
+<!-- Typography Block -->
+<div class="space-y-4 mb-8 text-center animate-fade-in delay-100">
+<!-- Title using Cormorant Garamond as requested -->
+<h1 class="font-headline text-4xl md:text-5xl text-neutral-text dark:text-white leading-tight font-medium">
+                        Crafted for <br/>
+<span class="italic text-primary/90">Generations</span>
+</h1>
+<!-- Subtext in Noto Serif (Theme Font) -->
+<p class="text-neutral-text-light dark:text-neutral-400 text-sm leading-relaxed max-w-xs mx-auto">
+                        Every piece is a testament to timeless artistry, built from hand-selected timbers and ethically sourced stone chosen to age beautifully with you.
+                    </p>
+</div>
+<!-- Navigation Controls -->
+<div class="flex flex-col items-center gap-6 w-full animate-fade-in delay-300">
+<!-- Page Indicator -->
+<div aria-label="Progress: Step 2 of 3" class="flex gap-2 items-center">
+<div class="w-2 h-2 rounded-full bg-neutral-300 dark:bg-neutral-700 transition-colors"></div>
+<div class="w-8 h-2 rounded-full bg-primary transition-all shadow-sm shadow-primary/30"></div>
+<div class="w-2 h-2 rounded-full bg-neutral-300 dark:bg-neutral-700 transition-colors"></div>
+</div>
+<!-- Next Button -->
+<!-- Using primary color but with a sophisticated shape -->
+<button class="group relative w-full h-14 flex items-center justify-center rounded-xl bg-neutral-text dark:bg-white overflow-hidden shadow-lg shadow-neutral-text/10 dark:shadow-none transition-all hover:scale-[1.02] active:scale-[0.98]">
+<!-- Subtle Sage Mist/Primary background tint on hover -->
+<div class="absolute inset-0 bg-primary opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+<span class="relative z-10 flex items-center gap-2 text-white dark:text-neutral-900 group-hover:text-neutral-900 dark:group-hover:text-neutral-900 font-display font-medium tracking-wide">
+                            Explore Details
+                            <span class="material-icons text-lg group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Decorative background element for subtle texture on the bottom half -->
+<div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-background-light to-transparent dark:from-background-dark pointer-events-none -z-10"></div>
+</main>
+</body></html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Your Design Selection - Luxury Furniture Cart</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0fbd0f",
+                        "primary-dark": "#0a8a0a",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#102210",
+                        "deep-forest": "#081608", // Custom deep green for checkout button
+                        "text-primary-light": "#1a1a1a",
+                        "text-secondary-light": "#666666",
+                        "text-primary-dark": "#e5e5e5",
+                        "text-secondary-dark": "#a3a3a3",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem", 
+                        "lg": "0.5rem", 
+                        "xl": "0.75rem", 
+                        "2xl": "1rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        'safe-bottom': 'env(safe-area-inset-bottom)',
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar hiding for clean UI */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        /* Glass effect for bottom nav */
+        .glass-panel {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-text-primary-light dark:text-text-primary-dark transition-colors duration-200">
+<div class="max-w-md mx-auto min-h-screen relative flex flex-col shadow-2xl overflow-hidden bg-background-light dark:bg-background-dark">
+<!-- Header -->
+<header class="sticky top-0 z-40 bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-md px-6 pt-12 pb-4 border-b border-primary/10 flex justify-between items-center">
+<button class="p-2 -ml-2 rounded-full hover:bg-primary/10 transition-colors text-text-primary-light dark:text-text-primary-dark group">
+<span class="material-icons group-hover:-translate-x-1 transition-transform">arrow_back</span>
+</button>
+<h1 class="text-lg font-medium tracking-wide">Your Selection <span class="text-text-secondary-light dark:text-text-secondary-dark text-sm font-normal ml-1">(3)</span></h1>
+<button class="p-2 -mr-2 rounded-full hover:bg-primary/10 transition-colors text-text-primary-light dark:text-text-primary-dark">
+<span class="material-icons">more_horiz</span>
+</button>
+</header>
+<!-- Main Content Scroll Area -->
+<main class="flex-1 overflow-y-auto px-6 pt-6 pb-40 no-scrollbar">
+<!-- Cart Items List -->
+<div class="space-y-8">
+<!-- Item 1 -->
+<div class="group flex gap-5">
+<div class="relative w-28 h-28 flex-shrink-0 bg-gray-100 dark:bg-gray-800 rounded-lg overflow-hidden shadow-sm">
+<img alt="Eames Lounge Chair" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Modern wooden lounge chair with leather cushions" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzJt2upaMIeXvUHiuwAdtzjL0RwPLxA6t2rlKRntcyeMdzy-xvQXHWUMkOdLVa9cG7l-xt4dccVFSFBy_hZEb_kElRgnROgdp6q-QQQsmfB2dqstFOPaNzvDDrYBr9OmY0Zxlgz97rMsr3ybJX1OiSdo5Xsr_D2AeYQlUYwZ10KY3hxmgveAjXYhPJBlIu9lMuChu7YJhj_M5phJThIfJiMtX_yEywvXF8HISInfL2AFNLpHRiZL7ssQ0WJ5er_DCYznq5LHD7ycwj"/>
+</div>
+<div class="flex-1 flex flex-col justify-between py-1">
+<div>
+<div class="flex justify-between items-start">
+<h3 class="font-medium text-base text-text-primary-light dark:text-text-primary-dark leading-tight">Eames Lounge Chair</h3>
+<span class="font-semibold text-primary dark:text-primary">$6,500</span>
+</div>
+<p class="text-sm text-text-secondary-light dark:text-text-secondary-dark mt-1 font-light">Walnut / Black Leather</p>
+<p class="text-xs text-primary/80 mt-1">In Stock - Ships in 2 days</p>
+</div>
+<div class="flex justify-between items-end mt-3">
+<div class="flex items-center bg-gray-100 dark:bg-white/5 rounded-lg px-1 py-1">
+<button class="w-7 h-7 flex items-center justify-center rounded-md hover:bg-white dark:hover:bg-white/10 text-text-secondary-light dark:text-text-secondary-dark transition-colors">
+<span class="material-icons text-sm">remove</span>
+</button>
+<span class="w-8 text-center text-sm font-medium">1</span>
+<button class="w-7 h-7 flex items-center justify-center rounded-md hover:bg-white dark:hover:bg-white/10 text-text-primary-light dark:text-text-primary-dark transition-colors">
+<span class="material-icons text-sm">add</span>
+</button>
+</div>
+<button class="text-xs text-text-secondary-light dark:text-text-secondary-dark underline hover:text-red-500 transition-colors">Remove</button>
+</div>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="group flex gap-5">
+<div class="relative w-28 h-28 flex-shrink-0 bg-gray-100 dark:bg-gray-800 rounded-lg overflow-hidden shadow-sm">
+<img alt="Noguchi Table" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Abstract glass coffee table with wooden base" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8QoqB3_9Seu9-2BLS82pzL4-kZYEJV0T5oUG4nRICgQhmu-cCktMrCvj-tkOTcDg4gAcENC4PnPE0uHpjmoj8x8p4gmNPMPpuYZ0UwRNGSRPXZllW9DD804VQkskJrr7njZBJRd979hhAjqo2p_x3n4reWDbHekUFYT6e3t80ewSLaUxVGPDLSsmzGLnPpK0DKgcO08cTEtP2FTt-eW5D_5BFHAvGO28uGIxoaffXZWFHyOArW9XmzQmqvLukViq45IWhh-me57mm"/>
+</div>
+<div class="flex-1 flex flex-col justify-between py-1">
+<div>
+<div class="flex justify-between items-start">
+<h3 class="font-medium text-base text-text-primary-light dark:text-text-primary-dark leading-tight">Noguchi Table</h3>
+<span class="font-semibold text-text-primary-light dark:text-text-primary-dark">$2,800</span>
+</div>
+<p class="text-sm text-text-secondary-light dark:text-text-secondary-dark mt-1 font-light">Black Ash / Glass</p>
+</div>
+<div class="flex justify-between items-end mt-3">
+<div class="flex items-center bg-gray-100 dark:bg-white/5 rounded-lg px-1 py-1">
+<button class="w-7 h-7 flex items-center justify-center rounded-md hover:bg-white dark:hover:bg-white/10 text-text-secondary-light dark:text-text-secondary-dark transition-colors">
+<span class="material-icons text-sm">remove</span>
+</button>
+<span class="w-8 text-center text-sm font-medium">1</span>
+<button class="w-7 h-7 flex items-center justify-center rounded-md hover:bg-white dark:hover:bg-white/10 text-text-primary-light dark:text-text-primary-dark transition-colors">
+<span class="material-icons text-sm">add</span>
+</button>
+</div>
+<button class="text-xs text-text-secondary-light dark:text-text-secondary-dark underline hover:text-red-500 transition-colors">Remove</button>
+</div>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="group flex gap-5">
+<div class="relative w-28 h-28 flex-shrink-0 bg-gray-100 dark:bg-gray-800 rounded-lg overflow-hidden shadow-sm">
+<img alt="Arco Lamp" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Tall marble base floor lamp arching over" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYiZ_Qt_tO1dsq9umRDwg5qgZ10Or1uPCkf_sIzNLIHLvigWv8A2_2uHgVdVXv4bOAQ2Q14b1XsSm2nqVPuPBDXVPJfcdfon7ca14qIUOIpYrHSZZs72NcjNNsR2sWJczArzTrG64P_WzrZO63G3OP3YXPsctzgPLvguttmuAlRwFD2cpDkviKtvQSrPpnsSkvTPDJfnFuVN4NVnpxLlOIkACwE4bW9DSsW3ca6RQckH1WIiZKntnj05D_Lc9671TnY4c-n3mBqTU4"/>
+</div>
+<div class="flex-1 flex flex-col justify-between py-1">
+<div>
+<div class="flex justify-between items-start">
+<h3 class="font-medium text-base text-text-primary-light dark:text-text-primary-dark leading-tight">Arco Floor Lamp</h3>
+<span class="font-semibold text-text-primary-light dark:text-text-primary-dark">$3,200</span>
+</div>
+<p class="text-sm text-text-secondary-light dark:text-text-secondary-dark mt-1 font-light">Carrara Marble</p>
+<p class="text-xs text-orange-600 dark:text-orange-400 mt-1">Low Stock</p>
+</div>
+<div class="flex justify-between items-end mt-3">
+<div class="flex items-center bg-gray-100 dark:bg-white/5 rounded-lg px-1 py-1">
+<button class="w-7 h-7 flex items-center justify-center rounded-md hover:bg-white dark:hover:bg-white/10 text-text-secondary-light dark:text-text-secondary-dark transition-colors">
+<span class="material-icons text-sm">remove</span>
+</button>
+<span class="w-8 text-center text-sm font-medium">1</span>
+<button class="w-7 h-7 flex items-center justify-center rounded-md hover:bg-white dark:hover:bg-white/10 text-text-primary-light dark:text-text-primary-dark transition-colors">
+<span class="material-icons text-sm">add</span>
+</button>
+</div>
+<button class="text-xs text-text-secondary-light dark:text-text-secondary-dark underline hover:text-red-500 transition-colors">Remove</button>
+</div>
+</div>
+</div>
+</div>
+<hr class="border-t border-primary/10 my-8"/>
+<!-- Promo Code -->
+<div class="mb-8">
+<label class="sr-only" for="promo">Promo Code</label>
+<div class="relative flex items-center">
+<input class="w-full bg-transparent border-0 border-b border-primary/20 dark:border-primary/40 focus:ring-0 focus:border-primary px-0 py-3 text-base placeholder:text-text-secondary-light/50 dark:placeholder:text-text-secondary-dark/50 transition-colors" id="promo" placeholder="Enter Promo Code" type="text"/>
+<button class="absolute right-0 text-sm font-medium text-primary hover:text-primary-dark transition-colors uppercase tracking-wider">Apply</button>
+</div>
+</div>
+<!-- Summary -->
+<div class="space-y-3 pb-6">
+<div class="flex justify-between text-text-secondary-light dark:text-text-secondary-dark text-sm">
+<span>Subtotal</span>
+<span>$12,500</span>
+</div>
+<div class="flex justify-between text-text-secondary-light dark:text-text-secondary-dark text-sm">
+<div class="flex items-center gap-1">
+<span>White Glove Shipping</span>
+<span class="material-icons text-xs text-primary/60 cursor-help">info</span>
+</div>
+<span>$250</span>
+</div>
+<div class="flex justify-between text-text-secondary-light dark:text-text-secondary-dark text-sm">
+<span>Tax Estimate</span>
+<span>$980</span>
+</div>
+<div class="pt-4 mt-2 flex justify-between items-baseline border-t border-dashed border-primary/10">
+<span class="font-medium text-lg">Total</span>
+<span class="font-semibold text-2xl text-primary">$13,730</span>
+</div>
+</div>
+</main>
+<!-- Sticky Footer -->
+<div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-background-light via-background-light to-transparent dark:from-background-dark dark:via-background-dark dark:to-transparent pt-10 pb-safe-bottom px-6 z-30">
+<button class="w-full bg-deep-forest dark:bg-[#1a331a] hover:bg-black dark:hover:bg-[#234423] text-white py-4 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-between px-6 group">
+<span class="font-medium tracking-wide">Checkout</span>
+<div class="flex items-center gap-2">
+<span class="text-white/80 font-light">$13,730</span>
+<span class="bg-primary/20 p-1 rounded-full group-hover:translate-x-1 transition-transform duration-300">
+<span class="material-icons text-primary text-sm">arrow_forward</span>
+</span>
+</div>
+</button>
+<div class="h-4"></div> <!-- Extra spacing for safe area visual -->
+</div>
+</div>
+</body></html>

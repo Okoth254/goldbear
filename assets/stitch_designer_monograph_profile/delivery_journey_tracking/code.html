@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Delivery Journey Tracking</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Montserrat:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0fbd2c",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#102213",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"],
+                        "montserrat": ["Montserrat", "sans-serif"],
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar hide for cleaner look */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        
+        /* Map grayscale filter */
+        .map-grayscale {
+            filter: grayscale(100%) invert(85%) contrast(120%);
+            mix-blend-mode: luminosity;
+        }
+        
+        /* Soft pulse for active status */
+        .pulse-ring {
+            box-shadow: 0 0 0 0 rgba(15, 189, 44, 0.7);
+            animation: pulse-green 2s infinite cubic-bezier(0.66, 0, 0, 1);
+        }
+        
+        @keyframes pulse-green {
+            to {
+                box-shadow: 0 0 0 10px rgba(15, 189, 44, 0);
+            }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-100 min-h-screen flex flex-col items-center justify-center p-0 sm:p-4">
+<!-- Mobile Frame -->
+<div class="w-full max-w-md bg-white dark:bg-[#0c180e] sm:rounded-2xl shadow-2xl overflow-hidden relative min-h-screen sm:min-h-[850px] flex flex-col">
+<!-- Header -->
+<header class="absolute top-0 left-0 right-0 z-20 px-6 pt-12 pb-4 flex justify-between items-center bg-gradient-to-b from-black/80 to-transparent">
+<button class="p-2 rounded-full bg-white/10 backdrop-blur-md text-white hover:bg-white/20 transition-colors">
+<span class="material-icons text-xl">arrow_back</span>
+</button>
+<span class="text-sm tracking-widest uppercase text-white/80 font-medium">Order #24901</span>
+<button class="p-2 rounded-full bg-white/10 backdrop-blur-md text-white hover:bg-white/20 transition-colors">
+<span class="material-icons text-xl">more_horiz</span>
+</button>
+</header>
+<!-- Live Map Section -->
+<div class="relative h-[45vh] w-full bg-gray-900 overflow-hidden rounded-b-3xl shadow-lg border-b border-white/5">
+<!-- Map Background Image -->
+<div class="absolute inset-0 bg-cover bg-center map-grayscale opacity-60" data-alt="Abstract grayscale map of a city street grid" data-location="New York" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAYXQFarojJzU9iVSZiFExRKp4FgamjgJzLJde2CLIbSffjQsNjOWjYzz-yKzukyPs7wddnMRiE6DXztbljOGoNyMAw_597pMadfWlBZJjY3eUx_-xx186_JphXGVisChOwsq4VMQEmqMikCRRIAZlTVLPTIJ_rau4a8u82WJ5mq-2ZGcyqG6pvRi4g-wRRujw5GFqIDkYQ1gQ8_dWJ0RW7ENxe7IghpKfr5HMj8y-QTFUNChvc7U9-y_3LQdf_Ri6tkdbZWSsgccub');">
+</div>
+<!-- Map Gradient Overlay -->
+<div class="absolute inset-0 bg-gradient-to-b from-background-dark/30 via-transparent to-background-dark/90"></div>
+<!-- Route Line (Visual representation) -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none" style="filter: drop-shadow(0px 0px 4px rgba(15, 189, 44, 0.5));">
+<path d="M120 100 Q 180 250 250 350" fill="none" stroke="#0fbd2c" stroke-dasharray="8 4" stroke-linecap="round" stroke-width="3"></path>
+</svg>
+<!-- Truck Marker -->
+<div class="absolute top-[330px] left-[235px] transform -translate-x-1/2 -translate-y-1/2">
+<div class="relative flex items-center justify-center">
+<div class="w-12 h-12 bg-primary/20 rounded-full animate-ping absolute"></div>
+<div class="w-8 h-8 bg-primary rounded-full border-2 border-white dark:border-background-dark shadow-lg flex items-center justify-center z-10">
+<span class="material-icons text-white text-sm">local_shipping</span>
+</div>
+</div>
+<div class="mt-2 bg-background-dark/80 backdrop-blur-md px-3 py-1 rounded text-xs text-primary font-medium border border-primary/20 whitespace-nowrap shadow-xl">
+                    In Transit • 5 mins away
+                </div>
+</div>
+</div>
+<!-- Scrollable Content Area -->
+<div class="flex-1 -mt-6 relative z-10 px-6 pb-24 overflow-y-auto no-scrollbar">
+<!-- Product Card Floating -->
+<div class="bg-background-dark border border-white/10 p-4 rounded-xl shadow-2xl mb-8 flex items-center gap-4 mx-2">
+<div class="h-16 w-16 rounded-lg bg-gray-800 overflow-hidden flex-shrink-0 border border-white/5">
+<img alt="Velvet armchair in dark lighting" class="h-full w-full object-cover" data-alt="Modern grey velvet armchair detail shot" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAeTdIvLaqajwQktAHFH12As-2lnV3oYaRr1A7vtD_lgw5HVRBjmzyHaU8LI8zReNZuE5KSyoHN-NFVY4wDrtyzGg5ycjbZKRtmkrNWZJx4-aPcdB0dMU0seO5Bn-hGxvsjsJCH6v48Ok8tQ7MvhT8SzUSMRlNLK8_nhlP5YXWmjvdAHlcs_FtlLxtwUmA9Gnl5JSg3uSpQ9iQd1YGNkMHstJGNJyUR1nIFUNX_vCPjybB9hH2VpzFniH1pU4-rPKVAJi3p3_3F76DM"/>
+</div>
+<div class="flex-1">
+<h3 class="text-white font-display text-sm font-medium tracking-wide">The Obsidian Lounge Chair</h3>
+<p class="text-white/40 text-xs mt-1">Midnight Velvet • Black Oak</p>
+</div>
+<div class="h-8 w-8 rounded-full bg-white/5 flex items-center justify-center">
+<span class="material-icons text-white/40 text-sm">chevron_right</span>
+</div>
+</div>
+<!-- ETA Block -->
+<div class="text-center mb-10">
+<p class="text-primary font-display text-xs uppercase tracking-[0.2em] mb-2 font-semibold">Status Update</p>
+<h1 class="font-montserrat text-3xl font-bold text-white leading-tight">
+                    Arriving Today <br/>
+<span class="text-white/40 text-2xl font-normal block mt-1">by 6:00 PM</span>
+</h1>
+</div>
+<!-- Timeline -->
+<div class="relative pl-4 space-y-10 border-l border-white/10 ml-4">
+<!-- Completed Step -->
+<div class="relative pl-8">
+<div class="absolute -left-[5px] top-1 h-2.5 w-2.5 rounded-full bg-primary/40 ring-4 ring-background-dark"></div>
+<h4 class="text-white/40 font-display font-medium text-sm">Order Confirmed</h4>
+<p class="text-white/20 text-xs mt-0.5">Oct 22 • 10:24 AM</p>
+</div>
+<!-- Completed Step -->
+<div class="relative pl-8">
+<div class="absolute -left-[5px] top-1 h-2.5 w-2.5 rounded-full bg-primary/40 ring-4 ring-background-dark"></div>
+<h4 class="text-white/40 font-display font-medium text-sm">White Glove Inspection</h4>
+<p class="text-white/20 text-xs mt-0.5">Oct 23 • 02:15 PM</p>
+</div>
+<!-- Active Step -->
+<div class="relative pl-8">
+<div class="absolute -left-[7px] top-0 h-4 w-4 rounded-full bg-primary ring-4 ring-background-dark pulse-ring z-10"></div>
+<h4 class="text-primary font-display font-bold text-lg tracking-wide">Out for Delivery</h4>
+<p class="text-white/60 text-sm mt-1 leading-relaxed">Your concierge is currently en route to your location. Please ensure access is available.</p>
+<!-- Driver Info (Embedded) -->
+<div class="mt-4 flex items-center gap-3 bg-white/5 p-3 rounded-lg border border-white/5">
+<img alt="Delivery Driver Portrait" class="w-10 h-10 rounded-full object-cover border border-white/10" data-alt="Professional delivery person portrait smiling" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdcpYRDmgSQQpx0I6_51Eon1u7D0HfXxym5XiPJPsTwzwz_kZHTnmFv56SRoLmrI0am5O1s-cTn2uk-KMr4h8aYOyc64xGnzZH90ZFpPo7N7acEuDxo-_Hoi8QBbBNitJAAbTif6jCw-k4E-nlcVK_vfDO15vgqBcsLZObplhcgU1EBiZarf5IaipBcUtiCVTMY2ibZDWhJV4UdlTsmUafqAz535qEinopN4dH9JnmjUPQut3jBw8O1oYymDVXuwcMqPbbMz-rY6C3"/>
+<div>
+<p class="text-white text-sm font-medium">James D.</p>
+<p class="text-primary text-xs flex items-center gap-1">
+<span class="material-icons text-[10px]">star</span> 4.9 Rating
+                            </p>
+</div>
+<button class="ml-auto w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors">
+<span class="material-icons text-sm">phone</span>
+</button>
+</div>
+</div>
+<!-- Future Step -->
+<div class="relative pl-8">
+<div class="absolute -left-[5px] top-1 h-2.5 w-2.5 rounded-full bg-white/10 ring-4 ring-background-dark border border-white/10"></div>
+<h4 class="text-white/20 font-display font-medium text-sm">Delivered</h4>
+</div>
+</div>
+</div>
+<!-- Sticky Bottom Action -->
+<div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-background-dark via-background-dark to-transparent z-20">
+<button class="w-full bg-white text-background-dark hover:bg-gray-200 font-display font-medium py-4 px-6 rounded-lg shadow-lg flex items-center justify-center gap-2 transition-all group">
+<span class="material-icons text-xl group-hover:scale-110 transition-transform">support_agent</span>
+                Contact Concierge Support
+            </button>
+</div>
+</div>
+</body></html>

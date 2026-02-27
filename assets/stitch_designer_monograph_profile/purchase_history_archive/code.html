@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Purchase History Archive</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Montserrat:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+            extend: {
+                colors: {
+                    "primary": "#1754cf",
+                    "background-light": "#f6f6f8",
+                    "background-dark": "#111621",
+                    "sage-mist": "#8DA399", 
+                    "sage-light": "#E8EFED",
+                },
+                fontFamily: {
+                    "display": ["Inter", "sans-serif"],
+                    "data": ["Montserrat", "sans-serif"]
+                },
+                borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+            },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar hide for horizontal scrolling */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display antialiased min-h-screen flex justify-center">
+<!-- Mobile Container -->
+<div class="w-full max-w-md bg-white dark:bg-[#1a202e] shadow-2xl min-h-screen relative overflow-hidden flex flex-col">
+<!-- Status Bar Placeholder (iOS style) -->
+<div class="h-12 w-full bg-white dark:bg-[#1a202e] flex items-center justify-between px-6 sticky top-0 z-20">
+<span class="text-xs font-semibold text-gray-900 dark:text-white font-data">9:41</span>
+<div class="flex items-center gap-1">
+<span class="material-icons text-[16px] text-gray-900 dark:text-white">signal_cellular_alt</span>
+<span class="material-icons text-[16px] text-gray-900 dark:text-white">wifi</span>
+<span class="material-icons text-[16px] text-gray-900 dark:text-white">battery_full</span>
+</div>
+</div>
+<!-- Header -->
+<header class="px-6 py-4 flex items-center justify-between sticky top-12 z-10 bg-white/90 dark:bg-[#1a202e]/90 backdrop-blur-md border-b border-gray-100 dark:border-gray-800">
+<button class="p-2 -ml-2 rounded-full hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+<span class="material-icons text-gray-900 dark:text-white">arrow_back</span>
+</button>
+<h1 class="text-lg font-medium text-gray-900 dark:text-white tracking-wide">MY COLLECTION</h1>
+<button class="p-2 -mr-2 rounded-full hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+<span class="material-icons text-gray-900 dark:text-white">search</span>
+</button>
+</header>
+<!-- Filters -->
+<div class="px-6 py-4 overflow-x-auto no-scrollbar whitespace-nowrap bg-white dark:bg-[#1a202e]">
+<button class="inline-flex items-center px-4 py-2 mr-3 bg-gray-900 dark:bg-white text-white dark:text-gray-900 text-xs font-medium uppercase tracking-wider rounded-full font-data">
+                All Time
+            </button>
+<button class="inline-flex items-center px-4 py-2 mr-3 border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 text-xs font-medium uppercase tracking-wider rounded-full font-data hover:border-gray-400 dark:hover:border-gray-500 transition-colors">
+                2023
+            </button>
+<button class="inline-flex items-center px-4 py-2 mr-3 border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 text-xs font-medium uppercase tracking-wider rounded-full font-data hover:border-gray-400 dark:hover:border-gray-500 transition-colors">
+                Delivered
+            </button>
+<button class="inline-flex items-center px-4 py-2 border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 text-xs font-medium uppercase tracking-wider rounded-full font-data hover:border-gray-400 dark:hover:border-gray-500 transition-colors">
+                Returns
+            </button>
+</div>
+<!-- Scrollable Content Area -->
+<main class="flex-1 overflow-y-auto pb-20 px-6">
+<!-- List Item 1 -->
+<div class="py-6 border-b border-gray-100 dark:border-gray-800 group">
+<div class="flex gap-4">
+<!-- Thumbnail -->
+<div class="relative w-24 h-24 flex-shrink-0 bg-gray-100 dark:bg-gray-800 rounded-lg overflow-hidden">
+<img alt="Minimalist white armchair in a bright room" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out" data-alt="Minimalist white armchair in a bright room" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgG0dccs7bZZDWHuWdh0KZQ-ot9gOkXx9Da5Wb8AbFbCnSm58dSkRNzFPpUdmC7x9onhSmN_6IDw8E85Xmtm_j2k4pTbstT694HZqexjRjD7HCuHoeh9xQGF3De9KIynZm9ANPLqPR9MRCToejsJALVSD12GaYJrkibGyQ9SjO9USSuqHPBi7IYpUt5rgBn8WqbOvDO-6l-6eA5DELF7K77ethdbN0-c2DPS0sTKnGOBL0Feo4GARoyqzRvwJ16d-eyJ8A_isYTThZ"/>
+</div>
+<!-- Content -->
+<div class="flex-1 flex flex-col justify-between py-0.5">
+<div>
+<div class="flex justify-between items-start mb-1">
+<span class="text-xs font-medium text-gray-400 dark:text-gray-500 uppercase tracking-wider">Herman Miller</span>
+<span class="font-data text-xs font-semibold text-sage-mist bg-sage-light/30 dark:bg-sage-mist/20 px-2 py-0.5 rounded-full">DELIVERED</span>
+</div>
+<h3 class="text-gray-900 dark:text-white font-medium text-base leading-tight mb-1">Eames Lounge Chair</h3>
+<p class="font-data text-xs text-gray-500 dark:text-gray-400">Order #8842-192</p>
+</div>
+<div class="flex justify-between items-end mt-2">
+<p class="font-data text-xs text-gray-900 dark:text-gray-300">Ordered: <span class="text-gray-500 dark:text-gray-500">Sept 14, 2023</span></p>
+<button class="text-primary hover:text-primary/80 dark:text-primary dark:hover:text-primary/80 text-xs font-semibold uppercase tracking-wide flex items-center gap-1 transition-colors">
+                                Reorder <span class="material-icons text-[14px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- List Item 2 -->
+<div class="py-6 border-b border-gray-100 dark:border-gray-800 group">
+<div class="flex gap-4">
+<!-- Thumbnail -->
+<div class="relative w-24 h-24 flex-shrink-0 bg-gray-100 dark:bg-gray-800 rounded-lg overflow-hidden">
+<img alt="Abstract marble coffee table texture" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out" data-alt="Abstract marble coffee table texture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDC5v35ergLAZuwi4yb_hPydTsXb2fXg1LcW-fE5sWb0uZF2WoldB0ocGcTU3nfS6HonmWs1rvPq-tO6n9wGYsZ9S1iuML5LPAgWEaiSPzhwR7Kb3WXhxu0-rJgiKsGJH--TIFTnyGQT7SF9NNI146ND5WIF7RevGV7hvM4OggUvsgUaPWItZBc-S4c0ZojHsnrZ2a0cfJr_Ud2XrarN5VDuPeT1MCVtUmOC-06DQ2caB15Az3kAe5_QDKBaQy-IqcbMz31peU_e2l-"/>
+</div>
+<!-- Content -->
+<div class="flex-1 flex flex-col justify-between py-0.5">
+<div>
+<div class="flex justify-between items-start mb-1">
+<span class="text-xs font-medium text-gray-400 dark:text-gray-500 uppercase tracking-wider">Isamu Noguchi</span>
+<span class="font-data text-xs font-semibold text-primary dark:text-primary bg-primary/10 px-2 py-0.5 rounded-full">SHIPPED</span>
+</div>
+<h3 class="text-gray-900 dark:text-white font-medium text-base leading-tight mb-1">Noguchi Coffee Table</h3>
+<p class="font-data text-xs text-gray-500 dark:text-gray-400">Order #8842-205</p>
+</div>
+<div class="flex justify-between items-end mt-2">
+<p class="font-data text-xs text-gray-900 dark:text-gray-300">Ordered: <span class="text-gray-500 dark:text-gray-500">Oct 02, 2023</span></p>
+<button class="text-primary hover:text-primary/80 dark:text-primary dark:hover:text-primary/80 text-xs font-semibold uppercase tracking-wide flex items-center gap-1 transition-colors">
+                                Track <span class="material-icons text-[14px]">local_shipping</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- List Item 3 -->
+<div class="py-6 border-b border-gray-100 dark:border-gray-800 group">
+<div class="flex gap-4">
+<!-- Thumbnail -->
+<div class="relative w-24 h-24 flex-shrink-0 bg-gray-100 dark:bg-gray-800 rounded-lg overflow-hidden">
+<img alt="Modern pendant lamp lighting fixture" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out" data-alt="Modern pendant lamp lighting fixture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjbb9MWv9kRi6258fzHqU-qCR8F6YNvCzUUyOX3k0THFzJd-cfxjAqKQN_3zngI4Exgvdqf7vJ3y_5iBGIkNyAwM0qYhYPSxW02MUuk1xw7Irul49hAdOvn5aEHDVZjamH_ook_BbpMSEHp-hOW1FPwPByY5zeHyKnHX6gA-wZmgZLlnJ66MhhDeoq3RrQIj8pgBfnweRYMenMGCDnG40J24YfCu1-IZ6hApuy1S5kJzKubSTMdXN68oTDjUYhm6o7z94wWY7cJvXw"/>
+</div>
+<!-- Content -->
+<div class="flex-1 flex flex-col justify-between py-0.5">
+<div>
+<div class="flex justify-between items-start mb-1">
+<span class="text-xs font-medium text-gray-400 dark:text-gray-500 uppercase tracking-wider">Flos</span>
+<span class="font-data text-xs font-semibold text-sage-mist bg-sage-light/30 dark:bg-sage-mist/20 px-2 py-0.5 rounded-full">DELIVERED</span>
+</div>
+<h3 class="text-gray-900 dark:text-white font-medium text-base leading-tight mb-1">IC Lights S Pendant</h3>
+<p class="font-data text-xs text-gray-500 dark:text-gray-400">Order #8710-003</p>
+</div>
+<div class="flex justify-between items-end mt-2">
+<p class="font-data text-xs text-gray-900 dark:text-gray-300">Ordered: <span class="text-gray-500 dark:text-gray-500">Aug 21, 2023</span></p>
+<button class="text-primary hover:text-primary/80 dark:text-primary dark:hover:text-primary/80 text-xs font-semibold uppercase tracking-wide flex items-center gap-1 transition-colors">
+                                Reorder <span class="material-icons text-[14px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- List Item 4 -->
+<div class="py-6 border-b border-gray-100 dark:border-gray-800 group">
+<div class="flex gap-4">
+<!-- Thumbnail -->
+<div class="relative w-24 h-24 flex-shrink-0 bg-gray-100 dark:bg-gray-800 rounded-lg overflow-hidden">
+<img alt="Modern grey fabric sofa" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out" data-alt="Modern grey fabric sofa" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBae8Rba1wGT8IB3l8VDB8EN8c-xZONm_UElEUkGZaUG5UBB5bh9kK4nAHce6IyHg1G3eAW_rZCaYSaOGWGaSP-fr_MfscC5w2A16YudUyeHxXyxtJAVQMHk9AlDswOr7kfY2gF17-V0A92HBZmMANzMoFUXpMHHCvR2yVaBgRz3WlVcAc3wVohdgyZ1eMuUc-kP7BMS_mWVAUDt_eWknvNP4O251Mv2WyQ0bpI59oVM_odW1dYF6HBAGdNjRFbGfVfdLbnPyjZx2iQ"/>
+</div>
+<!-- Content -->
+<div class="flex-1 flex flex-col justify-between py-0.5">
+<div>
+<div class="flex justify-between items-start mb-1">
+<span class="text-xs font-medium text-gray-400 dark:text-gray-500 uppercase tracking-wider">Hay</span>
+<span class="font-data text-xs font-semibold text-gray-500 bg-gray-100 dark:bg-gray-800 px-2 py-0.5 rounded-full">CANCELED</span>
+</div>
+<h3 class="text-gray-900 dark:text-white font-medium text-base leading-tight mb-1">Mags Soft Sofa</h3>
+<p class="font-data text-xs text-gray-500 dark:text-gray-400">Order #8655-112</p>
+</div>
+<div class="flex justify-between items-end mt-2">
+<p class="font-data text-xs text-gray-900 dark:text-gray-300">Ordered: <span class="text-gray-500 dark:text-gray-500">Jul 10, 2023</span></p>
+<button class="text-gray-400 hover:text-gray-600 dark:text-gray-500 dark:hover:text-gray-300 text-xs font-semibold uppercase tracking-wide flex items-center gap-1 transition-colors">
+                                Details <span class="material-icons text-[14px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Support Link -->
+<div class="mt-12 mb-6 flex justify-center">
+<a class="text-xs text-gray-400 dark:text-gray-500 font-medium hover:text-primary dark:hover:text-primary transition-colors flex items-center gap-2" href="#">
+<span class="material-icons text-[16px]">help_outline</span>
+                    Need help with an order?
+                </a>
+</div>
+</main>
+<!-- Bottom Navigation -->
+<nav class="bg-white dark:bg-[#1a202e] border-t border-gray-100 dark:border-gray-800 px-6 py-4 pb-8 flex justify-between items-center z-10">
+<button class="flex flex-col items-center gap-1 group">
+<span class="material-icons text-gray-400 dark:text-gray-500 group-hover:text-primary dark:group-hover:text-primary transition-colors">home</span>
+</button>
+<button class="flex flex-col items-center gap-1 group">
+<span class="material-icons text-gray-400 dark:text-gray-500 group-hover:text-primary dark:group-hover:text-primary transition-colors">grid_view</span>
+</button>
+<button class="flex flex-col items-center gap-1 group relative">
+<span class="absolute -top-1 -right-1 w-2 h-2 bg-primary rounded-full"></span>
+<span class="material-icons text-primary dark:text-primary">receipt_long</span>
+</button>
+<button class="flex flex-col items-center gap-1 group">
+<span class="material-icons text-gray-400 dark:text-gray-500 group-hover:text-primary dark:group-hover:text-primary transition-colors">person_outline</span>
+</button>
+</nav>
+</div>
+</body></html>

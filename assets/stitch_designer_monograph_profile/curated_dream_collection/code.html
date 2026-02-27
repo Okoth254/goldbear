@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Curated Dream Collection - Wishlist</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined|Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1754cf",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#111621",
+                        "ochre": "#B8860B", // Ochre Earth equivalent for the heart icon requirement
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar hiding for clean gallery look */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-900 dark:text-gray-100 min-h-screen flex flex-col items-center">
+<!-- Mobile Container (Max Width Constrained for iOS Phone feel) -->
+<main class="w-full max-w-md bg-white dark:bg-gray-900 min-h-screen relative shadow-2xl flex flex-col">
+<!-- Header -->
+<header class="sticky top-0 z-40 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-100 dark:border-gray-800 px-6 py-4 flex items-center justify-between transition-all duration-300">
+<button class="p-2 -ml-2 rounded-full hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+<span class="material-icons-outlined text-gray-800 dark:text-white">arrow_back</span>
+</button>
+<h1 class="text-lg font-semibold tracking-tight text-gray-900 dark:text-white">My Collection</h1>
+<button class="p-2 -mr-2 rounded-full hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors relative">
+<span class="material-icons-outlined text-gray-800 dark:text-white">shopping_bag</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-primary rounded-full"></span>
+</button>
+</header>
+<!-- Filter & Sort Bar -->
+<div class="px-6 py-4 flex items-center justify-between sticky top-[68px] z-30 bg-white dark:bg-gray-900">
+<div class="text-sm text-gray-500 dark:text-gray-400 font-medium">12 Items</div>
+<div class="flex gap-2">
+<button class="flex items-center gap-1 text-xs font-medium bg-gray-100 dark:bg-gray-800 px-3 py-1.5 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+<span>Sort</span>
+<span class="material-icons-outlined text-[14px]">expand_more</span>
+</button>
+<button class="flex items-center gap-1 text-xs font-medium bg-gray-100 dark:bg-gray-800 px-3 py-1.5 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+<span>Filter</span>
+<span class="material-icons-outlined text-[14px]">tune</span>
+</button>
+</div>
+</div>
+<!-- Scrollable Content Area -->
+<div class="flex-1 overflow-y-auto hide-scrollbar px-5 pb-24">
+<!-- Grid Layout -->
+<div class="grid grid-cols-2 gap-x-4 gap-y-8">
+<!-- Product Card 1 -->
+<article class="group relative flex flex-col">
+<div class="relative aspect-[3/4] w-full overflow-hidden rounded-xl bg-gray-100 dark:bg-gray-800 mb-3">
+<img alt="Green velvet sofa in modern room" class="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105" data-alt="Green velvet sofa in modern room" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBToGvoJI2gYfg7N9aj8r-v-sLUktNcfnnIMOpJb78Q0eavIBqiOfj5zre6fFt88-lrNlsvfAhIZsapw-K3vqH_MDtVJUFKktLd8SlDulZsu50rv3U3zgKO5Vx8ayKYQjAd5atVlce3wq8SFfH9baEYiIw3Fc_Ln17aI0wUkH0vEJFQplKoNuxe_GuXA6aX4NrljQ56e41wrXRFBv200T4K_c5ER7XhSHfF8xAFEOav8pFYAIfUs5V5ijXJkZ4bcSlQof9zDxpCZR6f"/>
+<!-- In-Stock Badge -->
+<div class="absolute top-2 left-2 px-2 py-0.5 bg-white/90 dark:bg-black/80 backdrop-blur-sm rounded text-[10px] font-semibold tracking-wide uppercase text-gray-900 dark:text-white shadow-sm">
+                            In-Stock
+                        </div>
+<!-- Favorite Icon (Ochre) -->
+<button class="absolute top-2 right-2 p-1.5 bg-white/50 dark:bg-black/30 backdrop-blur-sm rounded-full transition-transform active:scale-90 hover:bg-white dark:hover:bg-black">
+<span class="material-icons text-ochre text-lg leading-none">favorite</span>
+</button>
+<!-- Quick Add Overlay -->
+<button class="absolute bottom-2 right-2 w-8 h-8 flex items-center justify-center bg-primary text-white rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity translate-y-2 group-hover:translate-y-0">
+<span class="material-icons text-sm">add</span>
+</button>
+</div>
+<div class="flex flex-col gap-0.5">
+<span class="text-xs text-gray-500 dark:text-gray-400 font-medium">HAY</span>
+<h3 class="text-sm font-semibold text-gray-900 dark:text-white truncate">Mags Soft Low Sofa</h3>
+<p class="text-sm text-gray-900 dark:text-gray-100 mt-1">$3,450</p>
+</div>
+</article>
+<!-- Product Card 2 -->
+<article class="group relative flex flex-col">
+<div class="relative aspect-[3/4] w-full overflow-hidden rounded-xl bg-gray-100 dark:bg-gray-800 mb-3">
+<img alt="Modern armchair with wooden legs" class="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105" data-alt="Modern armchair with wooden legs" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBePKUfCbJZYGObRG-QBSmQeAFccCDpzm1Mn1xgUTwnYprKPZVI3Ki-hPCg5CtyMgRlVr3Y7K0Z3e_JxAEODaGI5Diyig98lV85AhTot7fT21jDL9ovxyZjPPqSaKJbwX9Zo8VaytTVShYY0RTE0puBQLI2uhHJuuC5Aav33JB3FWWuNZRYk2ucBDuTLy7VTZZxvmUCDZ-JQ6iamayVv73IfnCOhzh1GQWmOH54RNnWGOAaalzR3UBz7noSHgBO9Hh6g5_P6eQOb2Nm"/>
+<!-- Favorite Icon (Ochre) -->
+<button class="absolute top-2 right-2 p-1.5 bg-white/50 dark:bg-black/30 backdrop-blur-sm rounded-full transition-transform active:scale-90 hover:bg-white dark:hover:bg-black">
+<span class="material-icons text-ochre text-lg leading-none">favorite</span>
+</button>
+<!-- Quick Add Overlay -->
+<button class="absolute bottom-2 right-2 w-8 h-8 flex items-center justify-center bg-primary text-white rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity translate-y-2 group-hover:translate-y-0">
+<span class="material-icons text-sm">add</span>
+</button>
+</div>
+<div class="flex flex-col gap-0.5">
+<span class="text-xs text-gray-500 dark:text-gray-400 font-medium">Vitra</span>
+<h3 class="text-sm font-semibold text-gray-900 dark:text-white truncate">Eames Lounge Chair</h3>
+<p class="text-sm text-gray-900 dark:text-gray-100 mt-1">$6,895</p>
+</div>
+</article>
+<!-- Product Card 3 -->
+<article class="group relative flex flex-col">
+<div class="relative aspect-[3/4] w-full overflow-hidden rounded-xl bg-gray-100 dark:bg-gray-800 mb-3">
+<img alt="Minimalist wooden side table" class="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105" data-alt="Minimalist wooden side table" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBow74N9IL_zh_y2WGw_dl4HXGpkagjTpxyVW6znRU_HVOA1Juv0ee9AUkZajjyKB0RvmVZ6ygXFyoJDXhy5XcTg2W8vGIRVE6-Csn_RCpqlwqbhaFF3HMv1jjnoaLUE-JVfjivriPn11ltdoIOOHj5XK5WihVjsfwlBZAaS5cbatn0S1rZya8xfYs7aRA6MCqD_mLQfcyZYQuZ6X2GfAnQSNrvJ274bzIUV3MB5Qtl2DgnPoLajUwq02j5yS5jRuM8H_aEI47xlalc"/>
+<!-- In-Stock Badge -->
+<div class="absolute top-2 left-2 px-2 py-0.5 bg-white/90 dark:bg-black/80 backdrop-blur-sm rounded text-[10px] font-semibold tracking-wide uppercase text-gray-900 dark:text-white shadow-sm">
+                            In-Stock
+                        </div>
+<!-- Favorite Icon (Ochre) -->
+<button class="absolute top-2 right-2 p-1.5 bg-white/50 dark:bg-black/30 backdrop-blur-sm rounded-full transition-transform active:scale-90 hover:bg-white dark:hover:bg-black">
+<span class="material-icons text-ochre text-lg leading-none">favorite</span>
+</button>
+<!-- Quick Add Overlay -->
+<button class="absolute bottom-2 right-2 w-8 h-8 flex items-center justify-center bg-primary text-white rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity translate-y-2 group-hover:translate-y-0">
+<span class="material-icons text-sm">add</span>
+</button>
+</div>
+<div class="flex flex-col gap-0.5">
+<span class="text-xs text-gray-500 dark:text-gray-400 font-medium">Muuto</span>
+<h3 class="text-sm font-semibold text-gray-900 dark:text-white truncate">Around Coffee Table</h3>
+<p class="text-sm text-gray-900 dark:text-gray-100 mt-1">$495</p>
+</div>
+</article>
+<!-- Product Card 4 -->
+<article class="group relative flex flex-col">
+<div class="relative aspect-[3/4] w-full overflow-hidden rounded-xl bg-gray-100 dark:bg-gray-800 mb-3">
+<img alt="Abstract geometric floor lamp" class="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105" data-alt="Abstract geometric floor lamp" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrWJisR1afQP3Y2BxUeHg4e2QicCYUIlI6viApmS7iS6YJQg8Q6HkFwnPMS3YjM-RkDpwP9bl99uKbn7HvVMydQ6yFGgggSsX9uc7dJNRlqOzZ-slcI6hZ3GLgseWgqYtHsaouPqgqUeo4vQDvDVLfLenx15nRPXxnwT14ExyVHU12qJdm7uD_BuIJO3Axen-2ZOqDL9_zDHnNZiTJ-dC8EkKFaXM3hWiZqN5-e15ry3ZGcU5t4Df_E3WXTBqV_e1kBcEhvy5WPqqw"/>
+<!-- Favorite Icon (Ochre) -->
+<button class="absolute top-2 right-2 p-1.5 bg-white/50 dark:bg-black/30 backdrop-blur-sm rounded-full transition-transform active:scale-90 hover:bg-white dark:hover:bg-black">
+<span class="material-icons text-ochre text-lg leading-none">favorite</span>
+</button>
+<!-- Quick Add Overlay -->
+<button class="absolute bottom-2 right-2 w-8 h-8 flex items-center justify-center bg-primary text-white rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity translate-y-2 group-hover:translate-y-0">
+<span class="material-icons text-sm">add</span>
+</button>
+</div>
+<div class="flex flex-col gap-0.5">
+<span class="text-xs text-gray-500 dark:text-gray-400 font-medium">Flos</span>
+<h3 class="text-sm font-semibold text-gray-900 dark:text-white truncate">Taccia Lamp</h3>
+<p class="text-sm text-gray-900 dark:text-gray-100 mt-1">$2,100</p>
+</div>
+</article>
+<!-- Product Card 5 -->
+<article class="group relative flex flex-col">
+<div class="relative aspect-[3/4] w-full overflow-hidden rounded-xl bg-gray-100 dark:bg-gray-800 mb-3">
+<img alt="Beige fabric dining chair" class="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105" data-alt="Beige fabric dining chair" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzxNjV2Mifu6HdTQLPadfpE73WeeT7RSZ1gYplrzbha9jdkjyr7ZxVnOEJq2Fw7KX6uKQvYbfh201tJhkNtWRu2e9t0oG8L_PYe2t6Pj559XcyPBlm9hdcDWEtSttNXPNFqefqzApurlUn5OYfWQKQI0wCZumBK2BKjN10n-HoWXMn26bI_16FMG_XPLE_ueGh22cA3JK5QQnptWigOoMn5fg1cWlR6vekLILcVCEPwsvwidWrn1T8_t-mDHddOLh4xhMygf_yqrCV"/>
+<!-- In-Stock Badge -->
+<div class="absolute top-2 left-2 px-2 py-0.5 bg-white/90 dark:bg-black/80 backdrop-blur-sm rounded text-[10px] font-semibold tracking-wide uppercase text-gray-900 dark:text-white shadow-sm">
+                            In-Stock
+                        </div>
+<!-- Favorite Icon (Ochre) -->
+<button class="absolute top-2 right-2 p-1.5 bg-white/50 dark:bg-black/30 backdrop-blur-sm rounded-full transition-transform active:scale-90 hover:bg-white dark:hover:bg-black">
+<span class="material-icons text-ochre text-lg leading-none">favorite</span>
+</button>
+<!-- Quick Add Overlay -->
+<button class="absolute bottom-2 right-2 w-8 h-8 flex items-center justify-center bg-primary text-white rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity translate-y-2 group-hover:translate-y-0">
+<span class="material-icons text-sm">add</span>
+</button>
+</div>
+<div class="flex flex-col gap-0.5">
+<span class="text-xs text-gray-500 dark:text-gray-400 font-medium">Gubi</span>
+<h3 class="text-sm font-semibold text-gray-900 dark:text-white truncate">Beetle Dining Chair</h3>
+<p class="text-sm text-gray-900 dark:text-gray-100 mt-1">$899</p>
+</div>
+</article>
+<!-- Product Card 6 -->
+<article class="group relative flex flex-col">
+<div class="relative aspect-[3/4] w-full overflow-hidden rounded-xl bg-gray-100 dark:bg-gray-800 mb-3">
+<img alt="Minimalist wooden desk" class="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105" data-alt="Minimalist wooden desk" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDA53nSwsRVvAdZzjnBk5sXiYmTHRN6daeFaZxA_lvUF_Tbp5w1agYxt4ntffFRq-dnbTVc5xzdJcLUW5lC_cqcxUMteuqaQ7nMqY7Qhl0wJ_ZcG_-9brTQB9GyP34u_orHIUJ7stUJ8Tztih9yv7zehfqhCe3yFcydreR2hUiieZsNByDXGzV2jstCxNueWP2aj6s8Tb72PrAritP0QLV1dOHOfBke-trrAh7YpO3NUuHvTGO13pB1Ew-wP-0YVZ9ycmA3SlTvRGk5"/>
+<!-- Favorite Icon (Ochre) -->
+<button class="absolute top-2 right-2 p-1.5 bg-white/50 dark:bg-black/30 backdrop-blur-sm rounded-full transition-transform active:scale-90 hover:bg-white dark:hover:bg-black">
+<span class="material-icons text-ochre text-lg leading-none">favorite</span>
+</button>
+<!-- Quick Add Overlay -->
+<button class="absolute bottom-2 right-2 w-8 h-8 flex items-center justify-center bg-primary text-white rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity translate-y-2 group-hover:translate-y-0">
+<span class="material-icons text-sm">add</span>
+</button>
+</div>
+<div class="flex flex-col gap-0.5">
+<span class="text-xs text-gray-500 dark:text-gray-400 font-medium">Ferm Living</span>
+<h3 class="text-sm font-semibold text-gray-900 dark:text-white truncate">Feve Desk</h3>
+<p class="text-sm text-gray-900 dark:text-gray-100 mt-1">$1,799</p>
+</div>
+</article>
+</div>
+<!-- Bottom Spacer for Floating Action -->
+<div class="h-24"></div>
+</div>
+<!-- Sticky Footer / Share Action -->
+<div class="absolute bottom-6 left-0 right-0 px-8 flex justify-center z-50">
+<button class="bg-primary hover:bg-primary/90 text-white w-full shadow-xl shadow-primary/20 backdrop-blur-sm px-6 py-3.5 rounded-xl font-medium flex items-center justify-center gap-2 transform active:scale-95 transition-all">
+<span class="material-icons text-sm">ios_share</span>
+<span>Share with Client</span>
+</button>
+</div>
+<!-- Tab Bar (Mockup for App Context) -->
+<div class="bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800 h-[80px] w-full flex justify-around items-start pt-3 shrink-0">
+<button class="flex flex-col items-center gap-1 opacity-40 hover:opacity-100 transition-opacity">
+<span class="material-icons-outlined text-gray-900 dark:text-white">home</span>
+</button>
+<button class="flex flex-col items-center gap-1 opacity-40 hover:opacity-100 transition-opacity">
+<span class="material-icons-outlined text-gray-900 dark:text-white">search</span>
+</button>
+<button class="flex flex-col items-center gap-1 opacity-100 text-primary">
+<span class="material-icons text-primary">favorite</span>
+<span class="text-[10px] font-medium">Saved</span>
+</button>
+<button class="flex flex-col items-center gap-1 opacity-40 hover:opacity-100 transition-opacity">
+<span class="material-icons-outlined text-gray-900 dark:text-white">person</span>
+</button>
+</div>
+</main>
+</body></html>

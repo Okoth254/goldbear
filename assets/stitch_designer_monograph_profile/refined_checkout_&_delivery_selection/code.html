@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Secure Checkout | Luxury Furniture</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1933b3",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#111421",
+                    },
+                    fontFamily: {
+                        "display": ["Newsreader", "serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Newsreader', serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        .ios-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .ios-blur {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen font-display">
+<!-- Mobile Header -->
+<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 ios-blur border-b border-primary/10 px-6 py-4 flex items-center justify-between">
+<button class="text-primary hover:opacity-70 transition-opacity">
+<span class="material-icons-outlined">arrow_back_ios</span>
+</button>
+<h1 class="text-xl font-medium tracking-tight">Secure Checkout</h1>
+<div class="w-6"></div> <!-- Spacer for balance -->
+</header>
+<main class="max-w-md mx-auto pb-40">
+<!-- Project Summary Accordion -->
+<section class="mt-6 px-6">
+<div class="bg-primary/5 dark:bg-primary/10 rounded-xl overflow-hidden border border-primary/10">
+<button class="w-full flex items-center justify-between p-5 focus:outline-none">
+<div class="text-left">
+<p class="text-xs uppercase tracking-[0.2em] text-primary/60 mb-1">Current Project</p>
+<h2 class="text-lg">Tribeca Penthouse</h2>
+</div>
+<span class="material-icons-outlined text-primary/40">expand_less</span>
+</button>
+<div class="px-5 pb-5 space-y-4">
+<div class="flex items-center gap-4">
+<img alt="Luxury Chair" class="w-16 h-16 object-cover rounded-lg" data-alt="Modern sculptural velvet armchair in charcoal gray" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZsuw566iRTJXBUA9MA_ZKiBuZZ5gTNjKlzfzhx7KlpnaCSZcdeXxTYFWqEy5XUExKFXkkbBhKElkvEePtslc7GPylVRVzbbI4o-69hRwsDXlsC_NWcBxepdfIOeadsTwKEQDUhYUMMKuVc5fzYht_36x1qDgWaPrK-c4_ifJzzXcM3o186uRTeCoadihKbvul0E73Lo3P0XNsp-HECwEFL8c-EFdSsMRIu8zVSC2e0NPHLsyCQ8YY2lTWURoZKaRAG7vUKSYvhnp2"/>
+<div class="flex-1">
+<h3 class="text-sm font-medium">Arcadia Velvet Armchair</h3>
+<p class="text-xs text-primary/60">Midnight Blue • Qty: 2</p>
+</div>
+<p class="text-sm font-medium">$4,200</p>
+</div>
+<div class="flex items-center gap-4">
+<img alt="Coffee Table" class="w-16 h-16 object-cover rounded-lg" data-alt="Minimalist marble coffee table with brass legs" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1CfTXSPVKnQ1jPKdUGMp2cUBj_DwHYO0ZrpQ7Ed5LF-5TmRarfFyoxeDmndJvOaBlnO98ORGe4mIECpBfjmkyIeP-fsw_ODMyJK5FbiTWG4EJxy2T7NL7c6y5v-oTXjGQcMWBmfIl2ETYXlqDgV3jUkG7cPmcN5EGtiEqUABBohEQb0WYQZlPocjfI-WhO8i4uqtBibu3NyAJqbU7do0sp4z5x9td0EarUynvcF9miDFBpXUybyA-V6ONzntZii6_lLB0zmBxLisU"/>
+<div class="flex-1">
+<h3 class="text-sm font-medium">Bespoke Carrara Table</h3>
+<p class="text-xs text-primary/60">Large • Honed Finish</p>
+</div>
+<p class="text-sm font-medium">$2,850</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Delivery Method Section -->
+<section class="mt-10 px-6">
+<h2 class="text-2xl mb-6">Delivery Method</h2>
+<div class="space-y-4">
+<!-- White Glove Option (Selected) -->
+<div class="relative p-5 rounded-xl border-2 border-primary bg-primary/5 cursor-pointer">
+<div class="flex justify-between items-start mb-3">
+<div class="flex items-center gap-3">
+<span class="material-icons-outlined text-primary">auto_awesome</span>
+<h3 class="text-lg font-medium">White-Glove Delivery</h3>
+</div>
+<span class="material-icons-outlined text-primary">check_circle</span>
+</div>
+<p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                        Includes room-of-choice placement, professional assembly by our artisans, and complete removal of all packaging materials.
+                    </p>
+<p class="mt-4 text-sm font-semibold text-primary">$150.00</p>
+</div>
+<!-- Standard Option -->
+<div class="p-5 rounded-xl border border-primary/10 bg-transparent hover:bg-primary/5 transition-colors cursor-pointer">
+<div class="flex justify-between items-start mb-3">
+<div class="flex items-center gap-3">
+<span class="material-icons-outlined text-slate-400">local_shipping</span>
+<h3 class="text-lg font-medium text-slate-500">Curbside Shipping</h3>
+</div>
+</div>
+<p class="text-sm text-slate-500 leading-relaxed">
+                        Standard delivery to your building entrance. No assembly or packaging removal.
+                    </p>
+<p class="mt-4 text-sm font-semibold text-slate-500">Free</p>
+</div>
+</div>
+</section>
+<!-- Date Selection -->
+<section class="mt-10 px-6">
+<div class="flex items-center justify-between mb-6">
+<h2 class="text-2xl">Preferred Schedule</h2>
+<button class="text-primary text-sm font-medium">View Calendar</button>
+</div>
+<div class="flex gap-4 overflow-x-auto ios-scrollbar pb-4 -mx-1 px-1">
+<!-- Date Card Active -->
+<div class="flex-shrink-0 w-28 h-36 flex flex-col items-center justify-center rounded-xl bg-primary text-white shadow-lg shadow-primary/20">
+<p class="text-xs uppercase tracking-widest opacity-80 mb-2">Mon</p>
+<p class="text-3xl font-light mb-1">24</p>
+<p class="text-xs font-medium">October</p>
+</div>
+<!-- Date Card -->
+<div class="flex-shrink-0 w-28 h-36 flex flex-col items-center justify-center rounded-xl border border-primary/10 bg-primary/5 dark:bg-primary/10">
+<p class="text-xs uppercase tracking-widest text-primary/60 mb-2">Tue</p>
+<p class="text-3xl font-light mb-1">25</p>
+<p class="text-xs font-medium opacity-60">October</p>
+</div>
+<!-- Date Card -->
+<div class="flex-shrink-0 w-28 h-36 flex flex-col items-center justify-center rounded-xl border border-primary/10 bg-primary/5 dark:bg-primary/10">
+<p class="text-xs uppercase tracking-widest text-primary/60 mb-2">Wed</p>
+<p class="text-3xl font-light mb-1">26</p>
+<p class="text-xs font-medium opacity-60">October</p>
+</div>
+<!-- Date Card -->
+<div class="flex-shrink-0 w-28 h-36 flex flex-col items-center justify-center rounded-xl border border-primary/10 bg-primary/5 dark:bg-primary/10">
+<p class="text-xs uppercase tracking-widest text-primary/60 mb-2">Thu</p>
+<p class="text-3xl font-light mb-1">27</p>
+<p class="text-xs font-medium opacity-60">October</p>
+</div>
+</div>
+<div class="mt-6 space-y-3">
+<p class="text-xs uppercase tracking-[0.2em] text-primary/60 mb-4">Available Windows</p>
+<button class="w-full p-4 rounded-lg border-2 border-primary bg-primary/5 flex items-center justify-between">
+<span class="text-sm font-medium">09:00 AM – 12:00 PM</span>
+<span class="text-xs text-primary font-bold">RECOMENDED</span>
+</button>
+<button class="w-full p-4 rounded-lg border border-primary/10 bg-transparent flex items-center justify-between opacity-60">
+<span class="text-sm">01:00 PM – 04:00 PM</span>
+<span class="material-icons-outlined text-xs">radio_button_unchecked</span>
+</button>
+</div>
+</section>
+</main>
+<!-- Sticky Bottom Navigation -->
+<footer class="fixed bottom-0 left-0 right-0 z-50 bg-background-light/90 dark:bg-background-dark/90 ios-blur border-t border-primary/10 pt-6 pb-10 px-6">
+<div class="max-w-md mx-auto">
+<div class="flex items-end justify-between mb-6">
+<div>
+<p class="text-xs uppercase tracking-widest text-primary/60 mb-1">Total Amount</p>
+<div class="flex items-baseline gap-2">
+<span class="text-3xl font-light">$7,200.00</span>
+</div>
+</div>
+<div class="text-right">
+<p class="text-xs text-slate-400">Items: $7,050.00</p>
+<p class="text-xs text-slate-400">Service: $150.00</p>
+</div>
+</div>
+<button class="w-full bg-primary hover:bg-primary/90 text-white py-5 rounded-xl font-medium tracking-wide transition-all active:scale-[0.98] flex items-center justify-center gap-3">
+<span>Proceed to Payment</span>
+<span class="material-icons-outlined text-sm">arrow_forward</span>
+</button>
+<p class="mt-4 text-center text-[10px] uppercase tracking-widest text-slate-500">
+                Secure SSL Encryption Enabled
+            </p>
+</div>
+</footer>
+</body></html>

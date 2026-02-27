@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Shipping &amp; Delivery Selection</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+            extend: {
+                colors: {
+                    "primary": "#14b84b",
+                    "background-light": "#f6f8f6",
+                    "background-dark": "#112116",
+                    "surface-light": "#ffffff",
+                    "surface-dark": "#1a2e22",
+                },
+                fontFamily: {
+                    "display": ["Inter", "sans-serif"]
+                },
+                borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                boxShadow: {
+                    'soft': '0 4px 20px -2px rgba(0, 0, 0, 0.05)',
+                    'glow': '0 0 15px -3px rgba(20, 184, 75, 0.3)',
+                }
+            },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar hiding for clean UI */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        /* Editorial styling adjustments */
+        input:focus ~ label, input:not(:placeholder-shown) ~ label {
+            transform: translateY(-0.75rem) scale(0.75);
+            color: #14b84b;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-900 dark:text-gray-100 antialiased selection:bg-primary/20">
+<!-- Mobile Container -->
+<div class="max-w-md mx-auto min-h-screen relative flex flex-col bg-background-light dark:bg-background-dark shadow-2xl overflow-hidden">
+<!-- Sticky Header -->
+<header class="sticky top-0 z-30 bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
+<div class="px-6 py-4 flex items-center justify-between">
+<button class="p-2 -ml-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+<span class="material-icons text-gray-800 dark:text-white">arrow_back</span>
+</button>
+<div class="text-sm font-medium tracking-wide uppercase text-gray-500 dark:text-gray-400">Checkout</div>
+<button class="p-2 -mr-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+<span class="material-icons text-gray-800 dark:text-white">more_horiz</span>
+</button>
+</div>
+<!-- Stepper -->
+<div class="px-6 pb-4">
+<div class="flex items-center justify-between relative">
+<!-- Line Background -->
+<div class="absolute left-0 top-1/2 w-full h-0.5 bg-gray-200 dark:bg-gray-700 -z-10 transform -translate-y-1/2"></div>
+<!-- Step 1: Active -->
+<div class="flex flex-col items-center group">
+<div class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center text-xs font-semibold ring-4 ring-background-light dark:ring-background-dark shadow-glow">
+                            1
+                        </div>
+<span class="mt-2 text-[10px] font-semibold tracking-widest uppercase text-primary">Shipping</span>
+</div>
+<!-- Step 2: Pending -->
+<div class="flex flex-col items-center">
+<div class="w-8 h-8 rounded-full bg-surface-light dark:bg-surface-dark border-2 border-gray-300 dark:border-gray-600 text-gray-400 dark:text-gray-500 flex items-center justify-center text-xs font-semibold ring-4 ring-background-light dark:ring-background-dark">
+                            2
+                        </div>
+<span class="mt-2 text-[10px] font-medium tracking-widest uppercase text-gray-400 dark:text-gray-500">Payment</span>
+</div>
+<!-- Step 3: Pending -->
+<div class="flex flex-col items-center">
+<div class="w-8 h-8 rounded-full bg-surface-light dark:bg-surface-dark border-2 border-gray-300 dark:border-gray-600 text-gray-400 dark:text-gray-500 flex items-center justify-center text-xs font-semibold ring-4 ring-background-light dark:ring-background-dark">
+                            3
+                        </div>
+<span class="mt-2 text-[10px] font-medium tracking-widest uppercase text-gray-400 dark:text-gray-500">Review</span>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Scrollable Content -->
+<main class="flex-1 overflow-y-auto no-scrollbar pb-32">
+<!-- Headline Section -->
+<div class="px-6 pt-8 pb-6">
+<h1 class="text-3xl font-light leading-tight text-gray-900 dark:text-white tracking-tight">
+                    Where should we <br/>
+<span class="font-normal italic font-serif text-primary">deliver</span> your piece?
+                </h1>
+</div>
+<!-- Address Form -->
+<div class="px-6 space-y-6">
+<!-- Name Group -->
+<div class="grid grid-cols-2 gap-4">
+<div class="relative">
+<input class="peer w-full border-b border-gray-300 dark:border-gray-700 bg-transparent py-2 text-gray-900 dark:text-white focus:border-primary focus:outline-none placeholder-transparent" id="firstName" placeholder="First Name" type="text"/>
+<label class="absolute left-0 -top-3.5 text-xs text-gray-500 dark:text-gray-400 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-primary" for="firstName">First Name</label>
+</div>
+<div class="relative">
+<input class="peer w-full border-b border-gray-300 dark:border-gray-700 bg-transparent py-2 text-gray-900 dark:text-white focus:border-primary focus:outline-none placeholder-transparent" id="lastName" placeholder="Last Name" type="text"/>
+<label class="absolute left-0 -top-3.5 text-xs text-gray-500 dark:text-gray-400 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-primary" for="lastName">Last Name</label>
+</div>
+</div>
+<!-- Street Address with Auto-complete Icon -->
+<div class="relative">
+<input class="peer w-full border-b border-gray-300 dark:border-gray-700 bg-transparent py-2 pr-8 text-gray-900 dark:text-white focus:border-primary focus:outline-none placeholder-transparent" id="address" placeholder="Address" type="text"/>
+<label class="absolute left-0 -top-3.5 text-xs text-gray-500 dark:text-gray-400 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-primary" for="address">Street Address</label>
+<span class="material-icons absolute right-0 top-2 text-primary cursor-pointer text-lg">my_location</span>
+</div>
+<!-- Apt/City Group -->
+<div class="grid grid-cols-3 gap-4">
+<div class="relative col-span-1">
+<input class="peer w-full border-b border-gray-300 dark:border-gray-700 bg-transparent py-2 text-gray-900 dark:text-white focus:border-primary focus:outline-none placeholder-transparent" id="apt" placeholder="Apt" type="text"/>
+<label class="absolute left-0 -top-3.5 text-xs text-gray-500 dark:text-gray-400 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-primary" for="apt">Apt/Suite</label>
+</div>
+<div class="relative col-span-2">
+<input class="peer w-full border-b border-gray-300 dark:border-gray-700 bg-transparent py-2 text-gray-900 dark:text-white focus:border-primary focus:outline-none placeholder-transparent" id="city" placeholder="City" type="text"/>
+<label class="absolute left-0 -top-3.5 text-xs text-gray-500 dark:text-gray-400 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-primary" for="city">City</label>
+</div>
+</div>
+<!-- State/Zip Group -->
+<div class="grid grid-cols-2 gap-4">
+<div class="relative">
+<select class="peer w-full border-b border-gray-300 dark:border-gray-700 bg-transparent py-2 text-gray-900 dark:text-white focus:border-primary focus:outline-none appearance-none" id="state">
+<option class="text-gray-500" disabled="" selected="" value="">State</option>
+<option value="NY">New York</option>
+<option value="CA">California</option>
+<option value="TX">Texas</option>
+</select>
+<span class="material-icons absolute right-0 top-2 text-gray-400 pointer-events-none text-lg">expand_more</span>
+</div>
+<div class="relative">
+<input class="peer w-full border-b border-gray-300 dark:border-gray-700 bg-transparent py-2 text-gray-900 dark:text-white focus:border-primary focus:outline-none placeholder-transparent" id="zip" placeholder="Zip Code" type="tel"/>
+<label class="absolute left-0 -top-3.5 text-xs text-gray-500 dark:text-gray-400 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-3.5 peer-focus:text-xs peer-focus:text-primary" for="zip">Zip Code</label>
+</div>
+</div>
+<!-- Save Default Toggle -->
+<div class="flex items-center justify-between py-2">
+<span class="text-sm text-gray-600 dark:text-gray-300 font-medium">Save as default address</span>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+<!-- Divider -->
+<div class="px-6 py-8">
+<div class="h-px bg-gray-200 dark:bg-gray-800 w-full"></div>
+</div>
+<!-- Delivery Method -->
+<div class="px-6 space-y-6">
+<h2 class="text-lg font-light tracking-wide text-gray-900 dark:text-white">Delivery Method</h2>
+<!-- Standard Option -->
+<label class="block relative cursor-pointer group">
+<input class="peer sr-only" name="delivery" type="radio"/>
+<div class="p-5 rounded-lg border border-gray-200 dark:border-gray-700 bg-surface-light dark:bg-surface-dark transition-all peer-checked:border-primary peer-checked:ring-1 peer-checked:ring-primary">
+<div class="flex items-start justify-between">
+<div class="flex items-start space-x-4">
+<div class="w-5 h-5 rounded-full border border-gray-300 dark:border-gray-500 mt-0.5 peer-checked:border-primary flex items-center justify-center group-hover:border-primary transition-colors">
+<div class="w-2.5 h-2.5 rounded-full bg-primary opacity-0 peer-checked:opacity-100 transition-opacity hidden peer-checked:block group-hover:block group-hover:bg-gray-300 peer-checked:group-hover:bg-primary"></div>
+</div>
+<div>
+<h3 class="text-base font-medium text-gray-900 dark:text-white">Curbside Delivery</h3>
+<p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Delivery to your front door or driveway.</p>
+<p class="text-xs text-primary mt-2 font-medium">Arrives in 5-7 business days</p>
+</div>
+</div>
+<span class="text-base font-medium text-gray-900 dark:text-white">Free</span>
+</div>
+</div>
+</label>
+<!-- White-Glove Option (Premium) -->
+<label class="block relative cursor-pointer group">
+<input checked="" class="peer sr-only" name="delivery" type="radio"/>
+<!-- Visual Card -->
+<div class="relative overflow-hidden p-6 rounded-xl border border-primary/30 bg-surface-light dark:bg-surface-dark shadow-soft transition-all peer-checked:border-primary peer-checked:shadow-glow transform peer-checked:scale-[1.02]">
+<!-- Premium Badge -->
+<div class="absolute top-0 right-0 bg-primary text-white text-[10px] font-bold tracking-widest uppercase py-1 px-3 rounded-bl-lg z-10">
+                            Recommended
+                        </div>
+<!-- Gradient Background Effect for Premium Feel -->
+<div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent pointer-events-none"></div>
+<div class="flex items-start justify-between relative z-10">
+<div class="flex items-start space-x-4">
+<div class="mt-1">
+<span class="material-icons text-primary text-2xl">chair</span>
+</div>
+<div>
+<h3 class="text-lg font-display font-medium text-gray-900 dark:text-white">White-Glove Service</h3>
+<p class="text-sm text-gray-600 dark:text-gray-300 mt-2 leading-relaxed max-w-[220px]">
+                                        Full-service delivery. Includes unboxing, room-of-choice placement, assembly, and debris removal.
+                                    </p>
+<div class="flex items-center mt-3 space-x-2">
+<span class="text-xs bg-primary/10 text-primary px-2 py-1 rounded">Insured</span>
+<span class="text-xs bg-primary/10 text-primary px-2 py-1 rounded">Scheduled</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<span class="text-lg font-bold text-primary">$199</span>
+<!-- Custom Radio Circle -->
+<div class="w-5 h-5 rounded-full border-2 border-primary mt-3 flex items-center justify-center">
+<div class="w-2.5 h-2.5 rounded-full bg-primary shadow-sm"></div>
+</div>
+</div>
+</div>
+</div>
+</label>
+</div>
+<!-- Extra Spacing at bottom to ensure content isn't hidden by footer -->
+<div class="h-8"></div>
+</main>
+<!-- Sticky Footer Summary -->
+<footer class="absolute bottom-0 left-0 w-full bg-surface-light dark:bg-surface-dark border-t border-gray-200 dark:border-gray-800 p-6 z-40 shadow-[0_-4px_20px_-4px_rgba(0,0,0,0.1)]">
+<div class="flex justify-between items-center mb-4">
+<span class="text-sm text-gray-500 dark:text-gray-400">Total (2 items + Delivery)</span>
+<span class="text-lg font-bold text-gray-900 dark:text-white">$3,450.00</span>
+</div>
+<button class="w-full bg-primary hover:bg-green-600 text-white font-medium py-4 rounded-lg shadow-lg shadow-primary/30 transition-all transform active:scale-[0.98] flex items-center justify-center group">
+<span>Continue to Payment</span>
+<span class="material-icons ml-2 text-sm transition-transform group-hover:translate-x-1">arrow_forward</span>
+</button>
+</footer>
+</div>
+</body></html>
