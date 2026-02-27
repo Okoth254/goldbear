@@ -107,11 +107,11 @@
     "vitest": "^0.28.4"
   },
   "scripts": {
-    "dev": "vite --port 7000",
+    "dev": "vite --port 7000 --host",
     "develop": "npm run dev",
     "check": "tsc",
     "build": "vite build",
-    "preview": "vite preview --port 7000",
+    "preview": "vite preview --port 7000 --host",
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\"",
     "start": "npm run dev",
     "serve": "npm run preview",
